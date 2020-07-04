@@ -1,0 +1,78 @@
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                          Title Page                                                          %
+%------------------------------------------------------------------------------------------------------------------------------%
+
+\thispagestyle{empty} % Removes page numbering from the first page
+\flushbottom % Makes all text pages the same height
+\maketitle % Print the title and abstract box
+
+
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                           License                                                            %
+%------------------------------------------------------------------------------------------------------------------------------%
+
+\section*{License}
+
+    \scriptsize\noindent%
+    \begin{minipage}{\columnwidth}
+        \centering\tt
+        \includegraphics[height=6.0mm]{cc/by.pdf}\\[0.5\smallskipamount]
+        {\scriptsize\url{https://creativecommons.org/licenses/by/4.0/}}
+    \end{minipage}
+    \normalsize
+
+
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                      Table Of Contents                                                       %
+%------------------------------------------------------------------------------------------------------------------------------%
+
+\tableofcontents
+
+
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                         Nomenclature                                                         %
+%------------------------------------------------------------------------------------------------------------------------------%
+
+\section*{Nomenclature}
+\addcontentsline{toc}{section}{Nomenclature}
+
+\newlength{\lencsep}\setlength{\lencsep}{0.8em}
+\newlength{\lensymb}\setlength{\lensymb}{3.0em}
+\newlength{\lendefn}\setlength{\lendefn}{4.0em}
+\newlength{\lenwhat}\setlength{\lenwhat}{\linewidth}
+\newlength{\lenWHAT}\setlength{\lenWHAT}{\linewidth}
+\addtolength{\lenwhat}{-\lensymb}
+\addtolength{\lenwhat}{-\lendefn}
+\addtolength{\lenwhat}{-\lencsep}
+\addtolength{\lenWHAT}{-\lensymb}
+
+\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
+    \multicolumn{3}{@{}l}{\em Latin symbols:} \\
+    $n$             & Polytropic exponent, ---,                                     & Eq.~(\ref{eq:n})                  \\
+\end{supertabular}
+
+\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
+    \multicolumn{3}{@{}l}{\em Greek symbols:} \\
+    $\alpha$        & Crank angular position, \rad,                                 & Eq.~(\ref{eq:x})                  \\
+\end{supertabular}
+
+\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}
+    \multicolumn{2}{@{}l}{\em Subscripts:} \\
+    ${}_i$                  & process index                                                                             \\
+\end{supertabular}
+                                                                                                              
+%\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}                                               
+%    \multicolumn{2}{@{}l}{\em Superscripts:} \\                                                               
+%    ${}^j$                  & polytropic exponent loop index                                                            \\
+%\end{supertabular}
+
+
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                         Introduction                                                         %
+%------------------------------------------------------------------------------------------------------------------------------%
+
+\section{Introduction}
+
+    Work in progress...
+
+
