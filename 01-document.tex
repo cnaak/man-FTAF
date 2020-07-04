@@ -49,9 +49,9 @@
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
     \multicolumn{3}{@{}l}{\em Latin symbols:} \\
     $D$             & Piston diameter, \meter,                                      & Eq.~(\ref{eq:S})                  \\
-    $L$             & Connecting rod length, \meter,                                & Eq.~(\ref{eq:?})                  \\
+    $L$             & Connecting rod length, \meter,                                & Eq.~(\ref{eq:x})                  \\
     $n$             & Polytropic exponent, ---,                                     & Eq.~(\ref{eq:n})                  \\
-    $N$             & Engine's rotation, RPM,                                       & Eq.~(\ref{eq:?})                  \\
+    $N$             & Engine's rotation, RPM,                                       & Sec.~\ref{sec:model.engine}       \\
     $r$             & Ratio (engine compression), ---,                              & Eq.~(\ref{eq:r})                  \\
     $R$             & Crank radius, \meter,                                         & Eq.~(\ref{eq:S})                  \\
     $S$             & Piston stroke, \meter,                                        & Eq.~(\ref{eq:S})                  \\
@@ -63,7 +63,7 @@
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
     \multicolumn{3}{@{}l}{\em Greek symbols:} \\
     $\alpha$        & Crank angular position, \rad,                                 & Eq.~(\ref{eq:x})                  \\
-    $\omega$        & Crank angular velocity, \rad\per\second,                      & Eq.~(\ref{eq:x})                  \\
+    $\omega$        & Crank angular velocity, \rad\per\second,                      & Eq.~(\ref{eq:?})                  \\
 \end{supertabular}
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}
@@ -173,6 +173,38 @@
     engine RPM $N$, are related  by  $d\alpha/dt  =  \omega  =  2\pi  N/60$,  in  which  $\alpha$  is  an  integer  multiple  of
     $\unit{2\pi}{\radian}$ whenever the piston is at the TDC. Constant-$\omega$ cases  have  $\alpha  =  \omega  t$  with  $t  =
     \unit{0}{\second}$ at an arbitrary TDC.
+
+    Moreover, the piston position $x$ with respect to the TDC, in \meter, is expressed as%
+    %
+    \begin{equation}
+        \label{eq:x}
+        x(\alpha) = \left|
+                \left[\begin{matrix}L & R\end{matrix}\right] \times
+                \left[\;\begin{matrix}
+                    1 - \sqrt{\smash[b]{1 - (\sin\alpha / r_{LR})^2}} \\
+                    1 - \cos\alpha
+                \end{matrix}\;\right]
+            \right|
+    \end{equation}%
+    %
+%    \noindent and  influences  the  thermodynamic  system  \emph{instantaneous}  volume  $V$.  For
+%    constant-$\omega$ cases, one has:
+%    %
+%    \begin{align}
+%        V(\alpha) &= \vtdc + \frac{\pi D^2}{4}x(\alpha) \quad\rightharpoondown \\
+%        \label{eq:Va}
+%            &= \vtdc + \frac{\pi D^2}{4}\left[
+%                L\left(1 - \sqrt{1 - (\sin\alpha / r_{LR})^2}\right)+
+%                    R\left(1 - \cos\alpha\right)
+%                \right]; \quad\rightharpoondown \\
+%        \label{eq:Vt}
+%        V(t) &= \vtdc + \frac{\pi D^2}{4}\left[
+%                L\left(1 - \sqrt{1 - (\sin(\omega t) / r_{LR})^2}\right)+
+%                    R\left(1 - \cos(\omega t)\right)
+%                \right].
+%    \end{align}
+%
+%    The engine model, being comprised of simple algebric equations, is left for the students to implement.
 
 
 
