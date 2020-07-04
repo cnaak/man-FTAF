@@ -57,7 +57,7 @@ letterpaper]{geometry}%
 %	FIGURES AND TABLES CAPTIONS
 %----------------------------------------------------------------------
 
-\RequirePackage[labelfont={bf,sf,small},%
+\RequirePackage[labelfont={bf,rm,small},%
 labelsep=period,%
 justification=raggedright]{caption}
 \setlength{\abovecaptionskip}{0pt}
@@ -73,7 +73,7 @@ justification=raggedright]{caption}
 % Headers
 \lhead{}%
 \chead{}%
-\rhead{\small\sffamily\bfseries\@PaperTitle\  --- \thepage/\pageref{LastPage}}
+\rhead{\small\rmfamily\bfseries\@PaperTitle\  --- \thepage/\pageref{LastPage}}
 % Footers
 \lfoot{}%
 \cfoot{}%
@@ -87,31 +87,31 @@ justification=raggedright]{caption}
 
 \RequirePackage[explicit]{titlesec}
 \titleformat{\section}
-  {\color{color1}\large\sffamily\bfseries}
+  {\color{color1}\large\rmfamily\bfseries}
   {}
   {0em}
   {\colorbox{color2!10}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering\arabic{section}. #1}}}
   []
 \titleformat{name=\section,numberless}
-  {\color{color1}\large\sffamily\bfseries}
+  {\color{color1}\large\rmfamily\bfseries}
   {}
   {0em}
   {\colorbox{color2!10}{\parbox{\dimexpr\linewidth-2\fboxsep\relax}{\centering#1}}}
   []  
 \titleformat{\subsection}
-  {\color{color1}\sffamily\bfseries}
+  {\color{color1}\rmfamily\bfseries}
   {\thesubsection}
   {0.5em}
   {#1}
   []
 \titleformat{\subsubsection}
-  {\sffamily\small\bfseries}
+  {\rmfamily\small\bfseries}
   {\thesubsubsection}
   {0.5em}
   {#1}
   []    
 \titleformat{\paragraph}[runin]
-  {\sffamily\small\bfseries}
+  {\rmfamily\small\bfseries}
   {}
   {0em}
   {#1} 
@@ -130,19 +130,19 @@ justification=raggedright]{caption}
 \usepackage{titletoc}
 \contentsmargin{0cm}
 \titlecontents{section}[\tocsep]
-  {\addvspace{4pt}\small\bfseries\sffamily}
+  {\addvspace{4pt}\small\bfseries\rmfamily}
   {\contentslabel[\thecontentslabel]{\tocsep}}
   {}
   {\hfill\thecontentspage}
   []
 \titlecontents{subsection}[\tocsep]
-  {\addvspace{2pt}\sffamily}
+  {\addvspace{2pt}\rmfamily}
   {\contentslabel[\thecontentslabel]{\tocsep}}
   {}
   {\ \titlerule*[.5pc]{.}\ \thecontentspage}
   []
 \titlecontents*{subsubsection}[\tocsep]
-  {\footnotesize\sffamily}
+  {\footnotesize\rmfamily}
   {}
   {}
   {}
@@ -187,6 +187,7 @@ justification=raggedright]{caption}
 \newcommand{\JournalInfo}[1]{\def\@JournalInfo{#1}}
 \newcommand{\Abstract}[1]{\def\@Abstract{#1}}
 \newcommand{\Keywords}[1]{\def\@Keywords{#1}}
+\newcommand{\Highlights}[1]{\def\@Highlights{#1}}
 
 % ---------------------------------------------------------------------
 
@@ -194,27 +195,32 @@ justification=raggedright]{caption}
 \twocolumn[{%
 \thispagestyle{empty}%
 \vskip-36pt%
-{\raggedleft\small\sffamily\bfseries\@JournalInfo\\\@Archive\par}%
+{\raggedleft\small\rmfamily\bfseries\@JournalInfo\\\@Archive\par}%
 \vskip20pt%
-{\raggedright\color{color1}\sffamily\bfseries\fontsize{20}{25}\selectfont \@PaperTitle\par}%
+{\raggedright\color{color1}\rmfamily\bfseries\fontsize{20}{25}\selectfont \@PaperTitle\par}%
 \vskip10pt%
-{\raggedright\color{color1}\sffamily\fontsize{12}{16}\selectfont  \@Authors\par}%
+{\raggedright\color{color1}\rmfamily\fontsize{12}{16}\selectfont  \@Authors\par}%
 \vskip18pt%
 \fcolorbox{color1}{white}{%
 \parbox{\textwidth-2\fboxsep-2\fboxrule}{\centering%
 \colorbox{color2!10}{%
 \parbox{\textwidth-4\fboxsep-2\fboxrule}{%
 \ifx\@Keywords\@empty%
-\sffamily\textbf{\abstractname}\\\@Abstract%
+\rmfamily\textbf{\abstractname}\\\@Abstract%
 \else%
-\sffamily\textbf{\abstractname}\\\@Abstract\\[4pt]%
+\rmfamily\textbf{\abstractname}\\\@Abstract\\[4pt]%
+\fi%
+\ifx\@Highlights\@empty%
 \textbf{\keywordname}\\\@Keywords%
+\else%
+\textbf{\keywordname}\\\@Keywords\\[4pt]%
+\textbf{\highlightname}\\\@Highlights%
 \fi%
 }%
 }%
 \vskip4pt%
 \begingroup%
-\raggedright\sffamily\small%
+\raggedright\rmfamily\small%
 \footnotesize\@affiliation\par%
 \endgroup%%
 }%
