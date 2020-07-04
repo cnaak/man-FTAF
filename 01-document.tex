@@ -51,9 +51,11 @@
     $D$             & Piston diameter, \meter,                                      & Eq.~(\ref{eq:S})                  \\
     $L$             & Connecting rod length, \meter,                                & Eq.~(\ref{eq:?})                  \\
     $n$             & Polytropic exponent, ---,                                     & Eq.~(\ref{eq:n})                  \\
+    $N$             & Engine's rotation, RPM,                                       & Eq.~(\ref{eq:?})                  \\
     $r$             & Ratio (engine compression), ---,                              & Eq.~(\ref{eq:r})                  \\
     $R$             & Crank radius, \meter,                                         & Eq.~(\ref{eq:S})                  \\
     $S$             & Piston stroke, \meter,                                        & Eq.~(\ref{eq:S})                  \\
+    $t$             & Time, \second,                                                & Eq.~(\ref{eq:?})                  \\
     $V$             & Volume, \meter\cubed,                                         & Eq.~(\ref{eq:S})                  \\
     $z$             & Engine's cylinder count, ---,                                 & Sec.~\ref{sec:model.engine}       \\
 \end{supertabular}
@@ -61,6 +63,7 @@
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
     \multicolumn{3}{@{}l}{\em Greek symbols:} \\
     $\alpha$        & Crank angular position, \rad,                                 & Eq.~(\ref{eq:x})                  \\
+    $\omega$        & Crank angular velocity, \rad\per\second,                      & Eq.~(\ref{eq:x})                  \\
 \end{supertabular}
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}
@@ -165,6 +168,11 @@
         \label{eq:r}
         r       &= \frac{V_\bdc}{V_\tdc} = 1 + \frac{V_{du}}{V_\tdc}.
     \end{align}
+
+    The crankshaft angular position $\alpha$, in \radian, and engine angular velocity $\omega$, in \radian\per\second,  and  the
+    engine RPM $N$, are related  by  $d\alpha/dt  =  \omega  =  2\pi  N/60$,  in  which  $\alpha$  is  an  integer  multiple  of
+    $\unit{2\pi}{\radian}$ whenever the piston is at the TDC. Constant-$\omega$ cases  have  $\alpha  =  \omega  t$  with  $t  =
+    \unit{0}{\second}$ at an arbitrary TDC.
 
 
 
