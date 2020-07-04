@@ -38,7 +38,7 @@
 
 \newlength{\lencsep}\setlength{\lencsep}{0.8em}
 \newlength{\lensymb}\setlength{\lensymb}{3.0em}
-\newlength{\lendefn}\setlength{\lendefn}{4.0em}
+\newlength{\lendefn}\setlength{\lendefn}{4.5em}
 \newlength{\lenwhat}\setlength{\lenwhat}{\linewidth}
 \newlength{\lenWHAT}\setlength{\lenWHAT}{\linewidth}
 \addtolength{\lenwhat}{-\lensymb}
@@ -195,4 +195,23 @@
 
     The engine model, being comprised of simple algebric equations, is left for the students to implement.
 
+
+    %---------------------------------------------------------------------------------------------------------------------------
+    \subsection{Reactive mixture model}
+
+    The reactive mixture is comprised of $p$ pure components, refered to by their $k$ index. By hypothesis, the mixture displays
+    an ideal $P$-$v$-$T$ behavior. Elementary mixture  definitions,  in  which  the  ``$m$''  subscript  indicates  ``mixture'',
+    include:
+    %
+    \begin{equation}
+        \mathrm{mf}_k = \frac{m_k}{m_m}, \quad
+        \mathrm{y}_k = \frac{n_k}{n_m}, \quad
+        m_m = \sum_{k=1}^p m_k, \quad
+        \mbox{and}\quad
+        n_m = \sum_{k=1}^p n_k,
+        \label{eq:mfy}
+    \end{equation}
+    %
+    \noindent where $\mathrm{mf}$ and $\mathrm{y}$ are mixture component mass fractions and molar fractions, respectively. Terms
+    $m$ and $n$ are mass, \kilogram, and quantity of matter, \kilo\mole, respectively.
 
