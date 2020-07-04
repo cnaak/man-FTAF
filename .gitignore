@@ -1,8 +1,9 @@
 # Standardized bib database
 stdRef
 
-# The cc directory
+# The cc, orcid directories
 cc
+orcid
 
 # info files
 *.info
