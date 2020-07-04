@@ -34,7 +34,7 @@ fig/%.pdf: fig/%.svg
 
 ${PREF}.pdf: ${PREF}.tex 0*tex PreprintVersion.tex \
 		cc/by.pdf \
-		orcid/orcid.logo.icon.pdf \
+		orcid/orcid-logo-icon.pdf \
 		bibfile.bib
 	pdflatex --enable-write18 ${PREF}.tex
 	bibtex ${PREF}
