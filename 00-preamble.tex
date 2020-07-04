@@ -1,0 +1,97 @@
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                           Packages                                                           %
+%------------------------------------------------------------------------------------------------------------------------------%
+\usepackage{booktabs}
+\usepackage[english]{babel}
+\usepackage[squaren,cdot]{SIunits}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{pslatex}
+\usepackage[lining]{ebgaramond}
+\usepackage{indentfirst}
+\usepackage{supertabular}
+\usepackage[version=4]{mhchem}          % Chemical formulas
+\usepackage{listings}                   % Code/Snippets listings
+\usepackage{color}                      % Colors and color name
+\usepackage{xspace}
+%-------------------------------------------------------------------------------------------------------------------------------
+\usepackage[hyperindex,breaklinks]{hyperref} % Required for hyperlinks
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                           Commands                                                           %
+%------------------------------------------------------------------------------------------------------------------------------%
+\hypersetup{%
+    hidelinks,
+    colorlinks,
+    breaklinks=true,
+    urlcolor=color3,
+    citecolor=color1,
+    linkcolor=color1,
+    bookmarksopen=false,
+    pdftitle={Title},
+    pdfauthor={Author}
+}
+%-------------------------------------------------------------------------------------------------------------------------------
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\columnsep}{5.5mm}
+\setlength{\columnseprule}{0.2pt}
+\setlength{\fboxrule}{0.4pt} % Width of the border around the abstract
+%-------------------------------------------------------------------------------------------------------------------------------
+\definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+\definecolor{color3}{RGB}{0,0,192} % Color of the article title and sections
+%-------------------------------------------------------------------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+%-------------------------------------------------------------------------------------------------------------------------------
+\newcommand{\XXX}[1]{\relax}
+%------------------------------------------------------------------------------------------------------------------------------%
+%                                                           Metadata                                                           %
+%------------------------------------------------------------------------------------------------------------------------------%
+\makeatletter
+\immediate\write18{datelog > \jobname.info}
+\makeatother
+%-------------------------------------------------------------------------------------------------------------------------------
+% Journal information
+\JournalInfo{engrXiv}
+\Archive{Compiled on \input{\jobname.info} -- Version \input{PreprintVersion.tex}}
+% Article title
+\PaperTitle{A Finite-Time Air-Fuel Otto Engine Model}
+\Authors{%
+    C.~Naaktgeboren\textsuperscript{1$\star$} and
+    R.~K.~de~O.~e~Silva\textsuperscript{2}
+}
+\affiliation{%
+    \textsuperscript{1}%
+    \textit{%
+        Adjunct Professor.
+        Universidade Tecnológica Federal do Paraná -- UTFPR, Câmpus Guarapuava.
+        Grupo de Pesquisa em Ciências Térmicas.
+}}
+\affiliation{%
+    \textsuperscript{2}%
+    \textit{%
+        Graduate Student.
+        Universidade Tecnológica Federal do Paraná -- UTFPR, PPGEM, Câmpus Curitiba.
+}}
+\affiliation{%
+    \textsuperscript{$\star$}%
+    \textbf{Corresponding  author}: NaaktgeborenC$\cdot$PhD\textcircled{a}gmail$\cdot$com
+}
+\Keywords{%
+    Thermodynamics ---
+    Finite-Time ---
+    Air-Fuel Otto cycle.
+}
+\newcommand{\keywordname}{Keywords}
+\Highlights{%
+    Extends the Finite-Time Heat Addition (FTHA) Otto engine model ---
+    Provides Julia codes.
+    % Highlights go here ---
+}
+\newcommand{\highlightname}{Highlights}
+%-------------------------------------------------------------------------------------------------------------------------------
+\Abstract{%
+    Here goes the Abstract...
+}
+%-------------------------------------------------------------------------------------------------------------------------------
