@@ -12,6 +12,13 @@ cc/%.pdf: cc/%.svg
 		--export-filename=$@ \
 		$<
 
+orcid/%.pdf: orcid/%.svg
+	inkscape \
+		--export-type=pdf \
+		--export-pdf-version=1.4 \
+		--export-filename=$@ \
+		$<
+
 fig/%.pdf: fig/%.svg
 	inkscape \
 		--export-type=pdf \
@@ -27,6 +34,7 @@ fig/%.pdf: fig/%.svg
 
 ${PREF}.pdf: ${PREF}.tex 0*tex PreprintVersion.tex \
 		cc/by.pdf \
+		orcid/orcid.logo.icon.pdf \
 		bibfile.bib
 	pdflatex --enable-write18 ${PREF}.tex
 	bibtex ${PREF}
