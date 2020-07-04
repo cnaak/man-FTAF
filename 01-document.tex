@@ -49,13 +49,18 @@
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
     \multicolumn{3}{@{}l}{\em Latin symbols:} \\
     $D$             & Piston diameter, \meter,                                      & Eq.~(\ref{eq:S})                  \\
+    $k$             & Reactive mixture component index, ---,                        & Sec.~\ref{sec:model.reactm}       \\
     $L$             & Connecting rod length, \meter,                                & Eq.~(\ref{eq:x})                  \\
     $n$             & Polytropic exponent, ---,                                     & Eq.~(\ref{eq:n})                  \\
     $N$             & Engine's rotation, RPM,                                       & Sec.~\ref{sec:model.engine}       \\
+    $p$             & Reactive mixture component count, ---,                        & Sec.~\ref{sec:model.reactm}       \\
+    $P$             & Thermodynamic pressure, \kilo\pascal,                         & Eq.~(\ref{eq:?})                  \\
     $r$             & Ratio (engine compression), ---,                              & Eq.~(\ref{eq:r})                  \\
     $R$             & Crank radius, \meter,                                         & Eq.~(\ref{eq:S})                  \\
     $S$             & Piston stroke, \meter,                                        & Eq.~(\ref{eq:S})                  \\
     $t$             & Time, \second,                                                & Sec.~\ref{sec:model.engine}       \\
+    $T$             & Thermodynamic temperature, \kelvin,                           & Eq.~(\ref{eq:?})                  \\
+    $v$             & Mass-base specific volume, \meter\cubed\per\kilogram,         & Eq.~(\ref{eq:?})                  \\
     $V$             & Volume, \meter\cubed,                                         & Eqs.~(\ref{eq:S}), (\ref{eq:V})   \\
     $z$             & Engine's cylinder count, ---,                                 & Sec.~\ref{sec:model.engine}       \\
 \end{supertabular}
@@ -72,6 +77,7 @@
     ${}_d$                  & displaced                                                                                 \\
     ${}_i$                  & process index                                                                             \\
     ${}_{LR}$               & relative to $L/R$ (usually a ratio)                                                       \\
+    ${}_m$                  & mixture                                                                                   \\
     ${}_{SD}$               & relative to $S/D$ (usually a ratio)                                                       \\
     ${}_{\tdc}$             & Top Dead Center, TDC                                                                      \\
     ${}_u$                  & unitary or unit                                                                           \\
@@ -137,7 +143,7 @@
 %                                                      Model Formulation                                                       %
 %------------------------------------------------------------------------------------------------------------------------------%
 
-\section{Model Formulation}
+\section{Model Formulation}\label{sec:model}
 
     The proposed finite-time air-fuel model comprises an (i)~engine model, a (ii)~reactive mixture model, a (iii)~combustion and
     chemical equilibrium model, and a  (iv)~cycle  model.  Models  (i)  and  (iv)  herein  presented  closely  follow  the  FTHA
@@ -197,7 +203,7 @@
 
 
     %---------------------------------------------------------------------------------------------------------------------------
-    \subsection{Reactive mixture model}
+    \subsection{Reactive mixture model}\label{sec:model.reactm}
 
     The reactive mixture is comprised of $p$ pure components, refered to by their $k$ index. By hypothesis, the mixture displays
     an ideal $P$-$v$-$T$ behavior. Elementary mixture  definitions,  in  which  the  ``$m$''  subscript  indicates  ``mixture'',
