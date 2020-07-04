@@ -48,7 +48,14 @@
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
     \multicolumn{3}{@{}l}{\em Latin symbols:} \\
+    $D$             & Piston diameter, \meter,                                      & Eq.~(\ref{eq:S})                  \\
+    $L$             & Connecting rod length, \meter,                                & Eq.~(\ref{eq:?})                  \\
     $n$             & Polytropic exponent, ---,                                     & Eq.~(\ref{eq:n})                  \\
+    $r$             & Ratio (engine compression), ---,                              & Eq.~(\ref{eq:r})                  \\
+    $R$             & Crank radius, \meter,                                         & Eq.~(\ref{eq:S})                  \\
+    $S$             & Piston stroke, \meter,                                        & Eq.~(\ref{eq:S})                  \\
+    $V$             & Volume, \meter\cubed,                                         & Eq.~(\ref{eq:S})                  \\
+    $z$             & Engine's cylinder count, ---,                                 & Sec.~\ref{sec:model.engine}       \\
 \end{supertabular}
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
@@ -58,7 +65,13 @@
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}
     \multicolumn{2}{@{}l}{\em Subscripts:} \\
+    ${}_{\bdc}$             & Bottom Dead Center, BDC                                                                   \\
+    ${}_d$                  & displaced                                                                                 \\
     ${}_i$                  & process index                                                                             \\
+    ${}_{LR}$               & relative to $L/R$ (usually a ratio)                                                       \\
+    ${}_{SD}$               & relative to $S/D$ (usually a ratio)                                                       \\
+    ${}_{\tdc}$             & Top Dead Center, TDC                                                                      \\
+    ${}_u$                  & unitary or unit                                                                           \\
 \end{supertabular}
                                                                                                               
 %\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}                                               
@@ -130,5 +143,29 @@
     mixture, however, remains an ideal one with variable specific heats. The model (iii) of the present work, entirely absent in
     the air-standard FTHA, expands upon the scheme  of  Brunetti~\cite{2012-BrunettiF-Blucher}  in  the  energy  balance,  fluid
     formulations, and on residual gas fractions.
+
+
+    %---------------------------------------------------------------------------------------------------------------------------
+    \subsection{Engine model}\label{sec:model.engine}
+
+    The thermodynamic system is considered as the volume comprised  of  the  closed-valves  combustion  chamber  surfaces  of  a
+    standard crank-rod reciprocating internal combustion engine (ICE) of displaced volume $V_d$,  \meter\cubed,  $z$  cylinders,
+    and $V_{du} = V_d / z$ unit cylinder displacement volume, \meter\cubed. Combustion chamber minimum and maximum  volumes  are
+    $V_\tdc$ and $V_\bdc$ for the top and bottom dead centers, respectively; the engine compression ratio $r$ is given by  $r  =
+    V_\bdc / V_\tdc$.
+
+    The cylinder diameter is $D$, the piston stroke is $S$, the rod length is $L$, and the crank radius is $R$, all  in  \meter.
+    Important ratios include the stroke-to-diameter one, $r_{SD} = S/D$; the rod-to-crank one, $r_{LR} = L/R > 1$, so that%
+    %
+    \begin{align}
+        \label{eq:S}
+        S       &= 2 R = \frac{4 V_{du}}{\pi D^{2}}, \\
+        \label{eq:Vdu}
+        V_{du}  &= V_\bdc - V_\tdc = \frac{\pi r_{SD}D^3}{4}, \\
+        \label{eq:r}
+        r       &= 1 + \frac{V_{du}}{V_\tdc}.
+    \end{align}
+
+
 
 
