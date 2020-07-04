@@ -41,10 +41,44 @@
 \definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
 \definecolor{color3}{RGB}{0,0,192} % Color of the article title and sections
 %-------------------------------------------------------------------------------------------------------------------------------
-\newtheorem{theorem}{Theorem}
-\newtheorem{definition}{Definition}
+\newtheorem{cnj}{Conjecture}
 %-------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\XXX}[1]{\relax}
+%-------------------------------------------------------------------------------------------------------------------------------
+\lstdefinelanguage[thisDocOnly]{julia}{
+    morekeywords={%
+        using,import,include,begin,end,immutable,mutable,struct,type,function,if,else,elseif,while,return,new,with,do},
+    sensitive=true,
+    morecomment=[l]{\#},
+    morestring=[b]",
+    morestring=[b]',
+    morecomment=[s]{"""}{"""},
+    morekeywords=[2]{%
+        Any,Number,Bool,Complex,Real,Irrational,Rational,Integer,AbstractFloat,AbstractInterval,Interval,Signed,Unsigned,%
+        Int8,Int16,Int32,Int64,Int128,BigInt,UInt8,UInt16,UInt32,UInt64,UInt128,Float16,Float32,Float64,Float128,BigFloat,%
+        Array,Tuple,NTuple,NamedTuple,Dict,AbstractString,Char,String,Symbol,Type,Union,UnionAll,cpFC,bProp,IGMix,AtMix,%
+        RMix,::}
+}
+%-------------------------------------------------------------------------------------------------------------------------------
+\definecolor{mygrey}{rgb}{0.40, 0.40, 0.40}
+\lstset{%
+    language=[thisDocOnly]julia,
+    basicstyle={\tt\scriptsize},
+    keywordstyle={\textbf},
+    keywordstyle=[2]{\color{mygrey}\textbf},
+    mathescape,
+    frame=tb,
+    numbers=left,
+    numberstyle={\tt\tiny},
+    numbersep=4pt,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=false,
+    breakatwhitespace=false,
+}
+%-------------------------------------------------------------------------------------------------------------------------------
+
 %------------------------------------------------------------------------------------------------------------------------------%
 %                                                           Metadata                                                           %
 %------------------------------------------------------------------------------------------------------------------------------%
