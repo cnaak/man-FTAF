@@ -172,9 +172,8 @@
     The crankshaft angular position $\alpha$, in \radian, and engine angular velocity $\omega$, in \radian\per\second,  and  the
     engine RPM $N$, are related  by  $d\alpha/dt  =  \omega  =  2\pi  N/60$,  in  which  $\alpha$  is  an  integer  multiple  of
     $\unit{2\pi}{\radian}$ whenever the piston is at the TDC. Constant-$\omega$ cases  have  $\alpha  =  \omega  t$  with  $t  =
-    \unit{0}{\second}$ at an arbitrary TDC.
-
-    Moreover, the piston position $x$ with respect to the TDC, in \meter, is expressed as%
+    \unit{0}{\second}$ at an arbitrary TDC. Moreover, the piston position $x$ with respect to the TDC, in \meter,  is  expressed
+    as%
     %
     \begin{equation}
         \label{eq:x}
@@ -184,28 +183,16 @@
                     1 - \sqrt{\smash[b]{1 - (\sin\alpha / r_{LR})^2}} \\
                     1 - \cos\alpha
                 \end{matrix}\;\right]
-            \right|
+            \right|.
     \end{equation}%
+
+    The thermodynamic system \emph{instantaneous} volume $V$ is therefore given by%
     %
-%    \noindent and  influences  the  thermodynamic  system  \emph{instantaneous}  volume  $V$.  For
-%    constant-$\omega$ cases, one has:
-%    %
-%    \begin{align}
-%        V(\alpha) &= \vtdc + \frac{\pi D^2}{4}x(\alpha) \quad\rightharpoondown \\
-%        \label{eq:Va}
-%            &= \vtdc + \frac{\pi D^2}{4}\left[
-%                L\left(1 - \sqrt{1 - (\sin\alpha / r_{LR})^2}\right)+
-%                    R\left(1 - \cos\alpha\right)
-%                \right]; \quad\rightharpoondown \\
-%        \label{eq:Vt}
-%        V(t) &= \vtdc + \frac{\pi D^2}{4}\left[
-%                L\left(1 - \sqrt{1 - (\sin(\omega t) / r_{LR})^2}\right)+
-%                    R\left(1 - \cos(\omega t)\right)
-%                \right].
-%    \end{align}
-%
-%    The engine model, being comprised of simple algebric equations, is left for the students to implement.
+    \begin{equation}
+        \label{eq:V}
+        V(\alpha) = V_\tdc + \frac{\pi D^2}{4}x(\alpha).
+    \end{equation}
 
-
+    The engine model, being comprised of simple algebric equations, is left for the students to implement.
 
 
