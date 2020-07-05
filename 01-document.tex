@@ -286,7 +286,7 @@
     T_0)$. The bracketed term $\bar{h}_k(T)$ is the substance $k$ specific molar enthalpy with respect  to  the  standard  state
     considering its chemical composition.
 
-    Casting analogous internal energy relations in the form of Eq.~(\ref{eq:H.comp}), one has:
+    Casting analogous internal energy relations in the form of Eq.~(\ref{eq:H.comp}), one has:%
     %
     \begin{align}
         U_k(T)      &= n_k\bar{u}_k(T) \nonumber\\
@@ -297,10 +297,34 @@
         \label{eq:U.comp}
     \end{align}
 
-    Using $H_k(T) = U_k(T) + PV = U_k(T) + n_k\bar{R}T$, then the definition of $\bar{u}^0_{f,k}$ must be
+    Using $H_k(T) = U_k(T) + PV = U_k(T) + n_k\bar{R}T$, then the definition of $\bar{u}^0_{f,k}$ must be%
     %
     \begin{equation}
         \bar{u}_f^0 \equiv \bar{h}_f^0 - P_0\bar{v}_0 = \bar{h}_f^0 - \bar{R}T_0.
         \label{eq:uf0}
     \end{equation}
+
+    The internal energy expression for the \emph{mixture} in terms of component internal energies is%
+    %
+    \begin{equation}
+        U_m(T) = \sum_{k=1}^p U_k(T) \equiv U^0_{f,m} + U^0_m(T),
+        \label{eq:U.mix}
+    \end{equation}
+    %
+    \noindent in which Eqs.~(\ref{eq:U.comp}), and~(\ref{eq:uf0}) can be used as to derive explicit expressions for $U^0_{f,m}$%
+    %
+    \begin{align}
+        U^0_{f,m}   &= \sum_{k=1}^p n_k\bar{u}^0_{f,k} \nonumber\\
+                    &= \sum_{k=1}^p n_k\bar{h}_f^0 - n_m\bar{R}T_0 \nonumber\\
+                    &= H^0_{f,m} - n_m\bar{R}T_0,
+        \label{eq:Uf0.mix}
+    \end{align}
+    %
+    \noindent and for $U^0_m(T)$%
+    %
+    \begin{align}
+        U^0_m(T)    &= \sum_{k=1}^p n_k\bar{u}^0_k(T) \nonumber\\
+                    &= \sum_{k=1}^p n_k \int_{T_0}^T \bar{c}_{v,k}(T)\,dT.
+        \label{eq:U0.mix}
+    \end{align}
 
