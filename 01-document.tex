@@ -51,8 +51,7 @@
     $a$             & Coefficients, (variable),                                         & Eq.~(\ref{eq:cp})                 \\
     $\bar{c}$       & Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin    & Eq.~(\ref{eq:cp})                 \\
     $D$             & Piston diameter, \meter,                                          & Eq.~(\ref{eq:S})                  \\
-    $h$             & Mass-base specific enthalpy, \kilo\joule\per\kilogram             & Eq.~(\ref{eq:?})                  \\
-    $\bar{h}$       & Molar-base specific enthalpy, \kilo\joule\per\kilo\mole           & Eq.~(\ref{eq:H.comp})             \\
+    $\bar{h}$       & Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,          & Eq.~(\ref{eq:H.comp})             \\
     $H$             & Enthalpy, \kilo\joule,                                            & Eq.~(\ref{eq:H.comp})             \\
     $k$             & Mixture component index, ---,                                     & Sec.~\ref{sec:model.reactm}       \\
     $L$             & Connecting rod length, \meter,                                    & Eq.~(\ref{eq:x})                  \\
@@ -69,6 +68,9 @@
     $S$             & Piston stroke, \meter,                                            & Eq.~(\ref{eq:S})                  \\
     $t$             & Time, \second,                                                    & Sec.~\ref{sec:model.engine}       \\
     $T$             & Thermodynamic temperature, \kelvin,                               & Eq.~(\ref{eq:cp})                 \\
+    $\bar{u}$       & Molar-base specific internal energy,
+                      \kilo\joule\per\kilo\mole,                                        & Eq.~(\ref{eq:U.comp})             \\
+    $U$             & Internal energy, \kilo\joule,                                     & Eq.~(\ref{eq:U.comp})             \\
     $v$             & Mass-base specific volume, \meter\cubed\per\kilogram,             & Eq.~(\ref{eq:?})                  \\
     $V$             & Volume, \meter\cubed,                                             & Eqs.~(\ref{eq:S}), (\ref{eq:V})   \\
     $w$             & Uncertainty of, (variable),                                       & Eq.~(\ref{eq:cp})                 \\
@@ -283,4 +285,22 @@
     substance $k$ specific molar ideal gas enthalpy of state $(P_{\mathrm{any}}, T)$ with respect to the standard  state  $(P_0,
     T_0)$. The bracketed term $\bar{h}_k(T)$ is the substance $k$ specific molar enthalpy with respect  to  the  standard  state
     considering its chemical composition.
+
+    Casting analogous internal energy relations in the form of Eq.~(\ref{eq:H.comp}), one has:
+    %
+    \begin{align}
+        U_k(T)      &= n_k\bar{u}_k(T) \nonumber\\
+                    &= n_k[\bar{u}^0_{f,k} + \bar{u}^0_k(T)] \nonumber\\
+                    &= n_k\left[
+                        \bar{u}^0_{f,k} + \int_{T_0}^T \bar{c}_{v,k}(T)\,dT
+                    \right].
+        \label{eq:U.comp}
+    \end{align}
+
+    Using $H_k(T) = U_k(T) + PV = U_k(T) + n_k\bar{R}T$, then the definition of $\bar{u}^0_{f,k}$ must be
+    %
+    \begin{equation}
+        \bar{u}_f^0 \equiv \bar{h}_f^0 - P_0\bar{v}_0 = \bar{h}_f^0 - \bar{R}T_0.
+        \label{eq:uf0}
+    \end{equation}
 
