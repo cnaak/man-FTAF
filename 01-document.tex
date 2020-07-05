@@ -215,9 +215,9 @@
     %
     \begin{align}
         \label{eq:mf}
-        \mathrm{mf}_k   &= \frac{m_k}{m_m},\\
+        \mathrm{mf}_k   &= \frac{m_k}{m_m}, \\
         \label{eq:y}
-        \mathrm{y}_k    &= \frac{n_k}{n_m},\\
+        \mathrm{y}_k    &= \frac{n_k}{n_m}, \\
         \label{eq:mm}
         m_m             &= \sum_{k=1}^p m_k, \quad\mbox{and} \\
         \label{eq:nm}
@@ -226,4 +226,24 @@
     %
     \noindent where $\mathrm{mf}$ and $\mathrm{y}$ are mixture component mass fractions and molar fractions, respectively. Terms
     $m$ and $n$ are mass, in \kilogram, and chemical amount, in \kilo\mole, respectively.
+
+    The  apparent  mixture  molar  mass  $M_m$,  in  \kilogram\per\kilo\mole,  and  apparent   mixture   constant,   $R_m$,   in
+    \kilo\joule\per\kilogram\usk\kelvin, and mixture (ideal) equation of state are given by:
+    %
+    \begin{align}
+        \label{eq:Mm}
+        M_m         &= \frac{m_m}{n_m} = \sum_{k=1}^p \mathrm{y}_k M_k, \\
+        \label{eq:Rm}
+        R_m         &= \frac{\bar{R}}{M_m}, \quad\mbox{and} \\
+        \label{eq:mEoS}
+        P_mV_m      &= n_m\bar{R}T_m.
+    \end{align}
+
+    Let the components' molar specific heat at constant pressure, $\bar{c}_{p,k}$, in  \kilo\joule\per\kilo\mole\usk\kelvin,  be
+    modeled as a function of temperature, with auxiliar parameters, in the form:
+    %
+    \begin{equation}
+        \bar{c}_{p,k}(T) \eqmod \sum_{i=-4}^4 a_iT^i \pm w_{cp}, \quad T_{min} \leqslant T \leqslant T_{max}.
+        \label{eq:cp}
+    \end{equation}
 
