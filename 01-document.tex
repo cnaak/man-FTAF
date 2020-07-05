@@ -51,6 +51,9 @@
     $a$             & Coefficients, (variable),                                         & Eq.~(\ref{eq:cp})                 \\
     $\bar{c}$       & Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin    & Eq.~(\ref{eq:cp})                 \\
     $D$             & Piston diameter, \meter,                                          & Eq.~(\ref{eq:S})                  \\
+    $h$             & Mass-base specific enthalpy, \kilo\joule\per\kilogram             & Eq.~(\ref{eq:?})                  \\
+    $\bar{h}$       & Molar-base specific enthalpy, \kilo\joule\per\kilo\mole           & Eq.~(\ref{eq:H.comp})             \\
+    $H$             & Enthalpy, \kilo\joule,                                            & Eq.~(\ref{eq:H.comp})             \\
     $k$             & Mixture component index, ---,                                     & Sec.~\ref{sec:model.reactm}       \\
     $L$             & Connecting rod length, \meter,                                    & Eq.~(\ref{eq:x})                  \\
     $m$             & Mass, \kilogram,                                                  & Eq.~(\ref{eq:mf})                 \\
@@ -62,6 +65,7 @@
     $P$             & Thermodynamic pressure, \kilo\pascal,                             & Eq.~(\ref{eq:?})                  \\
     $r$             & Ratio (engine compression), ---,                                  & Eq.~(\ref{eq:r})                  \\
     $R$             & Crank radius, \meter,                                             & Eq.~(\ref{eq:S})                  \\
+    $\bar{R}$       & The universal gas constant, \kilo\joule\per\kilo\mole\usk\kelvin  & Sec.~\ref{sec:model.reactm}       \\
     $S$             & Piston stroke, \meter,                                            & Eq.~(\ref{eq:S})                  \\
     $t$             & Time, \second,                                                    & Sec.~\ref{sec:model.engine}       \\
     $T$             & Thermodynamic temperature, \kelvin,                               & Eq.~(\ref{eq:cp})                 \\
@@ -91,6 +95,7 @@
     ${}_{SD}$               & relative to $S/D$ (usually a ratio)                                                       \\
     ${}_{\tdc}$             & Top Dead Center, TDC                                                                      \\
     ${}_u$                  & unitary or unit                                                                           \\
+    ${}_v$                  & at constant-specific volume                                                               \\
 \end{supertabular}
                                                                                                               
 %\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}                                               
@@ -217,7 +222,7 @@
 
     The reactive mixture is comprised of $p$ pure components, refered to by their $k$ index. By hypothesis, the mixture displays
     an ideal $P$-$v$-$T$ behavior. Elementary mixture  definitions,  in  which  the  ``$m$''  subscript  indicates  ``mixture'',
-    include:
+    include:%
     %
     \begin{align}
         \label{eq:mf}
@@ -234,7 +239,7 @@
     $m$ and $n$ are mass, in \kilogram, and chemical amount, in \kilo\mole, respectively.
 
     The  apparent  mixture  molar  mass  $M_m$,  in  \kilogram\per\kilo\mole,  and  apparent   mixture   constant,   $R_m$,   in
-    \kilo\joule\per\kilogram\usk\kelvin, and mixture (ideal) equation of state are given by:
+    \kilo\joule\per\kilogram\usk\kelvin, and mixture (ideal) equation of state are given by:%
     %
     \begin{align}
         \label{eq:Mm}
@@ -246,7 +251,7 @@
     \end{align}
 
     Let the components' molar specific heat at constant pressure, $\bar{c}_{p,k}$, in  \kilo\joule\per\kilo\mole\usk\kelvin,  be
-    modeled as a function of temperature, with auxiliar parameters, in the form:
+    modeled as a function of temperature, with auxiliar parameters, in the form:%
     %
     \begin{equation}
         \bar{c}_{p,k}(T) \eqmod \sum_{i=-4}^4 a_iT^i \pm w_{cp}, \quad T_{min} \leqslant T \leqslant T_{max}.
@@ -256,4 +261,24 @@
     Models like this are frequently associated with a maximum and/or average uncertainties, $w_{cp}$, and  validity  temperature
     intervals, $[T_{min}, T_{max}]$; which are either  listed  in  Thermodynamics  texts~\cite{2014-CengelYA+BolesMA-McGrawHill,
     1985-WylenG-Wiley} or can be found by a suitable data modeling (regression) procedure.
+
+    By using the ideal gas relation of $\bar{c}_{v,k}(T) = \bar{c}_{p,k}(T) - \bar{R}$, allows one to  find  component  enthalpy
+    and internal energy by a suitable integration.
+
+    Let the enthalpy of a reactive mixture component $k$ portion (of $\unit{n_k}{\kilo\mole}$) at a given temperature $T$ be:%
+    %
+    \begin{align}
+        H_k(T)      &= n_k\bar{h}_k(T) \nonumber\\
+                    &= n_k[\bar{h}^0_{f,k} + \bar{h}^0_k(T)] \nonumber\\
+                    &= n_k\left[
+                        \bar{h}^0_{f,k} + \int_{T_0}^T \bar{c}_{p,k}(T)\,dT
+                    \right].
+        \label{eq:H.comp}
+    \end{align}
+    %
+    \noindent where $\bar{h}^0_{f,k}$, in \kilo\joule\per\kilo\mole, is the specific molar enthalpy of formation of  substance  $k$
+    at the standard  state  $(P_0,  T_0)  \equiv  (\unit{1}{\mathrm{atm}},  \unit{298.15}{\kelvin})$;  $\bar{h}^0_k(T)$  is  the
+    substance $k$ specific molar ideal gas enthalpy of state $(P_{\mathrm{any}}, T)$ with respect to the standard  state  $(P_0,
+    T_0)$. The bracketed term $\bar{h}_k(T)$ is the substance $k$ specific molar enthalpy with respect  to  the  standard  state
+    considering its chemical composition.
 
