@@ -58,7 +58,7 @@
     $m$             & Mass, \kilogram,                                                  & Eq.~(\ref{eq:mf})                 \\
     $\mathrm{mf}$   & Mass fraction, ---,                                               & Eq.~(\ref{eq:mf})                 \\
     $n$             & Chemical amount, \kilo\mole,                                      & Eq.~(\ref{eq:nm})                 \\
-    $n$             & Polytropic exponent, ---,                                         & Eq.~(\ref{eq:n})                  \\
+    $n$             & Fuel composition parameter, \kilo\mole,                           & Eq.~(\ref{eq:epsilon})            \\
     $N$             & Engine's rotation, RPM,                                           & Sec.~\ref{sec:model.engine}       \\
     $p$             & Mixture component count, ---,                                     & Sec.~\ref{sec:model.reactm}       \\
     $P$             & Thermodynamic pressure, \kilo\pascal,                             & Eq.~(\ref{eq:?})                  \\
@@ -102,6 +102,19 @@
     ${}_u$                  & unitary or unit                                                                               \\
     ${}_v$                  & at constant-specific volume                                                                   \\
 \end{supertabular}                                                                                                    
+
+%\newcommand{\NF}{\ensuremath{n_{\mbox{\scriptsize f}}}}
+%\newcommand{\NA}{\ensuremath{n_{\mbox{\scriptsize air}}}}
+%\newcommand{\NC}{\ensuremath{n_{\mbox{\scriptsize \ce{C}}}}}
+%\newcommand{\NH}{\ensuremath{n_{\mbox{\scriptsize \ce{H}}}}}
+%\newcommand{\NO}{\ensuremath{n_{\mbox{\scriptsize \ce{O}}}}}
+%\newcommand{\NN}{\ensuremath{n_{\mbox{\scriptsize \ce{N}}}}}
+%\newcommand{\NCO}{\ensuremath{n_{\mbox{\scriptsize \ce{CO}}}}}
+%\newcommand{\NHH}{\ensuremath{n_{\mbox{\scriptsize \ce{H2}}}}}
+%\newcommand{\NOO}{\ensuremath{n_{\mbox{\scriptsize \ce{O2}}}}}
+%\newcommand{\NNN}{\ensuremath{n_{\mbox{\scriptsize \ce{N2}}}}}
+%\newcommand{\NCOO}{\ensuremath{n_{\mbox{\scriptsize \ce{CO2}}}}}
+%\newcommand{\NHHO}{\ensuremath{n_{\mbox{\scriptsize \ce{H2O}}}}}
                                                                                                                       
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}                                                       
     \multicolumn{2}{@{}l}{\em Superscripts:} \\                                                                       
@@ -350,4 +363,15 @@
     The air is modeled as a mixture of \ce{O2} and of \ce{N2} gases with a proportion of  $\psi$  {\kilo\mole}  of  \ce{N2}  per
     {\kilo\mole} of \ce{O2}. As the Nitrogen will be kept inert, all inert gases are modeled as  \ce{N2}.  A  typical  value  of
     $\psi$ is $79/21 \approx 3.76$.
+
+    Fuel is generically modeled as a \ce{C\NC H\NH O\NO N\NN} mol\-e\-cule, in which \NC, \NH, \NO,  and  {\NN}  are  adjustable
+    parameters. Let $\epsilon$ be the amount of fuel per {\kilo\mole} of \ce{O2} that  is  stoichiometrically  oxidized  without
+    forming Nitrogen oxides, therefore,%
+    %
+    \begin{equation}
+        \epsilon^{-1} \equiv \NC + \frac{\NH}{4} - \frac{\NO}{2},
+        \label{eq:epsilon}
+    \end{equation}
+    %
+    \noindent so that $\epsilon / (1 + \psi)$ is the stoichiometric fuel-to-air ratio.
 
