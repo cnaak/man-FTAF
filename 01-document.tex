@@ -48,25 +48,28 @@
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
     \multicolumn{3}{@{}l}{\em Latin symbols:} \\
-    $D$             & Piston diameter, \meter,                                      & Eq.~(\ref{eq:S})                  \\
-    $k$             & Reactive mixture component index, ---,                        & Sec.~\ref{sec:model.reactm}       \\
-    $L$             & Connecting rod length, \meter,                                & Eq.~(\ref{eq:x})                  \\
-    $m$             & Mass, \kilogram,                                              & Eq.~(\ref{eq:mm})                 \\
-    $\mathrm{mf}$   & Mass fraction, ---,                                           & Eq.~(\ref{eq:mf})                 \\
-    $n$             & Chemical amount, \kilo\mole,                                  & Eq.~(\ref{eq:nm})                 \\
-    $n$             & Polytropic exponent, ---,                                     & Eq.~(\ref{eq:n})                  \\
-    $N$             & Engine's rotation, RPM,                                       & Sec.~\ref{sec:model.engine}       \\
-    $p$             & Reactive mixture component count, ---,                        & Sec.~\ref{sec:model.reactm}       \\
-    $P$             & Thermodynamic pressure, \kilo\pascal,                         & Eq.~(\ref{eq:?})                  \\
-    $r$             & Ratio (engine compression), ---,                              & Eq.~(\ref{eq:r})                  \\
-    $R$             & Crank radius, \meter,                                         & Eq.~(\ref{eq:S})                  \\
-    $S$             & Piston stroke, \meter,                                        & Eq.~(\ref{eq:S})                  \\
-    $t$             & Time, \second,                                                & Sec.~\ref{sec:model.engine}       \\
-    $T$             & Thermodynamic temperature, \kelvin,                           & Eq.~(\ref{eq:?})                  \\
-    $v$             & Mass-base specific volume, \meter\cubed\per\kilogram,         & Eq.~(\ref{eq:?})                  \\
-    $V$             & Volume, \meter\cubed,                                         & Eqs.~(\ref{eq:S}), (\ref{eq:V})   \\
-    $\mathrm{y}$    & Molar fraction, ---,                                          & Eq.~(\ref{eq:y})                  \\
-    $z$             & Engine's cylinder count, ---,                                 & Sec.~\ref{sec:model.engine}       \\
+    $a$             & Coefficients, (variable),                                         & Eq.~(\ref{eq:cp})                 \\
+    $\bar{c}$       & Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin    & Eq.~(\ref{eq:cp})                 \\
+    $D$             & Piston diameter, \meter,                                          & Eq.~(\ref{eq:S})                  \\
+    $k$             & Reactive mixture component index, ---,                            & Sec.~\ref{sec:model.reactm}       \\
+    $L$             & Connecting rod length, \meter,                                    & Eq.~(\ref{eq:x})                  \\
+    $m$             & Mass, \kilogram,                                                  & Eq.~(\ref{eq:mm})                 \\
+    $\mathrm{mf}$   & Mass fraction, ---,                                               & Eq.~(\ref{eq:mf})                 \\
+    $n$             & Chemical amount, \kilo\mole,                                      & Eq.~(\ref{eq:nm})                 \\
+    $n$             & Polytropic exponent, ---,                                         & Eq.~(\ref{eq:n})                  \\
+    $N$             & Engine's rotation, RPM,                                           & Sec.~\ref{sec:model.engine}       \\
+    $p$             & Reactive mixture component count, ---,                            & Sec.~\ref{sec:model.reactm}       \\
+    $P$             & Thermodynamic pressure, \kilo\pascal,                             & Eq.~(\ref{eq:?})                  \\
+    $r$             & Ratio (engine compression), ---,                                  & Eq.~(\ref{eq:r})                  \\
+    $R$             & Crank radius, \meter,                                             & Eq.~(\ref{eq:S})                  \\
+    $S$             & Piston stroke, \meter,                                            & Eq.~(\ref{eq:S})                  \\
+    $t$             & Time, \second,                                                    & Sec.~\ref{sec:model.engine}       \\
+    $T$             & Thermodynamic temperature, \kelvin,                               & Eq.~(\ref{eq:?})                  \\
+    $v$             & Mass-base specific volume, \meter\cubed\per\kilogram,             & Eq.~(\ref{eq:?})                  \\
+    $V$             & Volume, \meter\cubed,                                             & Eqs.~(\ref{eq:S}), (\ref{eq:V})   \\
+    $w$             & Uncertainty of, (variable),                                       & Eq.~(\ref{eq:cp})                 \\
+    $\mathrm{y}$    & Molar fraction, ---,                                              & Eq.~(\ref{eq:y})                  \\
+    $z$             & Engine's cylinder count, ---,                                     & Sec.~\ref{sec:model.engine}       \\
 \end{supertabular}
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
@@ -82,6 +85,7 @@
     ${}_i$                  & process index                                                                             \\
     ${}_{LR}$               & relative to $L/R$ (usually a ratio)                                                       \\
     ${}_m$                  & mixture                                                                                   \\
+    ${}_p$                  & at constant-pressure                                                                      \\
     ${}_{SD}$               & relative to $S/D$ (usually a ratio)                                                       \\
     ${}_{\tdc}$             & Top Dead Center, TDC                                                                      \\
     ${}_u$                  & unitary or unit                                                                           \\
