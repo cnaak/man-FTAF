@@ -158,48 +158,36 @@
 
 \section{Introduction}
 
-    The treatment of  Otto  cycles  in  undegraduate  engineering  thermodynamics  courses  typically  begins  with  the  ideal,
-    air-standard  model,  that  is  characterized   by   isochoric   heat   interactions~\cite{2014-CengelYA+BolesMA-McGrawHill,
-    2002-MoranMJ+ShapiroHN-LTC, 1985-WylenG-Wiley, 2015-KroosKA+PotterMC-Cengage}. More advanced courses may include an air-fuel
-    version    that    maintains    the    isochoric    release    of    internal    energy    due     to     the     combustion
-    reaction~\cite{2012-BrunettiF-Blucher}. Due to the continuous piston motion on traditional crank-rod reciprocating  engines,
-    isochoric heating, or, conversely, internal energy release  from  combustion,  represent  \emph{instantaneous}  process  for
-    engines running at finite speed~\cite{2017-NaaktgeborenC-IntJMechEngEduc}.
+    The treatment of Otto cycles in undegraduate  engineering  thermodynamics  courses  typically  begins  with  the  ideal,  air-standard  model,  that  is  characterized  by  isochoric  heat
+    interactions~\cite{2014-CengelYA+BolesMA-McGrawHill, 2002-MoranMJ+ShapiroHN-LTC, 1985-WylenG-Wiley, 2015-KroosKA+PotterMC-Cengage}. More advanced courses may include  an  air-fuel  version
+    that maintains the isochoric release of internal energy due to the combustion  reaction~\cite{2012-BrunettiF-Blucher}.  Due  to  the  continuous  piston  motion  on  traditional  crank-rod
+    reciprocating  engines,  isochoric  heating,  or,  conversely,  internal  energy  release  from  combustion,  represent  \emph{instantaneous}  process  for  engines   running   at   finite
+    speed~\cite{2017-NaaktgeborenC-IntJMechEngEduc}.
 
-    In one hand, by acccounting for air-fuel reactive mixtures, models can more precisely capture variations in mixture  caloric
-    properties along  the  compression  and  expansion  processes,  thus  providing  an  extra  degree  of  refinement  in  work
-    calculations~\cite{2012-BrunettiF-Blucher}, as well as being  able  to  derive  a  more  direct  relationship  between  work
-    production and fuel consumption, if the internal energy release is calculated from the chemical reaction.
+    In one hand, by acccounting for air-fuel reactive mixtures, models can more precisely capture variations in mixture caloric properties along the compression and expansion  processes,  thus
+    providing an extra degree of refinement in work calculations~\cite{2012-BrunettiF-Blucher}, as well as being able to derive a more direct relationship  between  work  production  and  fuel
+    consumption, if the internal energy release is calculated from the chemical reaction.
 
-    On the other hand, by neglecting the finite rate of reaction or internal energy release with isochoric reaction,  the  model
-    ignores key effects of simultaneous heat and work interactions that shape experimental $P-v$ cycle curves away from the ones
-    modeled with isochoric heating or reaction~\cite{2013-MartinsJJG-Publindustria}. Therefore, the isochoric heating hypothesis
-    can be more idealized than the one that replaces combustion by an external heating---so that  it  may  make  more  sense  to
-    abandon the isochoric heating hypothesis before introducing combustion as to yield progressive model refinements.
+    On the other hand, by neglecting the finite rate of reaction or internal energy release with isochoric reaction, the model ignores key effects of simultaneous heat  and  work  interactions
+    that shape experimental $P-v$ cycle curves away from the ones modeled with isochoric heating or reaction~\cite{2013-MartinsJJG-Publindustria}. Therefore, the isochoric  heating  hypothesis
+    can be more idealized than the one that replaces combustion by an external heating---so that it may make  more  sense  to  abandon  the  isochoric  heating  hypothesis  before  introducing
+    combustion as to yield progressive model refinements.
 
-    Doing so has the advantage of remaining at pure-substance thermodynamics while making significant improvements on the  cycle
-    model, especially in terms  of  the  variety  of  parameters  that  can  be  easily  introduced.  One  such  model,  labeled
-    `FTHA'\footnote{FTHA    is     the     acronym     of     Finite-Time     Heat     Addition.},     has     been     recently
-    proposed~\cite{2017-NaaktgeborenC-IntJMechEngEduc} as a middle step towards the modeling of  air-fuel  Otto  cycles  in  the
-    context of mechanical engineering education.
+    Doing so has the advantage of remaining at pure-substance thermodynamics while making significant improvements on the cycle model, especially in terms of the variety of parameters that can
+    be easily introduced. One such model, labeled `FTHA'\footnote{FTHA is the acronym of Finite-Time Heat Addition.}, has been recently proposed~\cite{2017-NaaktgeborenC-IntJMechEngEduc} as  a
+    middle step towards the modeling of air-fuel Otto cycles in the context of mechanical engineering education.
 
-    In order to incorporate in a single model effects of (i)~finite duration of the combustion  process,  and  of  (ii)~reactive
-    mixture properties, this work proposes a finite-time air-fuel Otto engine model, labeled `FTAF'\footnote{FTAF is the acronym
-    of Finite-Time Air-Fuel.}, also in the context of mechanical engineering education. Thus, the model herein presented can  be
-    thought of as a \emph{merge} between two existing schemes: (i)~a \emph{modified} version of  the  isochoric  air-fuel  model
-    presented  by  Brunetti  \emph{et  al.\/}~\cite{2012-BrunettiF-Blucher},  as  to  avoid  being   limited   to   carbon-based
-    fuels~\footnote{This shortcomming comes artificially by the way the combustion reaction  is  normalized,  and  unnecessarily
-    prevents fuels such as pure  Hydrogen,  \ce{H2},  or  Hydrazine,  \ce{H2N2},  from  being  simulated.},  and  (ii)~the  FTHA
-    model~\cite{2017-NaaktgeborenC-IntJMechEngEduc}.
+    In order to incorporate in a single model effects of (i)~finite duration of the combustion process, and of (ii)~reactive mixture properties, this work proposes a finite-time air-fuel  Otto
+    engine model, labeled `FTAF'\footnote{FTAF is the acronym of Finite-Time Air-Fuel.}, also in the context of mechanical engineering education.  Thus,  the  model  herein  presented  can  be
+    thought  of  as  a   \emph{merge}   between   two   existing   schemes:   (i)~a   \emph{modified}   version   of   the   isochoric   air-fuel   model   presented   by   Brunetti   \emph{et
+    al.\/}~\cite{2012-BrunettiF-Blucher}, as to avoid being limited to carbon-based fuels~\footnote{This shortcomming comes artificially by the way the combustion reaction is  normalized,  and
+    unnecessarily prevents fuels such as pure Hydrogen, \ce{H2}, or Hydrazine, \ce{H2N2}, from being simulated.}, and (ii)~the FTHA model~\cite{2017-NaaktgeborenC-IntJMechEngEduc}.
 
-    The model herein proposed keeps undergraduate mechanical engineering education as  its  audience,  and  differs  from  other
-    models in the sense that it avoids further complications present in other models, such  as  friction  and/or  heat  transfer
-    irreversibilities~\cite{2008-CurtoRissoPL+HernandezAC-JApplPhys, 2002-CatonJA-IntJMechEngEduc},  intake  and  exit  manifold
-    flows~\cite{2001-CatonJA-IntJMechEngEduc}, as well as forming a complete, ready to teach unit, rather than a  collection  of
-    add-on  models---including  a  finite  interval  heat  release  one---than  can  be  selected  and  taylored  for  a   given
-    application~\cite{2013-MartinsJJG-Publindustria}.  Moreover,  the  model  proposed  in  this  work   is   intended   to   be
-    computationally implemented by the students, whether in whole or in part, rather than being presented as a  simulation-ready
-    tool~\cite{2011-ZuecoJ-IntJMechEngEduc}.
+    The model herein proposed keeps undergraduate mechanical engineering education as its audience, and differs from other models in the sense that it avoids further complications  present  in
+    other  models,  such  as  friction  and/or  heat  transfer  irreversibilities~\cite{2008-CurtoRissoPL+HernandezAC-JApplPhys,  2002-CatonJA-IntJMechEngEduc},  intake   and   exit   manifold
+    flows~\cite{2001-CatonJA-IntJMechEngEduc}, as well as forming a complete, ready to teach unit, rather than a  collection  of  add-on  models---including  a  finite  interval  heat  release
+    one---than can be selected and taylored for a given application~\cite{2013-MartinsJJG-Publindustria}. Moreover,  the  model  proposed  in  this  work  is  intended  to  be  computationally
+    implemented by the students, whether in whole or in part, rather than being presented as a simulation-ready tool~\cite{2011-ZuecoJ-IntJMechEngEduc}.
 
 
 %----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
@@ -208,26 +196,22 @@
 
 \section{Model Formulation}\label{sec:model}
 
-    The proposed finite-time air-fuel model comprises an (i)~engine model, a (ii)~reactive mixture model, a (iii)~combustion and
-    chemical equilibrium model, and a  (iv)~cycle  model.  Models  (i)  and  (iv)  herein  presented  closely  follow  the  FTHA
-    ones~\cite{2017-NaaktgeborenC-IntJMechEngEduc}, incorporating minor formulation and discretization  changes.  Present  model
-    (ii) of the current work expands upon the FTHA one in the sense that a reactive mixture replaces  the  pure  substance;  the
-    mixture, however, remains an ideal one with variable specific heats. The model (iii) of the present work, entirely absent in
-    the air-standard FTHA, expands upon the scheme  of  Brunetti~\cite{2012-BrunettiF-Blucher}  in  the  energy  balance,  fluid
-    formulations, and on residual gas fractions.
+    The proposed finite-time air-fuel model comprises an (i)~engine model, a (ii)~reactive mixture model, a (iii)~combustion and chemical equilibrium model, and a (iv)~cycle model. Models  (i)
+    and (iv) herein presented closely follow the FTHA ones~\cite{2017-NaaktgeborenC-IntJMechEngEduc}, incorporating minor formulation and discretization changes.  Present  model  (ii)  of  the
+    current work expands upon the FTHA one in the sense that a reactive mixture replaces the pure substance; the mixture, however, remains an ideal one with variable specific heats. The  model
+    (iii) of the present work, entirely absent in the air-standard FTHA, expands upon the scheme of Brunetti~\cite{2012-BrunettiF-Blucher} in the energy balance,  fluid  formulations,  and  on
+    residual gas fractions.
 
 
     %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     \subsection{Engine model}\label{sec:model.engine}
 
-    The thermodynamic system is considered as the volume comprised  of  the  closed-valves  combustion  chamber  surfaces  of  a
-    standard crank-rod reciprocating internal combustion engine (ICE) of displaced volume $V_d$,  \meter\cubed,  $z$  cylinders,
-    and $V_{du} = V_d / z$ unit cylinder displacement volume, \meter\cubed. Combustion chamber minimum and maximum  volumes  are
-    $V_\tdc$ and $V_\bdc$ for the top and bottom dead centers, respectively.
+    The thermodynamic system is considered as the volume comprised of the closed-valves combustion chamber surfaces of a standard crank-rod reciprocating internal combustion  engine  (ICE)  of
+    displaced volume $V_d$, \meter\cubed, $z$ cylinders, and $V_{du} = V_d / z$ unit cylinder displacement volume, \meter\cubed. Combustion chamber minimum and maximum volumes are $V_\tdc$ and
+    $V_\bdc$ for the top and bottom dead centers, respectively.
 
-    The cylinder diameter is $D$, the piston stroke is $S$, the rod length is $L$, and the crank radius is $R$, all  in  \meter.
-    Important ratios include the stroke-to-diameter one, $r_{SD} = S/D$, the rod-to-crank one, $r_{LR} = L/R >  1$,  the  engine
-    compression ratio $r$, so that%
+    The cylinder diameter is $D$, the piston stroke is $S$, the rod length is $L$, and the crank radius is $R$, all in \meter. Important ratios include the stroke-to-diameter  one,  $r_{SD}  =
+    S/D$, the rod-to-crank one, $r_{LR} = L/R > 1$, the engine compression ratio $r$, so that%
     %
     \begin{align}
         \label{eq:S}
@@ -238,11 +222,9 @@
         r       &= \frac{V_\bdc}{V_\tdc} = 1 + \frac{V_{du}}{V_\tdc}.
     \end{align}
 
-    The crankshaft angular position $\alpha$, in \radian, and engine angular velocity $\omega$, in \radian\per\second,  and  the
-    engine RPM $N$, are related  by  $d\alpha/dt  =  \omega  =  2\pi  N/60$,  in  which  $\alpha$  is  an  integer  multiple  of
-    $\unit{2\pi}{\radian}$ whenever the piston is at the TDC. Constant-$\omega$ cases  have  $\alpha  =  \omega  t$  with  $t  =
-    \unit{0}{\second}$ at an arbitrary TDC. Moreover, the piston position $x$ with respect to the TDC, in \meter,  is  expressed
-    as%
+    The crankshaft angular position $\alpha$, in \radian, and engine angular velocity $\omega$, in \radian\per\second, and the engine RPM $N$, are related by $d\alpha/dt = \omega = 2\pi N/60$,
+    in which $\alpha$ is an integer multiple of $\unit{2\pi}{\radian}$ whenever the piston is at the TDC. Constant-$\omega$ cases have $\alpha = \omega t$ with $t =  \unit{0}{\second}$  at  an
+    arbitrary TDC. Moreover, the piston position $x$ with respect to the TDC, in \meter, is expressed as%
     %
     \begin{equation}
         \label{eq:x}
@@ -268,9 +250,8 @@
     %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     \subsection{Reactive mixture model}\label{sec:model.reactm}
 
-    The reactive mixture is comprised of $p$ pure components, refered to by their $k$ index. By hypothesis, the mixture displays
-    an ideal $P$-$v$-$T$ behavior. Elementary mixture  definitions,  in  which  the  ``$m$''  subscript  indicates  ``mixture'',
-    include:%
+    The reactive mixture is comprised of $p$ pure components, refered to by their $k$ index. By hypothesis, the mixture displays an ideal $P$-$v$-$T$ behavior. Elementary mixture  definitions,
+    in which the ``$m$'' subscript indicates ``mixture'', include:%
     %
     \begin{align}
         \label{eq:mf}
@@ -283,11 +264,11 @@
         n_m             &= \sum_{k=1}^p n_k,
     \end{align}
     %
-    \noindent where $\mathrm{mf}$ and $\mathrm{y}$ are mixture component mass fractions and molar fractions, respectively. Terms
-    $m$ and $n$ are mass, in \kilogram, and chemical amount, in \kilo\mole, respectively.
+    \noindent where $\mathrm{mf}$ and $\mathrm{y}$ are mixture component mass fractions and molar fractions, respectively. Terms $m$ and $n$ are mass, in \kilogram,  and  chemical  amount,  in
+    \kilo\mole, respectively.
 
-    The  apparent  mixture  molar  mass  $M_m$,  in  \kilogram\per\kilo\mole,  and  apparent   mixture   constant,   $R_m$,   in
-    \kilo\joule\per\kilogram\usk\kelvin, and mixture (ideal) equation of state are given by:%
+    The apparent mixture molar mass $M_m$, in \kilogram\per\kilo\mole, and apparent mixture constant, $R_m$, in \kilo\joule\per\kilogram\usk\kelvin, and mixture (ideal) equation of  state  are
+    given by:%
     %
     \begin{align}
         \label{eq:Mm}
@@ -298,20 +279,18 @@
         P_mV_m      &= n_m\bar{R}T_m.
     \end{align}
 
-    Let the components' molar specific heat at constant pressure, $\bar{c}_{p,k}$, in  \kilo\joule\per\kilo\mole\usk\kelvin,  be
-    modeled as a function of temperature, with auxiliar parameters, in the form:%
+    Let the components' molar specific heat at constant pressure, $\bar{c}_{p,k}$, in \kilo\joule\per\kilo\mole\usk\kelvin, be modeled as a function of temperature, with  auxiliar  parameters,
+    in the form:%
     %
     \begin{equation}
         \bar{c}_{p,k}(T) \eqmod \sum_{i=-4}^4 a_iT^i \pm w_{cp}, \quad T_{min} \leqslant T \leqslant T_{max}.
         \label{eq:cp}
     \end{equation}
 
-    Models like this are frequently associated with a maximum and/or average uncertainties, $w_{cp}$, and  validity  temperature
-    intervals, $[T_{min}, T_{max}]$; which are either  listed  in  Thermodynamics  texts~\cite{2014-CengelYA+BolesMA-McGrawHill,
-    1985-WylenG-Wiley} or can be found by a suitable data modeling (regression) procedure.
+    Models like this are frequently associated with a maximum and/or average uncertainties, $w_{cp}$, and validity temperature intervals, $[T_{min},  T_{max}]$;  which  are  either  listed  in
+    Thermodynamics texts~\cite{2014-CengelYA+BolesMA-McGrawHill, 1985-WylenG-Wiley} or can be found by a suitable data modeling (regression) procedure.
 
-    By using the ideal gas relation of $\bar{c}_{v,k}(T) = \bar{c}_{p,k}(T) - \bar{R}$, allows one to  find  component  enthalpy
-    and internal energy by a suitable integration.
+    By using the ideal gas relation of $\bar{c}_{v,k}(T) = \bar{c}_{p,k}(T) - \bar{R}$, allows one to find component enthalpy and internal energy by a suitable integration.
 
     Let the enthalpy of a reactive mixture component $k$ portion (of $\unit{n_k}{\kilo\mole}$) at a given temperature $T$ be:%
     %
@@ -324,11 +303,9 @@
         \label{eq:H.comp}
     \end{align}
     %
-    \noindent where $\bar{h}^0_{f,k}$, in \kilo\joule\per\kilo\mole, is the specific molar enthalpy of formation of  substance  $k$
-    at the standard  state  $(P_0,  T_0)  \equiv  (\unit{1}{\mathrm{atm}},  \unit{298.15}{\kelvin})$;  $\bar{h}^0_k(T)$  is  the
-    substance $k$ specific molar ideal gas enthalpy of state $(P_{\mathrm{any}}, T)$ with respect to the standard  state  $(P_0,
-    T_0)$. The bracketed term $\bar{h}_k(T)$ is the substance $k$ specific molar enthalpy with respect  to  the  standard  state
-    considering its chemical composition.
+    \noindent  where  $\bar{h}^0_{f,k}$,  in  \kilo\joule\per\kilo\mole,  is  the  specific  molar  enthalpy  of  formation  of  substance  $k$  at  the  standard  state  $(P_0,  T_0)   \equiv
+    (\unit{1}{\mathrm{atm}}, \unit{298.15}{\kelvin})$; $\bar{h}^0_k(T)$ is the substance $k$ specific molar ideal gas enthalpy of state $(P_{\mathrm{any}}, T)$ with  respect  to  the  standard
+    state $(P_0, T_0)$. The bracketed term $\bar{h}_k(T)$ is the substance $k$ specific molar enthalpy with respect to the standard state considering its chemical composition.
 
     Casting analogous internal energy relations in the form of Eq.~(\ref{eq:H.comp}), one has:%
     %
@@ -376,19 +353,15 @@
     %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     \subsection{Combustion and chemical equilibrium model}\label{sec:model.cchemm}
 
-    Following the scheme of Brunetti~\cite{2012-BrunettiF-Blucher}, a general combustion reaction between a fuel  model  and  an
-    air model is to be balanced (solved) in terms of air, fuel, and mixture dimensionless parameters. Contrary to the scheme  of
-    that reference, in this work, no fuel Carbon content normalization is going to be performed,  which  unnecessarily  prevents
-    non-carbon   fuels,   such   as   Hydrogen,    \ce{H2},    or    Hydrazine,    \ce{H2N2},    from    being    employed    in
-    simulations~\cite{2018-SilvaRKO-UTFPR}.
+    Following the scheme of Brunetti~\cite{2012-BrunettiF-Blucher}, a general combustion reaction between a fuel model and an air model is to be balanced (solved) in terms of  air,  fuel,  and
+    mixture dimensionless parameters. Contrary to the scheme of that reference, in this work, no fuel Carbon content normalization is  going  to  be  performed,  which  unnecessarily  prevents
+    non-carbon fuels, such as Hydrogen, \ce{H2}, or Hydrazine, \ce{H2N2}, from being employed in simulations~\cite{2018-SilvaRKO-UTFPR}.
 
-    The air is modeled as a mixture of \ce{O2} and of \ce{N2} gases with a proportion of  $\psi$  {\kilo\mole}  of  \ce{N2}  per
-    {\kilo\mole} of \ce{O2}. As the Nitrogen will be kept inert, all inert gases are modeled as  \ce{N2}.  A  typical  value  of
-    $\psi$ is $79/21 \approx 3.76$.
+    The air is modeled as a mixture of \ce{O2} and of \ce{N2} gases with a proportion of $\psi$ {\kilo\mole} of \ce{N2} per {\kilo\mole} of \ce{O2}. As the Nitrogen will  be  kept  inert,  all
+    inert gases are modeled as \ce{N2}. A typical value of $\psi$ is $79/21 \approx 3.76$.
 
-    Fuel is generically modeled as a \ce{C\NC H\NH O\NO N\NN} mol\-e\-cule, in which \NC, \NH, \NO,  and  {\NN}  are  adjustable
-    parameters. Let $\epsilon$ be the amount of fuel per {\kilo\mole} of \ce{O2} that  is  stoichiometrically  oxidized  without
-    forming Nitrogen oxides, therefore,%
+    Fuel is generically modeled as a \ce{C\NC H\NH O\NO N\NN} mol\-e\-cule, in which \NC, \NH, \NO, and {\NN} are adjustable parameters. Let $\epsilon$ be the amount of fuel  per  {\kilo\mole}
+    of \ce{O2} that is stoichiometrically oxidized without forming Nitrogen oxides, therefore,%
     %
     \begin{equation}
         \epsilon^{-1} \equiv \NC + \frac{\NH}{4} - \frac{\NO}{2},
