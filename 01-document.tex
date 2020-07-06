@@ -141,8 +141,11 @@
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
     {\em Chemical species:} \\                                                                       
+    \tcs{\ce{CO}}                               \> Carbon monoxide                                                                                                                          \\
+    \tcs{\ce{CO2}}                              \> Carbon dioxide                                                                                                                           \\
     \tcs{\ce{H2}}                               \> Hydrogen (molecular)                                                                                                                     \\
     \tcs{\ce{H2N2}}                             \> Hydrazine                                                                                                                                \\
+    \tcs{\ce{H2O}}                              \> Water                                                                                                                                    \\
     \tcs{\ce{N2}}                               \> Nitrogen (molecular)                                                                                                                     \\
     \tcs{\ce{O2}}                               \> Oxygen (molecular)                                                                                                                       \\
 \end{tabbing}
@@ -383,4 +386,25 @@
         \label{eq:na}
         \NA     &= \frac{P_0V_0}{\bar{R}T_0}\cdot\frac{1 + \psi}{1 + \psi + \phi\epsilon}.
     \end{align}
+
+    The combustion reaction is therefore:%
+    %
+    \begin{multline}
+        \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} +
+        \NA\left(
+            \frac{1}{1+\psi}\mbox{\ce{O2}} +
+            \frac{\psi}{1+\psi}\mbox{\ce{N2}}
+        \right) \ce{->} \\
+        \NCOO\mbox{\ce{CO2}} +
+        \NHHO\mbox{\ce{H2O}} +
+        \NCO\mbox{\ce{CO}} +
+        \NHH\mbox{\ce{H2}} +
+        \NOO\mbox{\ce{O2}} +
+        \NNN\mbox{\ce{N2}}
+        \label{eq:comb}
+    \end{multline}
+
+    By hypothesis, the combustion goes to completion whenever possible, i.e., whenever $\phi \leqslant 1$, so that Carbon and Hydrogen are fully  oxidized  into  \ce{CO2}  and  into  \ce{H2O},
+    leaving no room for formation of \ce{CO} and of \ce{H2} products. On the other hand, whenever $\phi > 1$, completion hypothesis mean all  \ce{O2}  is  used  up  for  complete  and  partial
+    oxidation of fuel Carbon and Hydrogen, leaving no room for residual \ce{O2} in the products.
 
