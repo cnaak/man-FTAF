@@ -38,7 +38,7 @@
 \addcontentsline{toc}{section}{Nomenclature}
 
 % Primary nomenclature lengths
-\newlength{\lencsep}\setlength{\lencsep}{0.5em} % column separation width
+\newlength{\lencsep}\setlength{\lencsep}{0.8em} % column separation width
 \newlength{\lensymb}\setlength{\lensymb}{3.5em} % symbol column width
 \newlength{\lendefn}\setlength{\lendefn}{4.5em} % definition column width
 % Derived nomenclature lengths
@@ -54,6 +54,7 @@
 % Nomenclature commands
 \newcommand{\tcs}[1]{\parbox[t]{\lensybb}{\ensuremath {#1}}}    % tabbing column for symbol
 \newcommand{\tcw}[1]{\parbox[t]{\lenwhab}{\raggedright{#1}}}    % tabbing column for what (explanation)
+\newcommand{\tcW}[1]{\parbox[t]{\lenwhab}{{#1}}}                % tabbing column for what (explanation)
 \newcommand{\tcd}[1]{\parbox[t]{\lendefn}{\raggedright{#1}}}    % tabbing column for definition
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
@@ -72,7 +73,7 @@
     \tcs{n}                 \> \tcw{Fuel composition parameter, \kilo\mole,}                                                                    \> \tcd{Eq.~(\ref{eq:epsilon})}             \\
     \tcs{N}                 \> \tcw{Engine's rotation, RPM,}                                                                                    \> \tcd{Sec.~\ref{sec:model.engine}}        \\
     \tcs{p}                 \> \tcw{Mixture component count, ---,}                                                                              \> \tcd{Sec.~\ref{sec:model.reactm}}        \\
-    \tcs{P}                 \> \tcw{Thermodynamic pressure, \kilo\pascal,}                                                                      \> \tcd{Eq.~(\ref{eq:?})}                   \\
+    \tcs{P}                 \> \tcw{Thermodynamic pressure, \kilo\pascal,}                                                                      \> \tcd{Eq.~(\ref{eq:uf0})}                 \\
     \tcs{r}                 \> \tcw{Ratio (engine compression), ---,}                                                                           \> \tcd{Eq.~(\ref{eq:r})}                   \\
     \tcs{R}                 \> \tcw{Crank radius, \meter,}                                                                                      \> \tcd{Eq.~(\ref{eq:S})}                   \\
     \tcs{\bar{R}}           \> \tcw{The universal gas constant, \kilo\joule\per\kilo\mole\usk\kelvin,}                                          \> \tcd{Sec.~\ref{sec:model.reactm}}        \\
@@ -90,9 +91,12 @@
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
     {\em Greek symbols:} \\
-    \tcs{\alpha}            \> \tcw{Crank angular position, \rad,}                                                                              \> \tcd{Eq.~(\ref{eq:x})}                   \\
-    \tcs{\psi}              \> \tcw{Inert-to-oxidant gas molar ratio for the air model, ---,}                                                   \> \tcd{Sec.~\ref{sec:model.cchemm}}        \\
-    \tcs{\omega}            \> \tcw{Crank angular velocity, \rad\per\second,}                                                                   \> \tcd{Sec.~\ref{sec:model.engine}}        \\
+    \tcs{\alpha}            \> \tcW{Crank angular position, \rad,}                                                                              \> \tcd{Eq.~(\ref{eq:x})}                   \\
+    \tcs{\epsilon}          \> \tcW{Amount of fuel per {\kilo\mole} of \ce{O2} that is stoichiometrically oxidized with\-out forming Nitrogen
+                                    oxides, \kilo\mole,}                                                                                        \> \tcd{Eq.~(\ref{eq:epsilon})}             \\
+    \tcs{\phi}              \> \tcW{Actual-to-stoichiometric ratio of fuel-to-air ratios, or the equivalence ratio, ---,}                       \> \tcd{Eq.~(\ref{eq:phi})}                 \\
+    \tcs{\psi}              \> \tcW{Inert-to-oxidant gas molar ratio for the air model, ---,}                                                   \> \tcd{Eq.~(\ref{eq:phi})}                 \\
+    \tcs{\omega}            \> \tcW{Crank angular velocity, \rad\per\second,}                                                                   \> \tcd{Sec.~\ref{sec:model.engine}}        \\
 \end{tabbing}
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
@@ -113,7 +117,7 @@
     \tcs{{}_{\mbox{\scriptsize \ce{H2}}}}       \> that of Hydrogen molecule                                                                                                                \\
     \tcs{{}_{\mbox{\scriptsize \ce{H2O}}}}      \> that of Water molecule                                                                                                                   \\
     \tcs{{}_i}                                  \> process index                                                                                                                            \\
-    \tcs{{}_{LR}}                               \> relative to \tcs{L/R} (usually a ratio)                                                                                                  \\
+    \tcs{{}_{LR}}                               \> relative to $L/R$ (usually a ratio)                                                                                                      \\
     \tcs{{}_m}                                  \> mixture                                                                                                                                  \\
     \tcs{{}_{max}}                              \> maximum                                                                                                                                  \\
     \tcs{{}_{min}}                              \> minimum                                                                                                                                  \\
@@ -124,7 +128,7 @@
     \tcs{{}_p}                                  \> at constant-pressure                                                                                                                     \\
     \tcs{{}_{\mbox{\scriptsize\tt pr}}}         \> that of combustion products mixture                                                                                                      \\
     \tcs{{}_{\mbox{\scriptsize\tt re}}}         \> that of combustion reagents mixture                                                                                                      \\
-    \tcs{{}_{SD}}                               \> relative to \tcs{S/D} (usually a ratio)                                                                                                  \\
+    \tcs{{}_{SD}}                               \> relative to $S/D$ (usually a ratio)                                                                                                      \\
     \tcs{{}_{\tdc}}                             \> Top Dead Center, TDC                                                                                                                     \\
     \tcs{{}_u}                                  \> unitary or unit                                                                                                                          \\
     \tcs{{}_v}                                  \> at constant-specific volume                                                                                                              \\
@@ -361,4 +365,22 @@
     \end{equation}
     %
     \noindent so that $\epsilon / (1 + \psi)$ is the stoichiometric fuel-to-air ratio.
+
+    Let $\phi$ be the actual-to-stoichiometric ratio of fuel-to-air ratios, or the equivalence ratio, i.e.,%
+    %
+    \begin{equation}
+        \phi \equiv \frac{\NF/\NA}{\epsilon / (1 + \psi)},
+        \label{eq:phi}
+    \end{equation}
+    %
+    \noindent so that $\phi < 1$ models an excess-air mixture, $\phi < 1$ an excess-fuel, and $\phi = 1$ a stoichiometric mixture. Actual amounts of air and fuel, {\NA} and  \NF,  that  occupy
+    the closed combustion chamber at the end of the admission stroke, assuming $(P_0, V_0, T_0)$ conditions thereof;  $P_0  \leqslant  P_{\mathrm{atm}}$,  $T_0  \approx  T_{\mathrm{atm}}$  for
+    aspirated engines and $V_0 \approx V_\bdc$; are:%
+    %
+    \begin{align}
+        \label{eq:nf}
+        \NF     &= \frac{P_0V_0}{\bar{R}T_0}\cdot\frac{\phi\epsilon}{1 + \psi + \phi\epsilon}, \\
+        \label{eq:na}
+        \NA     &= \frac{P_0V_0}{\bar{R}T_0}\cdot\frac{1 + \psi}{1 + \psi + \phi\epsilon}.
+    \end{align}
 
