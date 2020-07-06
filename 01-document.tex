@@ -54,7 +54,7 @@
 % Nomenclature commands
 \newcommand{\tcs}[1]{\parbox[t]{\lensybb}{\ensuremath {#1}}}    % tabbing column for symbol
 \newcommand{\tcw}[1]{\parbox[t]{\lenwhab}{\raggedright{#1}}}    % tabbing column for what (explanation)
-\newcommand{\tcd}[1]{\parbox[t]{\lendefn}{\raggedleft {#1}}}    % tabbing column for definition
+\newcommand{\tcd}[1]{\parbox[t]{\lendefn}{\raggedright{#1}}}    % tabbing column for definition
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
     {\em Latin symbols:} \\
@@ -130,19 +130,19 @@
     \tcs{{}_v}                                  \> at constant-specific volume                                                                                                              \\
 \end{tabbing}
                                                                                                                       
-%\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}                                                       
-%    \multicolumn{2}{@{}l}{\em Superscripts:} \\                                                                       
-%    ${}^0$                  & at the standard reference state $(P_0, T_0)$                                                  \\
-%\end{supertabular}
-%
-%\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}                                                       
-%    \multicolumn{2}{@{}l}{\em Chemical species:} \\                                                                       
-%    \ce{H2}                 & Hydrogen (molecular)                                                                          \\
-%    \ce{H2N2}               & Hydrazine                                                                                     \\
-%    \ce{N2}                 & Nitrogen (molecular)                                                                          \\
-%    \ce{O2}                 & Oxygen (molecular)                                                                            \\
-%\end{supertabular}
-%
+\begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
+    {\em Superscripts:} \\                                                                       
+    \tcs{{}^0}                                  \> at the standard reference state \tcs{(P_0, T_0)}                                                                                         \\
+\end{tabbing}
+
+\begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
+    {\em Chemical species:} \\                                                                       
+    \tcs{\ce{H2}}                               \> Hydrogen (molecular)                                                                                                                     \\
+    \tcs{\ce{H2N2}}                             \> Hydrazine                                                                                                                                \\
+    \tcs{\ce{N2}}                               \> Nitrogen (molecular)                                                                                                                     \\
+    \tcs{\ce{O2}}                               \> Oxygen (molecular)                                                                                                                       \\
+\end{tabbing}
+
 
 %----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
 %                                                                                         Introduction                                                                                         %
