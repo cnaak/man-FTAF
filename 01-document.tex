@@ -57,8 +57,36 @@
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
 {\em Latin symbols:} \\
-    \tcs{a}         \> \tcw{Coefficients, (variable),}                                  \> \tcd{Eq.~(\ref{eq:cp})}          \\
-    \tcs{\bar{h}}   \> \tcw{Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,}   \> \tcd{Eq.~(\ref{eq:H.comp})}      \\
+    \tcs{a}           \> \tcw{Coefficients, (variable),}                                \> \tcd{Eq.~(\ref{eq:cp})}          \\
+    \tcs{\bar{c}}     \> \tcw{Molar-base specific heat,
+                            \kilo\joule\per\kilo\mole\usk\kelvin,}                      \> \tcw{Eq.~(\ref{eq:cp})           \\
+    \tcs{D}           \> \tcw{Piston diameter, \meter,}                                        \> \tcw{Eq.~(\ref{eq:S})                  \\
+    \tcs{\bar{h}}     \> \tcw{Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,}   \> \tcd{Eq.~(\ref{eq:H.comp})}      \\
+    \tcs{H}           \> \tcw{Enthalpy, \kilo\joule,}                                          \> \tcw{Eq.~(\ref{eq:H.comp})             \\
+    \tcs{k}           \> \tcw{Mixture component index, ---,}                                   \> \tcw{Sec.~\ref{sec:model.reactm}       \\
+    \tcs{L}           \> \tcw{Connecting rod length, \meter,}                                  \> \tcw{Eq.~(\ref{eq:x})                  \\
+    \tcs{m}           \> \tcw{Mass, \kilogram,}                                                \> \tcw{Eq.~(\ref{eq:mf})                 \\
+    \tcs{\mathbb{M}}  \> \tcw{Mixture, ---,}                                                   \> \tcw{Eq.~(\ref{eq:?})                  \\
+    \tcs{\mathrm{mf}} \> \tcw{Mass fraction, ---,}                                             \> \tcw{Eq.~(\ref{eq:mf})                 \\
+    \tcs{n}           \> \tcw{Chemical amount, \kilo\mole,}                                    \> \tcw{Eq.~(\ref{eq:nm})                 \\
+    \tcs{n}           \> \tcw{Fuel composition parameter, \kilo\mole,}                         \> \tcw{Eq.~(\ref{eq:epsilon})            \\
+    \tcs{N}           \> \tcw{Engine's rotation, RPM,}                                         \> \tcw{Sec.~\ref{sec:model.engine}       \\
+    \tcs{p}           \> \tcw{Mixture component count, ---,}                                   \> \tcw{Sec.~\ref{sec:model.reactm}       \\
+    \tcs{P}           \> \tcw{Thermodynamic pressure, \kilo\pascal,}                           \> \tcw{Eq.~(\ref{eq:?})                  \\
+    \tcs{r}           \> \tcw{Ratio (engine compression), ---,}                                \> \tcw{Eq.~(\ref{eq:r})                  \\
+    \tcs{R}           \> \tcw{Crank radius, \meter,}                                           \> \tcw{Eq.~(\ref{eq:S})                  \\
+    \tcs{\bar{R}}     \> \tcw{The universal gas constant, \kilo\joule\per\kilo\mole\usk\kelvin,} \> \tcw{Sec.~\ref{sec:model.reactm}       \\
+    \tcs{S}           \> \tcw{Piston stroke, \meter,}                                          \> \tcw{Eq.~(\ref{eq:S})                  \\
+    \tcs{t}           \> \tcw{Time, \second,}                                                  \> \tcw{Sec.~\ref{sec:model.engine}       \\
+    \tcs{T}           \> \tcw{Thermodynamic temperature, \kelvin,}                             \> \tcw{Eq.~(\ref{eq:cp})                 \\
+    \tcs{\bar{u}}     \> \tcw{Molar-base specific internal energy,
+                      \kilo\joule\per\kilo\mole,}                                      \> \tcw{Eq.~(\ref{eq:U.comp})             \\
+    \tcs{U}           \> \tcw{Internal energy, \kilo\joule,}                                   \> \tcw{Eq.~(\ref{eq:U.comp})             \\
+    \tcs{v}           \> \tcw{Mass-base specific volume, \meter\cubed\per\kilogram,}           \> \tcw{Eq.~(\ref{eq:?})                  \\
+    \tcs{V}           \> \tcw{Volume, \meter\cubed,}                                           \> \tcw{Eqs.~(\ref{eq:S}), (\ref{eq:V})   \\
+    \tcs{w}           \> \tcw{Uncertainty of, (variable),}                                     \> \tcw{Eq.~(\ref{eq:cp})                 \\
+    \tcs{\mathrm{y}}  \> \tcw{Molar fraction, ---,}                                            \> \tcw{Eq.~(\ref{eq:y})                  \\
+    \tcs{z}           \> \tcw{Engine's cylinder count, ---,}                                   \> \tcw{Sec.~\ref{sec:model.engine}       \\
 \end{tabbing}
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
@@ -70,35 +98,6 @@
 
 %\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
 %    \multicolumn{3}{@{}l}{\em Latin symbols:} \\
-%    $a$             & Coefficients, (variable),                                         & Eq.~(\ref{eq:cp})                 \\
-%    $\bar{c}$       & Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin    & Eq.~(\ref{eq:cp})                 \\
-%    $D$             & Piston diameter, \meter,                                          & Eq.~(\ref{eq:S})                  \\
-%    $\bar{h}$       & Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,          & Eq.~(\ref{eq:H.comp})             \\
-%    $H$             & Enthalpy, \kilo\joule,                                            & Eq.~(\ref{eq:H.comp})             \\
-%    $k$             & Mixture component index, ---,                                     & Sec.~\ref{sec:model.reactm}       \\
-%    $L$             & Connecting rod length, \meter,                                    & Eq.~(\ref{eq:x})                  \\
-%    $m$             & Mass, \kilogram,                                                  & Eq.~(\ref{eq:mf})                 \\
-%    $\mathbb{M}$    & Mixture, ---,                                                     & Eq.~(\ref{eq:?})                  \\
-%    $\mathrm{mf}$   & Mass fraction, ---,                                               & Eq.~(\ref{eq:mf})                 \\
-%    $n$             & Chemical amount, \kilo\mole,                                      & Eq.~(\ref{eq:nm})                 \\
-%    $n$             & Fuel composition parameter, \kilo\mole,                           & Eq.~(\ref{eq:epsilon})            \\
-%    $N$             & Engine's rotation, RPM,                                           & Sec.~\ref{sec:model.engine}       \\
-%    $p$             & Mixture component count, ---,                                     & Sec.~\ref{sec:model.reactm}       \\
-%    $P$             & Thermodynamic pressure, \kilo\pascal,                             & Eq.~(\ref{eq:?})                  \\
-%    $r$             & Ratio (engine compression), ---,                                  & Eq.~(\ref{eq:r})                  \\
-%    $R$             & Crank radius, \meter,                                             & Eq.~(\ref{eq:S})                  \\
-%    $\bar{R}$       & The universal gas constant, \kilo\joule\per\kilo\mole\usk\kelvin  & Sec.~\ref{sec:model.reactm}       \\
-%    $S$             & Piston stroke, \meter,                                            & Eq.~(\ref{eq:S})                  \\
-%    $t$             & Time, \second,                                                    & Sec.~\ref{sec:model.engine}       \\
-%    $T$             & Thermodynamic temperature, \kelvin,                               & Eq.~(\ref{eq:cp})                 \\
-%    $\bar{u}$       & Molar-base specific internal energy,
-%                      \kilo\joule\per\kilo\mole,                                        & Eq.~(\ref{eq:U.comp})             \\
-%    $U$             & Internal energy, \kilo\joule,                                     & Eq.~(\ref{eq:U.comp})             \\
-%    $v$             & Mass-base specific volume, \meter\cubed\per\kilogram,             & Eq.~(\ref{eq:?})                  \\
-%    $V$             & Volume, \meter\cubed,                                             & Eqs.~(\ref{eq:S}), (\ref{eq:V})   \\
-%    $w$             & Uncertainty of, (variable),                                       & Eq.~(\ref{eq:cp})                 \\
-%    $\mathrm{y}$    & Molar fraction, ---,                                              & Eq.~(\ref{eq:y})                  \\
-%    $z$             & Engine's cylinder count, ---,                                     & Sec.~\ref{sec:model.engine}       \\
 %\end{supertabular}
 %
 %\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
