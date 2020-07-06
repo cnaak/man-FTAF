@@ -1,6 +1,6 @@
-%------------------------------------------------------------------------------------------------------------------------------%
-%                                                           Packages                                                           %
-%------------------------------------------------------------------------------------------------------------------------------%
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%                                                                                           Packages                                                                                           %
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \usepackage{booktabs}
 \usepackage[english]{babel}
 \usepackage[squaren,cdot]{SIunits}
@@ -15,11 +15,11 @@
 \usepackage{listings}                   % Code/Snippets listings
 \usepackage{color}                      % Colors and color name
 \usepackage{xspace}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \usepackage[hyperindex,breaklinks]{hyperref} % Required for hyperlinks
-%------------------------------------------------------------------------------------------------------------------------------%
-%                                                           Commands                                                           %
-%------------------------------------------------------------------------------------------------------------------------------%
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%                                                                                           Commands                                                                                           %
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \hypersetup{%
     hidelinks,
     colorlinks,
@@ -31,35 +31,34 @@
     pdftitle={Title},
     pdfauthor={Author}
 }
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \setlength{\abovecaptionskip}{4pt}
 \setlength{\columnsep}{5.5mm}
 \setlength{\columnseprule}{0.2pt}
 \setlength{\fboxrule}{0.4pt} % Width of the border around the abstract
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
 \definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
 \definecolor{color3}{RGB}{0,0,192} % Color of the article title and sections
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newtheorem{cnj}{Conjecture}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\XXX}[1]{\relax}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \lstdefinelanguage[thisDocOnly]{julia}{
     morekeywords={%
-        using,import,include,begin,end,immutable,mutable,struct,type,function,if,else,elseif,while,return,new,with,do},
+        using, import, include, begin, end, immutable, mutable, struct, type, function, if, else, elseif, while, return, new, with, do}, 
     sensitive=true,
     morecomment=[l]{\#},
     morestring=[b]",
     morestring=[b]',
     morecomment=[s]{"""}{"""},
     morekeywords=[2]{%
-        Any,Number,Bool,Complex,Real,Irrational,Rational,Integer,AbstractFloat,AbstractInterval,Interval,Signed,Unsigned,%
-        Int8,Int16,Int32,Int64,Int128,BigInt,UInt8,UInt16,UInt32,UInt64,UInt128,Float16,Float32,Float64,Float128,BigFloat,%
-        Array,Tuple,NTuple,NamedTuple,Dict,AbstractString,Char,String,Symbol,Type,Union,UnionAll,cpFC,bProp,IGMix,AtMix,%
-        RMix,::}
+        Any, Number, Bool, Complex, Real, Irrational, Rational, Integer, AbstractFloat, AbstractInterval, Interval, Signed, Unsigned, Int8, Int16, Int32, Int64, Int128, BigInt, UInt8,  UInt16,
+        UInt32, UInt64, UInt128, Float16, Float32, Float64, Float128, BigFloat, Array, Tuple, NTuple, NamedTuple, Dict, AbstractString, Char,  String,  Symbol,  Type,  Union,  UnionAll,  cpFC,
+        bProp, IGMix, AtMix, RMix, ::}
 }
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \definecolor{mygrey}{rgb}{0.40, 0.40, 0.40}
 \lstset{%
     language=[thisDocOnly]julia,
@@ -79,16 +78,16 @@
     breaklines=false,
     breakatwhitespace=false,
 }
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\code}[1]{{\small\texttt{{#1}}}}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\eqdef}{\stackrel{\text{{\tiny def}}}{=}} % Equal by definition
 \newcommand{\eqmod}{\stackrel{\text{{\tiny mod}}}{=}} % Equal by modeling
 \newcommand{\eqconj}{\stackrel{\text{{\tiny conj}}}{=}} % Equal by conjecture
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\bdc}{{\mbox{\scriptsize BDC}}}
 \newcommand{\tdc}{{\mbox{\scriptsize TDC}}}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\NF}{\ensuremath{n_{\mbox{\scriptsize f}}}}
 \newcommand{\NA}{\ensuremath{n_{\mbox{\scriptsize air}}}}
 \newcommand{\NC}{\ensuremath{n_{\mbox{\scriptsize \ce{C}}}}}
@@ -101,21 +100,21 @@
 \newcommand{\NNN}{\ensuremath{n_{\mbox{\scriptsize \ce{N2}}}}}
 \newcommand{\NCOO}{\ensuremath{n_{\mbox{\scriptsize \ce{CO2}}}}}
 \newcommand{\NHHO}{\ensuremath{n_{\mbox{\scriptsize \ce{H2O}}}}}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\MXAIR}{\mathbb{M}_{\mbox{\scriptsize\tt a}}}
 \newcommand{\MXFUE}{\mathbb{M}_{\mbox{\scriptsize\tt f}}}
 \newcommand{\MXAFU}{\mathbb{M}_{\mbox{\scriptsize\tt af}}}
 \newcommand{\MXPRO}{\mathbb{M}_{\mbox{\scriptsize\tt pr}}}
 \newcommand{\MXREA}{\mathbb{M}_{\mbox{\scriptsize\tt re}}}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \newcommand{\ID}{\includegraphics[height=2.0ex]{orcid/orcid-logo-icon.pdf}}
-%------------------------------------------------------------------------------------------------------------------------------%
-%                                                           Metadata                                                           %
-%------------------------------------------------------------------------------------------------------------------------------%
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%                                                                                           Metadata                                                                                           %
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
 \makeatletter
 \immediate\write18{datelog > \jobname.info}
 \makeatother
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 % Journal information
 \JournalInfo{engrXiv}
 \Archive{Compiled on \input{\jobname.info} -- Version \input{PreprintVersion.tex}}
@@ -126,47 +125,25 @@
     R.~K.~de~O.~e~Silva\ID\textsuperscript{2}
 }
 \affiliation{%
-    \textsuperscript{1}%
-    \textit{%
-        Adjunct Professor.
-        Universidade Tecnológica Federal do Paraná (UTFPR) Câmpus Guarapuava.
-        Grupo de Pesquisa em Ciências Térmicas.}\\
+    \textsuperscript{1}\textit{Adjunct Professor. Universidade Tecnológica Federal do Paraná (UTFPR) Câmpus Guarapuava. Grupo de Pesquisa em Ciências Térmicas.}\\
     {\scriptsize\url{https://orcid.org/0000-0001-9030-163X}.}
 }
 \affiliation{%
-    \textsuperscript{2}%
-    \textit{%
-        Graduate Student.
-        Universidade Tecnológica Federal do Paraná (UTFPR) Câmpus Curitiba.
-        Progr.~Pós-Grad.~Eng.~Mecânica e de Materiais.}\\
+    \textsuperscript{2}\textit{Graduate Student. Universidade Tecnológica Federal do Paraná (UTFPR) Câmpus Curitiba. Progr.~Pós-Grad.~Eng.~Mecânica e de Materiais.}\\
     {\scriptsize\url{https://orcid.org/0000-0002-5814-0597}.}
 }
-\affiliation{%
-    \textsuperscript{$\star$}%
-    \textbf{Corresponding  author}: NaaktgeborenC$\cdot$PhD\textcircled{a}gmail$\cdot$com
-}
-\Keywords{%
-    Thermodynamics ---
-    Finite-Time ---
-    Air-Fuel Otto cycle.
-}
+\affiliation{\textsuperscript{$\star$}\textbf{Corresponding  author}: NaaktgeborenC$\cdot$PhD\textcircled{a}gmail$\cdot$com}
+\Keywords{Thermodynamics --- Finite-Time --- Air-Fuel Otto cycle.}
 \newcommand{\keywordname}{Keywords}
-\Highlights{%
-    Extends the Finite-Time Heat Addition (FTHA) Otto engine model ---
-    Provides Julia codes.
-    % Highlights go here ---
-}
+\Highlights{Extends the Finite-Time Heat Addition (FTHA) Otto engine model --- Provides Julia codes.}
 \newcommand{\highlightname}{Highlights}
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \Abstract{%
-    This work presents an air-fuel model for spark-ignited, reciprocating, internal combustion  engine  cycle,  suitable  to  be
-    taught in an advanced undergraduate mechanical engineering (ME) course, that accounts for finite combustion  reaction  time;
-    hence, a finite-time air-fuel Otto engine model. The model herein presented  takes  in  many  real  engine  parameters,  and
-    expands upon a  recently  published  air-standard  finite-time  heat  addition  model---which  employs  only  pure-substance
-    undergraduate ME thermodynamics---by exchanging the external heat addition, peculiar of air-standard models, by  a  pair  of
-    chemical reactions of combustion and equilibrium and a reactive gas mixture model. The model is suitable  for  undergraduate
-    ME students, as it was developed in the context of a final ME course project, and successfully applied multiple times to  an
-    advanced ME discilpine thereafter. The model allows for air/fuel/engine parameter sensibility  studies  to  be  carried  out
-    through simulation, and allow students to write their own code and to run their own simulations.
+    This work presents an air-fuel model for spark-ignited, reciprocating, internal combustion engine cycle, suitable to be taught in an  advanced  undergraduate  mechanical  engineering  (ME)
+    course, that accounts for finite combustion reaction time; hence, a finite-time air-fuel Otto engine model. The model herein presented takes in many real  engine  parameters,  and  expands
+    upon a recently published air-standard finite-time heat addition model---which employs only pure-substance undergraduate ME  thermodynamics---by  exchanging  the  external  heat  addition,
+    peculiar of air-standard models, by a pair of chemical reactions of combustion and equilibrium and a reactive gas mixture model. The model is suitable for undergraduate ME students, as  it
+    was developed in the context of a final ME course project, and successfully applied multiple times to an advanced ME discilpine thereafter. The model allows for  air/fuel/engine  parameter
+    sensibility studies to be carried out through simulation, and allow students to write their own code and to run their own simulations.
 }
-%-------------------------------------------------------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
