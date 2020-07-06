@@ -18,8 +18,8 @@ set shiftround    " round indent to multiple of 'shiftwidth'
 set autoindent    " align the new line indent with the previous line
 
 " textwidth and colorcolumn
-set textwidth=128
-set colorcolumn=129 " https://superuser.com/a/249856
+set textwidth=192
+set colorcolumn=193 " https://superuser.com/a/249856
 
 " Pathogen
 execute pathogen#infect()
