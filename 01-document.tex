@@ -52,14 +52,20 @@
 \addtolength{\lenWHAT}{-\lensymb}
 % Nomenclature commands
 \newcommand{\tcs}[1]{\parbox[t]{\lensybb}{\ensuremath {#1}}}    % tabbing column for symbol
-\newcommand{\tcw}[1]{\parbox[t]{\lenwhab}{{#1}}}                % tabbing column for what (explanation)
-\newcommand{\tcd}[1]{\parbox[t]{\lendefn}{\raggedright {#1}}}   % tabbing column for definition
+\newcommand{\tcw}[1]{\parbox[t]{\lenwhab}{\raggedright{#1}}}    % tabbing column for what (explanation)
+\newcommand{\tcd}[1]{\parbox[t]{\lendefn}{\raggedleft {#1}}}    % tabbing column for definition
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
 {\em Latin symbols:} \\
     \tcs{a}         \> \tcw{Coefficients, (variable),}                                  \> \tcd{Eq.~(\ref{eq:cp})}          \\
     \tcs{\bar{h}}   \> \tcw{Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,}   \> \tcd{Eq.~(\ref{eq:H.comp})}      \\
+\end{tabbing}
+
+\begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenwhat}\=\hspace*{\lendefn}\kill
+{\em Greek symbols:} \\
+    \tcs{\alpha}    \> \tcw{Crank angular position, \rad,}                              \> \tcd{Eq.~(\ref{eq:x})}           \\
     \tcs{\psi}      \> \tcw{Inert-to-oxidant gas molar ratio for the air model, ---,}   \> \tcd{Sec.~\ref{sec:model.cchemm}}\\
+    \tcs{\omega}    \> \tcw{Crank angular velocity, \rad\per\second,}                   \> \tcd{Sec.~\ref{sec:model.engine}}\\
 \end{tabbing}
 
 %\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
@@ -97,9 +103,6 @@
 %
 %\par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenwhat}@{\hspace{\lencsep}}p{\lendefn}}
 %    \multicolumn{3}{@{}l}{\em Greek symbols:} \\
-%    $\alpha$        & Crank angular position, \rad,                                 & Eq.~(\ref{eq:x})                      \\
-%    $\psi$          & Inert-to-oxidant gas molar ratio for the air model, ---,      & Sec.~\ref{sec:model.cchemm}           \\
-%    $\omega$        & Crank angular velocity, \rad\per\second,                      & Sec.~\ref{sec:model.engine}           \\
 %\end{supertabular}
 
 \par\noindent\begin{supertabular}{@{}p{\lensymb}@{}p{\lenWHAT}}
