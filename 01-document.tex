@@ -516,34 +516,44 @@
     %
     \noindent so that the following mixtures can be defined:%
     %
-    \begin{align}
+    \begin{equation}
         \label{eq:MXAIR}
-        \MXAIR  &=  \NA\left(
+        \MXAIR  =   \NA\left(
                         \frac{1}{1+\psi}\mbox{\ce{O2}} +
                         \frac{\psi}{1+\psi}\mbox{\ce{N2}}
-                    \right)
-                \\[\medskipamount]
+                    \right),
+    \end{equation}
+    %
+    \begin{equation}
         \label{eq:MXFUE}
-        \MXFUE  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}}
-                \\[\medskipamount]
+        \MXFUE  =   \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}},
+    \end{equation}
+    %
+    \begin{align}
         \label{eq:MXAFU}
         \MXAFU  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} \nonumber\\
                 &\,+\NA\left(
                         \frac{1}{1+\psi}\mbox{\ce{O2}} +
                         \frac{\psi}{1+\psi}\mbox{\ce{N2}}
-                    \right)
-                \\[\medskipamount]
+                    \right),
+    \end{align}
+    %
+    \begin{align}
         \label{eq:MXPRO}
         \MXPRO  &=  \NCOO\mbox{\ce{CO2}} +
                     \NHHO\mbox{\ce{H2O}} +
                     \NCO\mbox{\ce{CO}} \nonumber\\
                 &\,+\NHH\mbox{\ce{H2}} +
                     \NOO\mbox{\ce{O2}} +
-                    \NNN\mbox{\ce{N2}}
-                \\[\medskipamount]
-        \label{eq:MXREA}
-        \MXREA  &=  (1 - \zeta)\,\MXAFU + (\zeta)\,\MXPRO,
+                    \NNN\mbox{\ce{N2}},
     \end{align}
+    %
+    \noindent and%
+    %
+    \begin{equation}
+        \label{eq:MXREA}
+        \MXREA  =   (1 - \zeta)\,\MXAFU + (\zeta)\,\MXPRO,
+    \end{equation}
     %
     \noindent with molar coefficients given by Table~\ref{tab:molBal}.
 
