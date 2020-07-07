@@ -87,7 +87,7 @@
     \tcs{T}                 \> \tcw{Thermodynamic temperature, \kelvin,}                                                                \> \tcd{Eq.~(\ref{eq:cp})}                          \\
     \tcs{\bar{u}}           \> \tcw{Molar-base specific internal energy, \kilo\joule\per\kilo\mole,}                                    \> \tcd{Eq.~(\ref{eq:U.comp})}                      \\
     \tcs{U}                 \> \tcw{Internal energy, \kilo\joule,}                                                                      \> \tcd{Eq.~(\ref{eq:U.comp})}                      \\
-    \tcs{v}                 \> \tcw{Mass-base specific volume, \meter\cubed\per\kilogram,}                                              \> \tcd{Eq.~(\ref{eq:?})}                           \\
+    \tcs{v}                 \> \tcw{Mass-base specific volume, \meter\cubed\per\kilogram,}                                              \> \tcd{Eq.~(\ref{eq:v})}                           \\
     \tcs{V}                 \> \tcw{Volume, \meter\cubed,}                                                                              \> \tcd{Eqs.~(\ref{eq:S}), (\ref{eq:V})}            \\
     \tcs{w}                 \> \tcw{Uncertainty of, (variable),}                                                                        \> \tcd{Eq.~(\ref{eq:cp})}                          \\
     \tcs{W}                 \> \tcw{Work interaction to system, \kilo\joule,}                                                           \> \tcd{Eqs.~(\ref{eq:EnBal.1})--(\ref{eq:EnBal.3})}\\
@@ -622,6 +622,24 @@
 
     It is worth noting that $-\bar{R}T_0(\mathrm{n}_{m,i} - \mathrm{n}_{m,i+1})$ does not vanish in general because quantity of  matter,  contrary  to  mass,  is  \emph{not}  conserved  during
     chemical reactions.
+
+    The energy balance can be re-written from Eq.~(\ref{eq:EnBal.3}) as to read%
+    %
+    \begin{equation}
+        U_{0,m,i+1} = U_{0,m,i} + Q_i + \Delta{U_{reac,i}} - W_i,
+        \label{eq:evol}
+    \end{equation}
+    %
+    \noindent meaning that if its right-hand-side is known---$Q_i$ can be made zero by hypothesis, for simplicity, recalling that the model is  not  an  air-standard  one,  and  $Q_i$  is  not
+    directly related to the combustion reaction---then Eq.~(\ref{eq:evol}) can be used to \emph{evolve} the system to the next, $i+1$, state, as the model implementation, shown below, provides
+    a convenient function to invert $U_{0,m,i+1}$ thus providing the value of  $T_{i+1}$,  together  with  fact  that  the  system  volume  and  mass,  $V_{i+1}$  and  $m_m$,  are  known  from
+    Eqs.~(\ref{eq:Va}) and~(\ref{eq:mfy}), with an additional state function (system intensive property) given by%
+    %
+    \begin{equation}
+        \label{eq:v}
+        v_{m,i} = \frac{V_i}{m_m}.
+    \end{equation}
+    %
 
 
 
