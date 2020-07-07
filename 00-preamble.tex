@@ -61,13 +61,22 @@
 }
 %-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 \definecolor{mygrey}{rgb}{0.40, 0.40, 0.40}
+\definecolor{myBRed}{rgb}{1.00, 0.00, 0.00}
+\definecolor{myBGre}{rgb}{0.00, 1.00, 0.00}
+\definecolor{myBBlu}{rgb}{0.00, 0.00, 1.00}
+\definecolor{myMRed}{rgb}{0.70, 0.00, 0.00}
+\definecolor{myMGre}{rgb}{0.00, 0.70, 0.00}
+\definecolor{myMBlu}{rgb}{0.00, 0.00, 0.70}
+\definecolor{myDRed}{rgb}{0.50, 0.00, 0.00}
+\definecolor{myDGre}{rgb}{0.00, 0.50, 0.00}
+\definecolor{myDBlu}{rgb}{0.00, 0.00, 0.50}
 \lstset{%
     language=[thisDocOnly]julia,
     basicstyle={\tt\scriptsize},
     keywordstyle={\textbf},
-    keywordstyle=[2]{\color{blue}\textbf},
-    stringstyle={\color{orange}},
-    commentstyle={\color{green}},
+    keywordstyle=[2]{\color{myMBlu}\textbf},
+    stringstyle={\color{myMRed}},
+    commentstyle={\color{myDGre}},
     mathescape,
     frame=tb,
     numbers=left,
