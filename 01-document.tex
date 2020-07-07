@@ -741,14 +741,16 @@
         \begin{lstlisting}
 struct cpFC # cp Function Coefficients
    prec::AbstractFloat
-   coef::NamedTuple{(:a0,:ap1,:ap2,:ap3,:ap4,:an1,:an2,:an3,:an4),NTuple{9,Real}}
+   coef::NamedTuple{(:ap0,:ap1,:ap2,:ap3,:ap4,:an1,:an2,:an3,:an4),NTuple{9,Real}}
 end
         \end{lstlisting}
         \caption{Listing for the \code{cpFC} definition code snippet, for storing $\bar{c}_p\,:\,\bar{c}_p(T)$ model coefficients}
     \end{figure*}
 
     Passing an instance of a \code{cpFC} data type to a suitably written function, allows it to evaluate the $\bar{c}_p(T)$ function of Eq.~(\ref{eq:cp}) with or without uncertainty, i.e.,  as
-    a plain value or as a value interval, for instance, by using the \code{IntervalArithmetic.jl} Julia package.
+    a plain value or as a value interval, for instance, by using the \code{In\-ter\-val\-Arith\-me\-tic.jl} Julia package~\cite{2020-BenetL+SandersDP-IntervalArithmetic.jl} of validated
+    numerics~\cite{2011-TuckerW-Princeton-Validated, }, which conforms  to
+    the IEEE Std 1788-2015~\cite{2015-RevolN+ThompsonT-IEEE-IA}.
 
     A fluid library, \code{FL}, can be built by storing in a container values of the proposed type \code{bProp}, basic properties, exemplified below.
 
