@@ -716,4 +716,23 @@
     next section illustrates one possible, however very helpful, simple thermodynamic library implementation to be handed to students.
 
 
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%                                                                                     Model Implementation                                                                                     %
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+
+\section{Model Implementation}
+
+    For the  purpose  of  this  paper,  selected  library  and  user  (simulation)  code  snippets  are  presented  using  the  Julia  programming  language~\cite{2012-BezansonJ+EdelmanA-CoRR,
+    2017-BezansonJ+ShahVB-SIAMRev}---a high-level, well-designed, scientific, fast, and open-source language, that seems to be well suited for  engineering  education  and  research.  Not  all
+    implementation pieces of the model are provided here, as to encourage student effort and engagement.
+
+    %-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    \subsection{Reactive mixture model}
+
+    Parts of the model, like the reactive mixture, Eqs.~(\ref{eq:mf})--(\ref{eq:U0.mix}), can be viewed as an independent thermodynamic \emph{library}; as such, its implementation  can  either
+    be given to or requested from the students as a separate simulation resource.
+
+    A $\bar{c}_p$ function coefficients, \code{cpFC}, type structure definition that holds the $w_{cp}$ parameter and the $a_i$ coefficients of Eq.~(\ref{eq:cp}) in  fields  named  \code{prec}
+    and \code{coef}, respectively, is exemplified below. The $a_i$ coefficients inside \code{coef} are renamed as to ease code inspections.
+
 
