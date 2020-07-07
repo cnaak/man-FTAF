@@ -1,5 +1,98 @@
 % Encoding: UTF-8
 
+@Standard{2015-RevolN+ThompsonT-IEEE-IA,
+  title        = {{IEEE} standard for interval arithmetic},
+  organization = {IEEE SA},
+  institution  = {IEEE},
+  author       = {Revol {(Chair)}, Nathalie and Thompson {(Manager)}, Tom},
+  language     = {English},
+  howpublished = {Online},
+  number       = {1788-2015},
+  address      = {Piscataway, NJ 08854-4141 USA},
+  month        = jun,
+  year         = {2015},
+  note         = {Accessed on Tue 07 Jul 2020},
+  url          = {https://standards.ieee.org/standard/1788-2015.html},
+  abstract     = {This standard specifies basic interval arithmetic (IA) operations selecting and following one of the commonly used mathematical interval models. This standard supports the IEEE 754 floating point formats of practical use in interval computations. Exception conditions are defined, and standard handling of these conditions is specified. Consistency with the interval model is tempered with practical considerations based on input from representatives of vendors, developers and maintainers of existing systems. The standard provides a layer between the hardware and the programming language levels. It does not mandate that any operations be implemented in hardware. It does not define any realization of the basic operations as functions in a programming language.},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Article{2012-BezansonJ+EdelmanA-CoRR,
+  author   = {Bezanson, Jeff and Karpinski, Stefan and Shah, Viral B. and Edelman, Alan},
+  title    = {Julia: {A} fast dynamic language for technical computing},
+  journal  = {Computing Research Repository},
+  year     = {2012},
+  abstract = {Dynamic languages have become popular for scientific computing. They are generally considered highly productive, but lacking in performance. This paper presents Julia, a new dynamic language for technical computing, designed for performance from the beginning by adapting and extending modern programming language techniques. A design based on generic functions and a rich type system simultaneously enables an expressive programming model and successful type inference, leading to good performance for a wide range of programs. This makes it possible for much of the Julia library to be written in Julia itself, while also incorporating best-of-breed C and Fortran libraries.},
+  doi      = {arXiv:1209.5145},
+  file     = {:2012-BezansonJ+EdelmanA-CoRR.pdf:PDF},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Article{2017-BezansonJ+ShahVB-SIAMRev,
+  author   = {Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.},
+  title    = {Julia: a fresh approach to numerical computing.},
+  journal  = {SIAM Review},
+  year     = {2017},
+  volume   = {59},
+  number   = {1},
+  pages    = {65--98},
+  issn     = {00361445},
+  abstract = {Bridging cultures that have often been distant, Julia combines expertise from the diverse fields of computer science and computational science to create a new approach to numerical computing. Julia is designed to be easy and fast and questions notions generally held to be "laws of nature" by practitioners of numerical computing: 1. High-level dynamic programs have to be slow. 2. One must prototype in one language and then rewrite in another language for speed or deployment. 3. There are parts of a system appropriate for the programmer, and other parts that are best left untouched as they have been built by the experts. We introduce the Julia programming language and its design---a dance between specialization and abstraction. Specialization allows for custom treatment. Multiple dispatch, a technique from computer science, picks the right algorithm for the right circumstance. Abstraction, which is what good computation is really about, recognizes what remains the same after differences are stripped away. Abstractions in mathematics are captured as code through another technique from computer science, generic programming. Julia shows that one can achieve machine performance without sacrificing human convenience.},
+  keywords = {Scientific Computing, Numerical Solutions to Functional Equations, Applied Mathematics, Julia, Numerical, Parallel, Scientific Computing},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Misc{2020-BenetL+SandersDP-IntervalArithmetic.jl,
+  author       = {Benet, Luis and Sanders, David P.},
+  title        = {{IntervalArithmetic.jl} -- {R}igorous floating-point calculations using interval arithmetic in {J}ulia},
+  howpublished = {Online},
+  year         = {2020},
+  note         = {Contributors: Heimlich, Oliver and Kryukov, Nikolay and Verzani, John and others. Retrieved on Tue 07 Jul 2020.},
+  journal      = {GitHub repository},
+  organization = {{JuliaIntervals}},
+  publisher    = {GitHub},
+  url          = {https://github.com/JuliaIntervals/IntervalArithmetic.jl},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Book{2009-MooreR-SIAM-Introduction,
+  title     = {Introduction to interval analysis},
+  publisher = {Society for Industrial and Applied Mathematics},
+  year      = {2009},
+  author    = {Moore, Ramon},
+  address   = {Philadelphia, PA},
+  isbn      = {9780898716696},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Book{2011-TuckerW-Princeton-Validated,
+  title     = {Validated numerics: {A} short introduction to rigorous computations},
+  publisher = {Princeton University Press},
+  year      = {2011},
+  author    = {Tucker, Warwick},
+  address   = {Princeton},
+  isbn      = {9781400838974},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
 @Book{1985-WylenG-Wiley,
   title     = {Fundamentals of classical thermodynamics},
   publisher = {Wiley},
@@ -213,84 +306,4 @@
  year={2020. engrxiv.org/ca6d4},
  month={May}
 }
-
-% Encoding: UTF-8
-
-@Article{2012-BezansonJ+EdelmanA-CoRR,
-  author   = {Bezanson, Jeff and Karpinski, Stefan and Shah, Viral B. and Edelman, Alan},
-  title    = {Julia: {A} fast dynamic language for technical computing},
-  journal  = {Computing Research Repository},
-  year     = {2012},
-  abstract = {Dynamic languages have become popular for scientific computing. They are generally considered highly productive, but lacking in performance. This paper presents Julia, a new dynamic language for technical computing, designed for performance from the beginning by adapting and extending modern programming language techniques. A design based on generic functions and a rich type system simultaneously enables an expressive programming model and successful type inference, leading to good performance for a wide range of programs. This makes it possible for much of the Julia library to be written in Julia itself, while also incorporating best-of-breed C and Fortran libraries.},
-  doi      = {arXiv:1209.5145},
-  file     = {:2012-BezansonJ+EdelmanA-CoRR.pdf:PDF},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@Article{2017-BezansonJ+ShahVB-SIAMRev,
-  author   = {Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.},
-  title    = {Julia: a fresh approach to numerical computing.},
-  journal  = {SIAM Review},
-  year     = {2017},
-  volume   = {59},
-  number   = {1},
-  pages    = {65--98},
-  issn     = {00361445},
-  abstract = {Bridging cultures that have often been distant, Julia combines expertise from the diverse fields of computer science and computational science to create a new approach to numerical computing. Julia is designed to be easy and fast and questions notions generally held to be "laws of nature" by practitioners of numerical computing: 1. High-level dynamic programs have to be slow. 2. One must prototype in one language and then rewrite in another language for speed or deployment. 3. There are parts of a system appropriate for the programmer, and other parts that are best left untouched as they have been built by the experts. We introduce the Julia programming language and its design---a dance between specialization and abstraction. Specialization allows for custom treatment. Multiple dispatch, a technique from computer science, picks the right algorithm for the right circumstance. Abstraction, which is what good computation is really about, recognizes what remains the same after differences are stripped away. Abstractions in mathematics are captured as code through another technique from computer science, generic programming. Julia shows that one can achieve machine performance without sacrificing human convenience.},
-  keywords = {Scientific Computing, Numerical Solutions to Functional Equations, Applied Mathematics, Julia, Numerical, Parallel, Scientific Computing},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@Misc{2020-BenetL+SandersDP-IntervalArithmetic.jl,
-  author       = {Benet, Luis and Sanders, David P.},
-  title        = {{IntervalArithmetic.jl} -- {R}igorous floating-point calculations using interval arithmetic in {J}ulia},
-  howpublished = {Online},
-  year         = {2020},
-  note         = {Contributors: Heimlich, Oliver and Kryukov, Nikolay and Verzani, John and others. Retrieved on Tue 07 Jul 2020.},
-  journal      = {GitHub repository},
-  organization = {{JuliaIntervals}},
-  publisher    = {GitHub},
-  url          = {https://github.com/JuliaIntervals/IntervalArithmetic.jl},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@Standard{2015-RevolN+ThompsonT-IEEE-IA,
-  title        = {{IEEE} standard for interval arithmetic},
-  organization = {IEEE SA},
-  institution  = {IEEE},
-  author       = {Revol, Nathalie {(Chair)} and Thompson, Tom {(Manager)}},
-  language     = {English},
-  howpublished = {Online},
-  number       = {1788-2015},
-  address      = {Piscataway, NJ 08854-4141 USA},
-  month        = jun,
-  year         = {2015},
-  note         = {Accessed on Tue 07 Jul 2020},
-  url          = {https://standards.ieee.org/standard/1788-2015.html},
-  abstract     = {This standard specifies basic interval arithmetic (IA) operations selecting and following one of the commonly used mathematical interval models. This standard supports the IEEE 754 floating point formats of practical use in interval computations. Exception conditions are defined, and standard handling of these conditions is specified. Consistency with the interval model is tempered with practical considerations based on input from representatives of vendors, developers and maintainers of existing systems. The standard provides a layer between the hardware and the programming language levels. It does not mandate that any operations be implemented in hardware. It does not define any realization of the basic operations as functions in a programming language.},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@Book{2011-TuckerW-Princeton-Validated,
-  title     = {Validated numerics: {A} short introduction to rigorous computations},
-  publisher = {Princeton University Press},
-  year      = {2011},
-  author    = {Tucker, Warwick},
-  address   = {Princeton},
-  isbn      = {9781400838974},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
 
