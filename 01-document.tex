@@ -78,6 +78,7 @@
     \tcs{N}                 \> \tcw{Engine's rotation, RPM,}                                                                            \> \tcd{Sec.~\ref{sec:model.engine}}                \\
     \tcs{p}                 \> \tcw{Mixture component count, ---,}                                                                      \> \tcd{Sec.~\ref{sec:model.reactm}}                \\
     \tcs{P}                 \> \tcw{Thermodynamic pressure, \kilo\pascal,}                                                              \> \tcd{Eq.~(\ref{eq:uf0})}                         \\
+    \tcs{Q}                 \> \tcw{Heat interaction to system, \kilo\joule,}                                                           \> \tcd{Eq.~(\ref{eq:EnBal})}                       \\
     \tcs{r}                 \> \tcw{Ratio (engine compression), ---,}                                                                   \> \tcd{Eq.~(\ref{eq:r})}                           \\
     \tcs{R}                 \> \tcw{Crank radius, \meter,}                                                                              \> \tcd{Eq.~(\ref{eq:S})}                           \\
     \tcs{\bar{R}}           \> \tcw{The universal gas constant, \kilo\joule\per\kilo\mole\usk\kelvin,}                                  \> \tcd{Sec.~\ref{sec:model.reactm}}                \\
@@ -89,6 +90,7 @@
     \tcs{v}                 \> \tcw{Mass-base specific volume, \meter\cubed\per\kilogram,}                                              \> \tcd{Eq.~(\ref{eq:?})}                           \\
     \tcs{V}                 \> \tcw{Volume, \meter\cubed,}                                                                              \> \tcd{Eqs.~(\ref{eq:S}), (\ref{eq:V})}            \\
     \tcs{w}                 \> \tcw{Uncertainty of, (variable),}                                                                        \> \tcd{Eq.~(\ref{eq:cp})}                          \\
+    \tcs{W}                 \> \tcw{Work interaction to system, \kilo\joule,}                                                           \> \tcd{Eq.~(\ref{eq:EnBal})}                       \\
     \tcs{y}                 \> \tcw{Cumulative heat release fraction, ---,}                                                             \> \tcd{Eq.~(\ref{def:y})}                          \\
     \tcs{\mathrm{y}}        \> \tcw{Molar fraction, ---,}                                                                               \> \tcd{Eq.~(\ref{eq:y})}                           \\
     \tcs{z}                 \> \tcw{Engine's cylinder count, ---,}                                                                      \> \tcd{Sec.~\ref{sec:model.engine}}                \\
@@ -583,5 +585,29 @@
     %
     \noindent  where  the  $(i  -  1)$  term  makes  Eq.~(\ref{eq:alphai})  suitable  for  implementation  on  $1$-based  index  languages,  such  as  Julia~\cite{2012-BezansonJ+EdelmanA-CoRR,
     2017-BezansonJ+ShahVB-SIAMRev}.
+
+    Owing the discretization of Eq.~(\ref{eq:alphai}), the cycle is comprised by a set of locally polytropic sub-processes $i$, having discrete polytropic exponents $n_i$ that take the  system
+    from state-($i$) to state-($i+1$). The $i$-th (sub-)process energy balance, using the historical conventions for the heat, $Q_i$, and work, $W_i$, interactions during the (sub-)process, is
+    then%
+    %
+    \begin{align}
+        Q_i - W_i                                   &= U_{m,i+1} - U_{m,i}      \qquad\rightharpoondown \\
+        Q_i + (U^0_{f,m,i} - U^0_{f,m,i+1}) - W_i   &= U_{0,m,i+1} - U_{0,m,i}  \qquad\rightharpoondown \\
+        Q_i + \Delta{U_{reac,i}} - W_i              &= U_{0,m,i+1} - U_{0,m,i},
+        \label{eq:EnBal}
+    \end{align}
+    %
+    \noindent which clearly shows the distiction between heat transfer interactions (for instance, with the engine  block),  and
+    internal energy generation due to chemical reaction, in which
+    %
+    \begin{align}
+        \Delta{U_{reac,i}}  &\equiv U^0_{f,m,i} - U^0_{f,m,i+1}     \qquad\rightharpoondown \\
+                            &= H^0_{f,m,i} - \mathrm{n}_{m,i}\bar{R}T_0 - H^0_{f,m,i+1} + \mathrm{n}_{m,i+1}\bar{R}T_0.
+        \label{eq:dUreac}
+    \end{align}
+
+    It is worth noting that $-\bar{R}T_0(\mathrm{n}_{m,i} - \mathrm{n}_{m,i+1})$ does not vanish in general because quantity  of
+    matter, contrary to mass, is \emph{not} conserved during chemical reactions.
+
 
 
