@@ -261,3 +261,23 @@
 
 @Comment{jabref-meta: databaseType:bibtex;}
 
+% Encoding: UTF-8
+
+@Standard{2015-RevolN+ThompsonT-IEEE-IA,
+  title        = {{IEEE} standard for interval arithmetic},
+  organization = {IEEE SA},
+  institution  = {IEEE},
+  author       = {Revol, Nathalie {(Chair)} and Thompson, Tom {(Manager)}},
+  language     = {English},
+  howpublished = {Online},
+  number       = {1788-2015},
+  address      = {Piscataway, NJ 08854-4141 USA},
+  month        = jun,
+  year         = {2015},
+  note         = {Accessed on Tue 07 Jul 2020},
+  url          = {https://standards.ieee.org/standard/1788-2015.html},
+  abstract     = {This standard specifies basic interval arithmetic (IA) operations selecting and following one of the commonly used mathematical interval models. This standard supports the IEEE 754 floating point formats of practical use in interval computations. Exception conditions are defined, and standard handling of these conditions is specified. Consistency with the interval model is tempered with practical considerations based on input from representatives of vendors, developers and maintainers of existing systems. The standard provides a layer between the hardware and the programming language levels. It does not mandate that any operations be implemented in hardware. It does not define any realization of the basic operations as functions in a programming language.},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
