@@ -733,7 +733,7 @@
     be given to or requested from the students as a separate simulation resource.
 
     A $\bar{c}_p$ function coefficients, \code{cpFC}, type structure definition that holds the $w_{cp}$ parameter and the $a_i$ coefficients of Eq.~(\ref{eq:cp}) in  fields  named  \code{prec}
-    (of precision) and \code{coef}, respectively, is exemplified below. The $a_i$ coefficients inside \code{coef} are renamed as to ease code inspections.
+    (of precision) and \code{coef}, respectively, is exemplified on Fig.~\ref{fig:code.cpFC}. The $a_i$ coefficients inside \code{coef} are renamed as to ease code inspections.
 
     \begin{figure*}[ht]
         \centering
@@ -741,16 +741,52 @@
         \begin{lstlisting}
 struct cpFC # cp Function Coefficients
    prec::AbstractFloat
-   coef::NamedTuple{(:ap0,:ap1,:ap2,:ap3,:ap4,:an1,:an2,:an3,:an4),NTuple{9,Real}}
+   coef::NamedTuple{(:ap0,:ap1,:ap2,:ap3,:ap4,:an1,:an2,:an3,:an4),NTuple{9,AbstractFloat}}
 end
         \end{lstlisting}
-        \caption{Listing for the \code{cpFC} definition code snippet, for storing $\bar{c}_p\,:\,\bar{c}_p(T)$ model coefficients}
+        \caption{Listing for the \code{cpFC} structure definition code snippet, for storing $\bar{c}_p\,:\,\bar{c}_p(T)$ model coefficients. Data members include the precision \code{prec}  and
+            the \code{coef} coefficients as a \code{NamedTuple}}
     \end{figure*}
 
     Passing an instance of a \code{cpFC} data type to a suitably written function, allows it to evaluate the $\bar{c}_p(T)$ function of Eq.~(\ref{eq:cp}) with or without uncertainty, i.e.,  as
     a plain value or as a value interval, for instance, by  using  the  \code{In\-ter\-val\-Arith\-me\-tic.jl}  Julia  package~\cite{2020-BenetL+SandersDP-IntervalArithmetic.jl}  of  validated
     numerics~\cite{2011-TuckerW-Princeton-Validated, 2009-MooreR-SIAM-Introduction}, which conforms to the IEEE Std 1788-2015~\cite{2015-RevolN+ThompsonT-IEEE-IA}.
 
-    A fluid library, \code{FL}, can be built by storing in a container values of the proposed type \code{bProp}, basic properties, exemplified below.
+    A fluid library, \code{FL}, Fig.~\ref{fig:code.FL}, can be built by storing in a suitable container type \code{bProp},  basic  properties,  Fig.~\ref{fig:code.bProp},  property  regression
+    values, as exemplified.
+
+    \begin{figure*}[ht]
+        \centering
+        \label{fig:code.bProp}
+        \begin{lstlisting}
+struct bProp
+   form::String         # Chemical formula
+   M::AbstractFloat     # Molecular wt, in kg/kmol
+   hf0::AbstractFloat   # Standard form. enthalpy, in kJ/kmol
+   cpc::cpFC            # Molar cp(T) coefficients
+end
+        \end{lstlisting}
+        \caption{Listing for the \code{bProp} basic property container for reactive ideal gas code snippet. Data members include  the  substance's  molecular  ``weight'',  \code{M},  formation
+            enthalpy, \code{hf0}, and the \code{cpFC} structure listed on Fig.~\ref{fig:code.cpFC}}
+    \end{figure*}
+
+    \begin{figure*}[ht]
+        \centering
+        \label{fig:code.FL}
+        \begin{lstlisting}
+FL = Dict(
+    :CO => bProp("CO", 28.011, -110530.0, cpFC(0.0046,     (ap0=+6.29933e+01,
+      ap1=-1.02420e-02, ap2=+1.84013e-06, ap3=+1.09246e-11, ap4=-3.12160e-14,
+      an1=-3.29283e+04, an2=+1.41879e+07, an3=-2.88219e+09, an4=+2.26073e+11))),
+    :CO2 => bProp("CO2", 44.010, -393510.0, cpFC(0.0033,   (ap0=+8.54505e+01,
+      ap1=-6.49453e-03, ap2=+6.09921e-08, ap3=+4.27120e-10, ap4=-7.13243e-14,
+      an1=-3.45881e+04, an2=+1.14977e+07, an3=-2.13732e+09, an4=+1.65231e+11))),
+   # ... remaining entries ...
+)
+        \end{lstlisting}
+        \caption{Listing for the \code{FL} fluid library as a \code{Dict{Symbol,bProp}} instance, in which disctionary keys  are  \code{Symbol}s  and  values  are  of  \code{bProp}  type.  The
+            illustrated coefficients for the \ce{CO} and  \ce{CO2}  were  obtained  by  curve-fitting  into  Eq.~(\ref{eq:cp})  low-pressure  $\bar{c}_p$  values  obtained  with  the  CoolProp
+            thermophysical property library~\cite{2014-BellIH+VincentL-IndEngChemR}.}
+    \end{figure*}
 
 
