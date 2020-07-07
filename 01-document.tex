@@ -70,7 +70,7 @@
     \tcs{K}                 \> \tcw{Reaction equilibrium constant, ---,}                                                                \> \tcd{Eq.~(\ref{eq:K})}                           \\
     \tcs{L}                 \> \tcw{Connecting rod length, \meter,}                                                                     \> \tcd{Eq.~(\ref{eq:x})}                           \\
     \tcs{m}                 \> \tcw{Mass, \kilogram,}                                                                                   \> \tcd{Eq.~(\ref{eq:mf})}                          \\
-    \tcs{\mathbb{M}}        \> \tcw{Mixture, ---,}                                                                                      \> \tcd{Eq.~(\ref{eq:mixtures})}                    \\
+    \tcs{\mathbb{M}}        \> \tcw{Mixture, ---,}                                                                                      \> \tcd{Eq.~(\ref{eq:MXAIR})--(\ref{eq:MXREA})}     \\
     \tcs{\mathrm{mf}}       \> \tcw{Mass fraction, ---,}                                                                                \> \tcd{Eq.~(\ref{eq:mf})}                          \\
     \tcs{n}                 \> \tcw{Chemical amount, \kilo\mole,}                                                                       \> \tcd{Eq.~(\ref{eq:nm})}                          \\
     \tcs{n}                 \> \tcw{Fuel composition parameter, \kilo\mole,}                                                            \> \tcd{Eq.~(\ref{eq:epsilon})}                     \\
@@ -489,26 +489,41 @@
         \label{eq:zeta}
     \end{align}
     %
-    \noindent with $g(v) = (5.25 - 0.5r) e^{(8.5 - r)}$, so that the following mixtures can be defined:%
+    \noindent with%
+    %
+    \begin{equation}
+        g(v) = (5.25 - 0.5r) e^{(8.5 - r)},
+    \end{equation}
+    %
+    \noindent so that the following mixtures can be defined:%
     %
     \begin{align}
+        \label{eq:MXAIR}
         \MXAIR  &=  \NA\left(
                         \frac{1}{1+\psi}\mbox{\ce{O2}} +
                         \frac{\psi}{1+\psi}\mbox{\ce{N2}}
-                    \right) \\
-        \MXFUE  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} \\
-        \MXAFU  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} + \NA\left(
+                    \right)
+                \\[\medskipamount]
+        \label{eq:MXFUE}
+        \MXFUE  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}}
+                \\[\medskipamount]
+        \label{eq:MXAFU}
+        \MXAFU  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} \nonumber\\
+                &+  \NA\left(
                         \frac{1}{1+\psi}\mbox{\ce{O2}} +
                         \frac{\psi}{1+\psi}\mbox{\ce{N2}}
-                    \right) \\
+                    \right)
+                \\[\medskipamount]
+        \label{eq:MXPRO}
         \MXPRO  &=  \NCOO\mbox{\ce{CO2}} +
                     \NHHO\mbox{\ce{H2O}} +
-                    \NCO\mbox{\ce{CO}} +
-                    \NHH\mbox{\ce{H2}} +
+                    \NCO\mbox{\ce{CO}} \nonumber\\
+                &+  \NHH\mbox{\ce{H2}} +
                     \NOO\mbox{\ce{O2}} +
-                    \NNN\mbox{\ce{N2}} \\
+                    \NNN\mbox{\ce{N2}}
+                \\[\medskipamount]
+        \label{eq:MXREA}
         \MXREA  &=  (1 - \zeta)\,\MXAFU + (\zeta)\,\MXPRO,
-        \label{eq:mixtures}
     \end{align}
     %
     \noindent with molar coefficients given by Table~\ref{tab:molBal}.
