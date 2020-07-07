@@ -63,6 +63,7 @@
     \tcs{c}                 \> \tcw{Chemical amount for the \ce{CO}, \kilo\mole,}                                                       \> \tcd{Tab.~\ref{tab:molBal}, Eq.~(\ref{eq:c})}    \\
     \tcs{\bar{c}}           \> \tcw{Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin,}                                    \> \tcd{Eq.~(\ref{eq:cp})}                          \\
     \tcs{D}                 \> \tcw{Piston diameter, \meter,}                                                                           \> \tcd{Eq.~(\ref{eq:S})}                           \\
+    \tcs{g}                 \> \tcw{Cumulative heat release fraction function, ---,}                                                    \> \tcd{Eq.~(\ref{def:y})}                          \\
     \tcs{\mathtt{g}}        \> \tcw{Fitting auxiliary function, ---,}                                                                   \> \tcd{Eqs.~(\ref{eq:zeta}), (\ref{eq:zeta.g})}    \\
     \tcs{\bar{h}}           \> \tcw{Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,}                                           \> \tcd{Eq.~(\ref{eq:H.comp})}                      \\
     \tcs{H}                 \> \tcw{Enthalpy, \kilo\joule,}                                                                             \> \tcd{Eq.~(\ref{eq:H.comp})}                      \\
@@ -98,9 +99,12 @@
     \tcs{\alpha}            \> \tcW{Crank angular position, \rad,}                                                                      \> \tcd{Eq.~(\ref{eq:x})}                           \\
     \tcs{\beta}             \> \tcW{Chemical equilibrium solution term, ---,}                                                           \> \tcd{Eqs.~(\ref{eq:c}), (\ref{eq:beta})}         \\
     \tcs{\gamma}            \> \tcW{Chemical equilibrium solution term, ---,}                                                           \> \tcd{Eqs.~(\ref{eq:c}), (\ref{eq:gamma})}        \\
+    \tcs{\delta}            \> \tcW{Angular duration of combustion, \rad,}                                                              \> \tcd{Eq.~(\ref{def:y})}                          \\
+    \tcs{\Delta}            \> \tcW{Variation operator, ---,}                                                                           \> \tcd{---}                                        \\
     \tcs{\epsilon}          \> \tcW{Amount of fuel per {\kilo\mole} of \ce{O2} that is stoichiometrically oxidized with\-out forming                                                 
                                     Nitrogen oxides, \kilo\mole,}                                                                       \> \tcd{Eq.~(\ref{eq:epsilon})}                     \\
     \tcs{\zeta}             \> \tcW{Gas products residual fraction from one cycle to the next, ---,}                                    \> \tcd{Eq.~(\ref{eq:zeta})}                        \\
+    \tcs{\theta}            \> \tcW{Ignition angle, \rad,}                                                                              \> \tcd{Eq.~(\ref{def:y})}                          \\
     \tcs{\phi}              \> \tcW{Actual-to-stoichiometric ratio of fuel-to-air ratios, or the equivalence ratio, ---,}               \> \tcd{Eq.~(\ref{eq:phi})}                         \\
     \tcs{\psi}              \> \tcW{Inert-to-oxidant gas molar ratio for the air model, ---,}                                           \> \tcd{Eq.~(\ref{eq:phi})}                         \\
     \tcs{\omega}            \> \tcW{Crank angular velocity, \rad\per\second,}                                                           \> \tcd{Sec.~\ref{sec:model.engine}}                \\
@@ -114,6 +118,7 @@
     \tcs{{}_{\mbox{\scriptsize air}}}           \> that of air                                                                                                                              \\
     \tcs{{}_{any}}                              \> of any value                                                                                                                             \\
     \tcs{{}_{\bdc}}                             \> Bottom Dead Center, BDC                                                                                                                  \\
+    \tcs{{}_c}                                  \> combustion                                                                                                                               \\
     \tcs{{}_{\mbox{\scriptsize \ce{C}}}}        \> that of atomic Carbon                                                                                                                    \\
     \tcs{{}_{\mbox{\scriptsize \ce{CO}}}}       \> that of Carbon Monoxide molecule                                                                                                         \\
     \tcs{{}_{\mbox{\scriptsize \ce{CO2}}}}      \> that of Carbon Dioxide molecule                                                                                                          \\
@@ -549,14 +554,11 @@
     angular increments ought to be a rational number involving the numerator $\unit{180}{\degree} = 2 \cdot 2 \cdot 3 \cdot 3 \cdot \unit{5}{\degree}$, or,  conversely,  that  $\Delta\alpha  =
     \unit{180}{\degree} / I$ with $I \in \mathbb{N}^*$, with the simulation starting unphased from the BDC.
 
-    The FTAF concept of cumulative heat release fraction, $y(\alpha)$ is  adapted  into  a  cumulative  fraction  of  combustion
-    reaction completion, $y(\alpha)$, with $0 \leqslant y(\alpha) \leqslant 1$, with $g(\alpha)$ being its  functional  form---a
-    functional        model        parameter        that        can        follow        literature         proposals         of
-    cossenoidal~\cite{2008-CurtoRissoPL+HernandezAC-JApplPhys}, and of Wiebe~\cite{2013-MartinsJJG-Publindustria}  (exponential)
-    forms---so that $g(\theta) = 0$, $g(\theta+\delta) = 1$, with $g(\alpha)$ being monotonic in the  $\theta  \leqslant  \alpha
-    \leqslant \delta + \theta$ interval---$\theta$ is the ignition angle, so that combustion starts whenever $\alpha =  \theta$,
-    and $\delta = \omega\Delta t_c$ is the angular duration of the combustion, and $\Delta t_c$ is  the  time  duration  of  the
-    combustion process---so that
+    The FTAF concept of cumulative heat release fraction, $y(\alpha)$ is adapted into a cumulative fraction  of  combustion  reaction  completion,  $y(\alpha)$,  with  $0  \leqslant  y(\alpha)
+    \leqslant 1$, with $g(\alpha)$ being its functional form---a functional model parameter that can follow literature proposals of  cossenoidal~\cite{2008-CurtoRissoPL+HernandezAC-JApplPhys},
+    and of Wiebe~\cite{2013-MartinsJJG-Publindustria} (exponential) forms---so that $g(\theta) = 0$, $g(\theta+\delta) = 1$, with $g(\alpha)$ being monotonic in the  $\theta  \leqslant  \alpha
+    \leqslant \delta + \theta$ interval---$\theta$ is the ignition angle, so that combustion starts whenever $\alpha = \theta$, and $\delta = \omega\Delta t_c$ is the angular duration  of  the
+    combustion, and $\Delta t_c$ is the time duration of the combustion process---so that%
     %
     \begin{equation}
         y(\alpha) =
@@ -567,5 +569,19 @@
         \end{cases}
         \label{def:y}
     \end{equation}
+
+    The above definition of $y(\alpha)$ exempts the solution procedure to ``visit'' the exact process boundary states $\alpha = \theta$ and $\alpha = \theta  +  \delta$,  because  $y(\alpha  <
+    \theta) = y(\theta) = 0$ and $y(\alpha > \theta + \delta) = y(\theta + \delta) = 1$, and for $\theta \leqslant \alpha \leqslant \theta + \delta$, $y(\alpha) = g(\alpha)$  will  return  the
+    exact cumulative fraction of combustion reaction completion, regardless of previously visited states. Therefore, the discrete $\alpha_i$ values are:%
+    %
+    \begin{align}
+        \label{eq:alphai}
+        \alpha_i        &= -\pi + (i - 1)\Delta\alpha, \mbox{with $i \in \mathbb{N}^*,$ with} \\
+        \label{eq:dAlpha}
+        \Delta\alpha    &= \pi / I \;|\; I \in \mathbb{N}^*,
+    \end{align}
+    %
+    \noindent  where  the  $(i  -  1)$  term  makes  Eq.~(\ref{eq:alphai})  suitable  for  implementation  on  $1$-based  index  languages,  such  as  Julia~\cite{2012-BezansonJ+EdelmanA-CoRR,
+    2017-BezansonJ+ShahVB-SIAMRev}.
 
 
