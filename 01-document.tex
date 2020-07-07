@@ -63,7 +63,7 @@
     \tcs{c}                 \> \tcw{Chemical amount for the \ce{CO}, \kilo\mole,}                                                       \> \tcd{Tab.~\ref{tab:molBal}, Eq.~(\ref{eq:c})}    \\
     \tcs{\bar{c}}           \> \tcw{Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin,}                                    \> \tcd{Eq.~(\ref{eq:cp})}                          \\
     \tcs{D}                 \> \tcw{Piston diameter, \meter,}                                                                           \> \tcd{Eq.~(\ref{eq:S})}                           \\
-    \tcs{g}                 \> \tcw{Fitting auxiliary function, ---,}                                                                   \> \tcd{Eqs.~(\ref{eq:zeta}), (\ref{eq:g})}         \\
+    \tcs{\mathtt{g}}        \> \tcw{Fitting auxiliary function, ---,}                                                                   \> \tcd{Eqs.~(\ref{eq:zeta}), (\ref{eq:zeta.g})}    \\
     \tcs{\bar{h}}           \> \tcw{Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,}                                           \> \tcd{Eq.~(\ref{eq:H.comp})}                      \\
     \tcs{H}                 \> \tcw{Enthalpy, \kilo\joule,}                                                                             \> \tcd{Eq.~(\ref{eq:H.comp})}                      \\
     \tcs{k}                 \> \tcw{Mixture component index, ---,}                                                                      \> \tcd{Sec.~\ref{sec:model.reactm}}                \\
@@ -484,16 +484,16 @@
     %
     \begin{align}
         \zeta(P, r) &= 17.807 + 6.423g(r) \nonumber\\
-                    &\,- [0.029 + 0.013g(r)] P \nonumber\\
-                    &\,+ [1.828 + 0.798g(v)] \times 10^{-5} \times P^2,
+                    &\,- [0.029 + 0.013\mathtt{g}(r)] P \nonumber\\
+                    &\,+ [1.828 + 0.798\mathtt{g}(v)] \times 10^{-5} \times P^2,
         \label{eq:zeta}
     \end{align}
     %
     \noindent with%
     %
     \begin{equation}
-        g(v) = (5.25 - 0.5r) e^{(8.5 - r)},
-        \label{eq:g}
+        \mathtt{g}(v) = (5.25 - 0.5r) e^{(8.5 - r)},
+        \label{eq:zeta.g}
     \end{equation}
     %
     \noindent so that the following mixtures can be defined:%
@@ -543,5 +543,29 @@
     the advantage of capturing the exact zero-heat to heating process boundaries, and to prescribe different discretization refinements among the  processes,  and  even  to  allow  for  manual
     (coarse) calculations to be done, for instance, in evaluation settings. However, coarse calculations have the disadvantage that the TDC state may not be visited, thus introducing errors in
     work calculations that are likely significant. Evidently the disadvantages fade away whenever sufficiently small crankshaft angular increments are employed in computations.
+
+    In the present model, uniform and sufficiently small crankshaft angular increments are employed, provided that both BDC  and
+    TDC states are visited. This means that sub-process crankshaft angular increments ought to  be  an  integer  submultiple  of
+    $\unit{180}{\degree} = 2  \cdot  2  \cdot  3  \cdot  3  \cdot  \unit{5}{\degree}$,  or,  conversely,  that  $\Delta\alpha  =
+    \unit{180}{\degree} / I$ with $I \in \mathbb{N}^*$, with the simulation starting unphased from the BDC.
+
+    The FTAF concept of cumulative heat release fraction, $y(\alpha)$ is  adapted  into  a  cumulative  fraction  of  combustion
+    reaction completion, $y(\alpha)$, with $0 \leqslant y(\alpha) \leqslant 1$, with $g(\alpha)$ being its  functional  form---a
+    functional        model        parameter        that        can        follow        literature         proposals         of
+    cossenoidal~\cite{2008-CurtoRissoPL+HernandezAC-JApplPhys}, and of Wiebe~\cite{2013-MartinsJJG-Publindustria}  (exponential)
+    forms---so that $g(\theta) = 0$, $g(\theta+\delta) = 1$, with $g(\alpha)$ being monotonic in the  $\theta  \leqslant  \alpha
+    \leqslant \delta + \theta$ interval---$\theta$ is the ignition angle, so that combustion starts whenever $\alpha =  \theta$,
+    and $\delta = \omega\Delta t_c$ is the angular duration of the combustion, and $\Delta t_c$ is  the  time  duration  of  the
+    combustion process---so that
+    %
+    \begin{equation}
+        y(\alpha) =
+        \begin{cases}
+            0         & \text{for } \alpha < \theta, \\
+            g(\alpha) & \text{for } \theta \leqslant \alpha \leqslant \theta + \delta, \\
+            1         & \text{for } \alpha > \theta + \delta.
+        \end{cases}
+        \label{def:y}
+    \end{equation}
 
 
