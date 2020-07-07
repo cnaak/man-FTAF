@@ -733,6 +733,23 @@
     be given to or requested from the students as a separate simulation resource.
 
     A $\bar{c}_p$ function coefficients, \code{cpFC}, type structure definition that holds the $w_{cp}$ parameter and the $a_i$ coefficients of Eq.~(\ref{eq:cp}) in  fields  named  \code{prec}
-    and \code{coef}, respectively, is exemplified below. The $a_i$ coefficients inside \code{coef} are renamed as to ease code inspections.
+    (of precision) and \code{coef}, respectively, is exemplified below. The $a_i$ coefficients inside \code{coef} are renamed as to ease code inspections.
+
+    \begin{figure*}[ht]
+        \centering
+        \label{fig:code.cpFC}
+        \begin{lstlisting}
+struct cpFC # cp Function Coefficients
+   prec::AbstractFloat
+   coef::NamedTuple{(:a0,:ap1,:ap2,:ap3,:ap4,:an1,:an2,:an3,:an4),NTuple{9,Real}}
+end
+        \end{lstlisting}
+        \caption{Listing for the \code{cpFC} definition code snippet, for storing $\bar{c}_p\,:\,\bar{c}_p(T)$ model coefficients}
+    \end{figure*}
+
+    Passing an instance of a \code{cpFC} data type to a suitably written function, allows it to evaluate the $\bar{c}_p(T)$ function of Eq.~(\ref{eq:cp}) with or without uncertainty, i.e.,  as
+    a plain value or as a value interval, for instance, by using the \code{IntervalArithmetic.jl} Julia package.
+
+    A fluid library, \code{FL}, can be built by storing in a container values of the proposed type \code{bProp}, basic properties, exemplified below.
 
 
