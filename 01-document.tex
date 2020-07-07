@@ -63,7 +63,7 @@
     \tcs{c}                 \> \tcw{Chemical amount for the \ce{CO}, \kilo\mole,}                                                       \> \tcd{Tab.~\ref{tab:molBal}, Eq.~(\ref{eq:c})}    \\
     \tcs{\bar{c}}           \> \tcw{Molar-base specific heat, \kilo\joule\per\kilo\mole\usk\kelvin,}                                    \> \tcd{Eq.~(\ref{eq:cp})}                          \\
     \tcs{D}                 \> \tcw{Piston diameter, \meter,}                                                                           \> \tcd{Eq.~(\ref{eq:S})}                           \\
-    \tcs{g}                 \> \tcw{Fitting auxiliary function, ---,}                                                                   \> \tcd{Eq.~(\ref{eq:zeta})}                        \\
+    \tcs{g}                 \> \tcw{Fitting auxiliary function, ---,}                                                                   \> \tcd{Eqs.~(\ref{eq:zeta}), (\ref{eq:g})}         \\
     \tcs{\bar{h}}           \> \tcw{Molar-base specific enthalpy, \kilo\joule\per\kilo\mole,}                                           \> \tcd{Eq.~(\ref{eq:H.comp})}                      \\
     \tcs{H}                 \> \tcw{Enthalpy, \kilo\joule,}                                                                             \> \tcd{Eq.~(\ref{eq:H.comp})}                      \\
     \tcs{k}                 \> \tcw{Mixture component index, ---,}                                                                      \> \tcd{Sec.~\ref{sec:model.reactm}}                \\
@@ -484,8 +484,8 @@
     %
     \begin{align}
         \zeta(P, r) &= 17.807 + 6.423g(r) \nonumber\\
-                    &- [0.029 + 0.013g(r)] P \nonumber\\
-                    &+ [1.828 + 0.798g(v)] \times 10^{-5} \times P^2,
+                    &\,- [0.029 + 0.013g(r)] P \nonumber\\
+                    &\,+ [1.828 + 0.798g(v)] \times 10^{-5} \times P^2,
         \label{eq:zeta}
     \end{align}
     %
@@ -493,6 +493,7 @@
     %
     \begin{equation}
         g(v) = (5.25 - 0.5r) e^{(8.5 - r)},
+        \label{eq:g}
     \end{equation}
     %
     \noindent so that the following mixtures can be defined:%
