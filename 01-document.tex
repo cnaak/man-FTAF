@@ -98,6 +98,7 @@
     \tcs{\gamma}            \> \tcW{Chemical equilibrium solution term, ---,}                                                           \> \tcd{Eqs.~(\ref{eq:c}), (\ref{eq:gamma})}        \\
     \tcs{\epsilon}          \> \tcW{Amount of fuel per {\kilo\mole} of \ce{O2} that is stoichiometrically oxidized with\-out forming                                                 
                                     Nitrogen oxides, \kilo\mole,}                                                                       \> \tcd{Eq.~(\ref{eq:epsilon})}                     \\
+    \tcs{\zeta}             \> \tcW{Gas products residual fraction from one cycle to the next, ---,}                                    \> \tcd{Eq.~(\ref{eq:zeta})}                        \\
     \tcs{\phi}              \> \tcW{Actual-to-stoichiometric ratio of fuel-to-air ratios, or the equivalence ratio, ---,}               \> \tcd{Eq.~(\ref{eq:phi})}                         \\
     \tcs{\psi}              \> \tcW{Inert-to-oxidant gas molar ratio for the air model, ---,}                                           \> \tcd{Eq.~(\ref{eq:phi})}                         \\
     \tcs{\omega}            \> \tcW{Crank angular velocity, \rad\per\second,}                                                           \> \tcd{Sec.~\ref{sec:model.engine}}                \\
@@ -413,9 +414,9 @@
         \label{eq:comb}
     \end{multline}
 
-    By hypothesis, the combustion goes to completion whenever possible, i.e., whenever $\phi \leqslant 1$, so that Carbon and Hydrogen are fully  oxidized  into  \ce{CO2}  and  into  \ce{H2O},
-    leaving no room for formation of \ce{CO} and of \ce{H2} products. On the other hand, whenever $\phi > 1$, completion hypothesis mean all  \ce{O2}  is  used  up  for  complete  and  partial
-    oxidation of fuel Carbon and Hydrogen, leaving no room for residual \ce{O2} in the products.
+    By hypothesis, the combustion reaction goes to completion whenever possible, i.e., whenever $\phi \leqslant 1$, so that Carbon and Hydrogen  are  fully  oxidized  into  \ce{CO2}  and  into
+    \ce{H2O}, leaving no room for formation of \ce{CO} and of \ce{H2} products. On the other hand, whenever $\phi > 1$, completion hypothesis mean all \ce{O2}  is  used  up  for  complete  and
+    partial oxidation of fuel Carbon and Hydrogen, leaving no room for residual \ce{O2} in the products.
 
     For $\phi \leqslant 1$ under completion hypothesis, Eq.~(\ref{eq:comb}) has enough information as to allow for the molar balance between reagents and products. On the contrary, when  $\phi
     > 1$ there isn't enough information for the molar balance between reagents and products. Closure is obtained by considering the so-called water gas shift (equilibrium) reaction,%
@@ -468,13 +469,50 @@
 
     Plugging in Table~\ref{tab:molBal} results for $\phi > 1$ onto Eq.~(\ref{eq:K}) yields a quadratic equation for $c$ whose solution may be written as:%
     %
-    \begin{align}
+    \begin{flalign}
         \label{eq:c}
         \frac{c}{\NF}   &= -\beta \pm \sqrt{\beta^2 - \gamma}, \qquad\mbox{with} \\
         \label{eq:gamma}
         \gamma          &= \dfrac{2\NC(\phi-1)}{\phi\epsilon(K-1)}, \qquad\mbox{and} \\
         \label{eq:beta}
         \beta           &= \dfrac{\phi\epsilon[(2-K)\NC-\NO] + 2[K(\phi-1)+1]}{2(K-1)\phi\epsilon}.
+    \end{flalign}
+
+    % TODO
+    Let  $\zeta$  be  the  residual  fraction  of  gas  products  from  a  previous  cycle  that   remain   in   the   system   for   a   new   cycle.   Using   the   relationship   given   by
+    Heywood~\cite{1988-HeywoodJB-McGrawHill}, i.e.,%
+    %
+    \begin{multline}
+        \zeta(P, r) = 17.807 + 6.423g(r) - [0.029 + 0.013g(r)] P \\
+                    + [1.828 + 0.798g(v)] \times 10^{-5} \times P^2,
+        \label{eq:zeta}
+    \end{multline}
+    %
+    \noindent with $g(v) = (5.25 - 0.5r) e^{(8.5 - r)}$, so that the following mixtures can be defined:
+    %
+    \begin{align}
+        \MXAIR  &=  \NA\left(
+                        \frac{1}{1+\psi}\mbox{\ce{O2}} +
+                        \frac{\psi}{1+\psi}\mbox{\ce{N2}}
+                    \right) \\
+        \MXFUE  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} \\
+        \MXAFU  &=  \NF\,\mbox{\ce{C\NC H\NH O\NO N\NN}} + \NA\left(
+                        \frac{1}{1+\psi}\mbox{\ce{O2}} +
+                        \frac{\psi}{1+\psi}\mbox{\ce{N2}}
+                    \right) \\
+        \MXPRO  &=  \NCOO\mbox{\ce{CO2}} +
+                    \NHHO\mbox{\ce{H2O}} +
+                    \NCO\mbox{\ce{CO}} +
+                    \NHH\mbox{\ce{H2}} +
+                    \NOO\mbox{\ce{O2}} +
+                    \NNN\mbox{\ce{N2}} \\
+        \MXREA  &=  (1 - \zeta)\,\MXAFU + (\zeta)\,\MXPRO,
+        \label{eq:mixtures}
     \end{align}
+    %
+    \noindent with molar coefficients given by Table~\ref{tab:molBal}.
+
+    Therefore the reactive mixture that comprises the thermodynamic system at the beginning of a cycle is  $\MXREA$,  i.e.,  the
+    reagents; while at the end of the cycle, $\MXPRO$, i.e., the products.
 
 
