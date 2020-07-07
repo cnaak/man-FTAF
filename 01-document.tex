@@ -70,7 +70,7 @@
     \tcs{k}                 \> \tcw{Mixture component index, ---,}                                                                      \> \tcd{Sec.~\ref{sec:model.reactm}}                \\
     \tcs{K}                 \> \tcw{Reaction equilibrium constant, ---,}                                                                \> \tcd{Eq.~(\ref{eq:K})}                           \\
     \tcs{L}                 \> \tcw{Connecting rod length, \meter,}                                                                     \> \tcd{Eq.~(\ref{eq:x})}                           \\
-    \tcs{m}                 \> \tcw{Mass, \kilogram,}                                                                                   \> \tcd{Eq.~(\ref{eq:mf})}                          \\
+    \tcs{m}                 \> \tcw{Mass, \kilogram,}                                                                                   \> \tcd{Eqs.~(\ref{eq:mf}), (\ref{eq:mEoS})}        \\
     \tcs{\mathbb{M}}        \> \tcw{Mixture, ---,}                                                                                      \> \tcd{Eq.~(\ref{eq:MXAIR})--(\ref{eq:MXREA})}     \\
     \tcs{\mathrm{mf}}       \> \tcw{Mass fraction, ---,}                                                                                \> \tcd{Eq.~(\ref{eq:mf})}                          \\
     \tcs{n}                 \> \tcw{Chemical amount, \kilo\mole,}                                                                       \> \tcd{Eq.~(\ref{eq:nm})}                          \\
@@ -294,7 +294,7 @@
         \label{eq:Rm}
         R_m         &= \frac{\bar{R}}{M_m}, \quad\mbox{and} \\
         \label{eq:mEoS}
-        P_mV_m      &= n_m\bar{R}T_m.
+        P_mV_m      &= n_m\bar{R}T_m = m_mR_mT_m.
     \end{align}
 
     Let the components' molar specific heat at constant pressure, $\bar{c}_{p,k}$, in \kilo\joule\per\kilo\mole\usk\kelvin, be modeled as a function of temperature, with  auxiliar  parameters,
@@ -630,16 +630,17 @@
         \label{eq:evol}
     \end{equation}
     %
-    \noindent meaning that if its right-hand-side is known---$Q_i$ can be made zero by hypothesis, for simplicity, recalling that the model is  not  an  air-standard  one,  and  $Q_i$  is  not
-    directly related to the combustion reaction---then Eq.~(\ref{eq:evol}) can be used to \emph{evolve} the system to the next, $i+1$, state, as the model implementation, shown below, provides
-    a convenient function to invert $U_{0,m,i+1}$ thus providing the value of  $T_{i+1}$,  together  with  fact  that  the  system  volume  and  mass,  $V_{i+1}$  and  $m_m$,  are  known  from
-    Eqs.~(\ref{eq:Va}) and~(\ref{eq:mfy}), with an additional state function (system intensive property) given by%
+    \noindent meaning that if its right-hand-side is known---$Q_i$ can be made zero by hypothesis, for simplicity, by assuming an adiabatic system, but later on  improved,  by  accounting  for
+    engine block to system heat interactions---then Eq.~(\ref{eq:evol}) can be used to \emph{evolve} the system to the next, $i+1$, state, as the model implementation, shown below, provides  a
+    convenient function to invert $U_{0,m,i+1}(T)$ thus providing the value of $T_{i+1}$,  together  with  fact  that  the  system  volume  and  mass,  $V_{i+1}$  and  $m_m$,  are  known  from
+    Eqs.~(\ref{eq:V}) and~(\ref{eq:mEoS}) with $(P, V, T) = (P_0, V_0, T_0)$, with an additional state function (system intensive property) given by%
     %
     \begin{equation}
         \label{eq:v}
-        v_{m,i} = \frac{V_i}{m_m}.
+        v_{m,i} = \frac{V_i}{m_m},
     \end{equation}
     %
+    \noindent with $m_m$ remaining \emph{constant} while the system is closed.
 
 
 
