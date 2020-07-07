@@ -141,12 +141,16 @@
 
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
     {\em Chemical species:} \\                                                                       
+    \tcs{\ce{C}}                                \> Carbon (atomic)                                                                                                                          \\
     \tcs{\ce{CO}}                               \> Carbon monoxide                                                                                                                          \\
     \tcs{\ce{CO2}}                              \> Carbon dioxide                                                                                                                           \\
+    \tcs{\ce{H}}                                \> Hydrogen (atomic)                                                                                                                        \\
     \tcs{\ce{H2}}                               \> Hydrogen (molecular)                                                                                                                     \\
     \tcs{\ce{H2N2}}                             \> Hydrazine                                                                                                                                \\
     \tcs{\ce{H2O}}                              \> Water                                                                                                                                    \\
+    \tcs{\ce{N}}                                \> Nitrogen (atomic)                                                                                                                        \\
     \tcs{\ce{N2}}                               \> Nitrogen (molecular)                                                                                                                     \\
+    \tcs{\ce{O}}                                \> Oxygen (atomic)                                                                                                                          \\
     \tcs{\ce{O2}}                               \> Oxygen (molecular)                                                                                                                       \\
 \end{tabbing}
 
@@ -400,11 +404,55 @@
         \NCO\mbox{\ce{CO}} +} \\
         \NHH\mbox{\ce{H2}} +
         \NOO\mbox{\ce{O2}} +
-        \NNN\mbox{\ce{N2}}
+        \NNN\mbox{\ce{N2}}.
         \label{eq:comb}
     \end{multline}
 
     By hypothesis, the combustion goes to completion whenever possible, i.e., whenever $\phi \leqslant 1$, so that Carbon and Hydrogen are fully  oxidized  into  \ce{CO2}  and  into  \ce{H2O},
     leaving no room for formation of \ce{CO} and of \ce{H2} products. On the other hand, whenever $\phi > 1$, completion hypothesis mean all  \ce{O2}  is  used  up  for  complete  and  partial
     oxidation of fuel Carbon and Hydrogen, leaving no room for residual \ce{O2} in the products.
+
+    For $\phi \leqslant 1$ under completion hypothesis, Eq.~(\ref{eq:comb}) has enough information as to allow for the molar balance between reagents and products. On the contrary, when  $\phi
+    > 1$ there isn't enough information for the molar balance between reagents and products. Closure is obtained by considering the so-called water gas shift (equilibrium) reaction,%
+    %
+    \begin{equation}
+        \mbox{\ce{CO2 + H2 <=> CO + H2O}},
+        \label{eq:wgsr}
+    \end{equation}
+    %
+    \noindent and using the equilibrium reaction constant at a given temperature,%
+    %
+    \begin{equation}
+        K(T) = \frac{\NHHO\NCO}{\NCOO\NHH},
+        \label{eq:K}
+    \end{equation}
+    %
+    \noindent one gathers enough equations as to perform the molar balance between products and reagents. Brunetti~\cite{2012-BrunettiF-Blucher} employs $K(\unit{1740}{\kelvin})  =  3.5$  with
+    the auxiliar variable $c\equiv\NCO$. Using the same method, Table~\ref{tab:molBal} lists balanced reaction product coefficients.
+
+    \begin{table*}[ht]
+        \centering
+        \caption{Molar balance results for the combustion and water gas shift reactions, Eqs.~(\ref{eq:comb}) and~(\ref{eq:wgsr}) in terms of the equivalence ratio $\phi$}
+        \vspace{4pt}
+        \begin{tabular}{ccc}
+            \toprule
+            $n_k$   & air-rich, $\phi \leqslant 1$      & fuel-rich, $\phi > 1$     \\
+            \midrule
+            \NCOO   & $\NC\NF = \NC\frac{\phi\epsilon}{1+\psi}\NA$
+                    & $\NC\NF - c = \NC\frac{\phi\epsilon}{1+\psi}\NA - c$  \\[\medskipamount]
+            \NHHO   & $\frac{\NH}{2}\NF = \frac{\NH}{2}\frac{\phi\epsilon}{1+\psi}\NA$
+                    & $(\NO-2\NC)\NF + \frac{2}{1+\psi}\NA + c$ \\[\medskipamount]
+            \NCO    & $0$
+                    & $c$ \\[\medskipamount]
+            \NHH    & $0$
+                    & $\frac{2(\phi-1)}{\phi\epsilon}\NF - c = \frac{2(\phi-1)}{1+\psi}\NA - c$ \\[\medskipamount]
+            \NOO    & $(1-\phi)\frac{\NA}{1+\psi} = (1-\phi)\frac{\NF}{\phi\epsilon}$
+                    & $0$ \\[\medskipamount]
+            \NNN    & $\frac{\psi}{1+\psi}\NA + \frac{\NN}{2}\NF$
+                    & $\frac{\psi}{1+\psi}\NA + \frac{\NN}{2}\NF$ \\
+            \bottomrule
+        \end{tabular}
+        \label{tab:molBal}
+    \end{table*}
+
 
