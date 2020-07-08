@@ -20,6 +20,38 @@
 
 % Encoding: UTF-8
 
+@TechReport{1995-vanRossumG-CWI,
+  author    = {van Rossum, Guido},
+  title     = {Python reference manual},
+  year      = {1995},
+  address   = {Amsterdam, The Netherlands},
+  abstract  = {Python is a simple, yet powerful, interpreted programming language that bridges the gap between C and shell programming, and is thus ideally suited for ``throw-away programming'' and rapid prototyping. Its syntax is put together from constructs borrowed from a variety of other languages; most prominent are influences from ABC, C, Modula-3 and Icon. The Python interpreter is easily extended with new functions and data types implemented in C. Python is also suitable as an extension language for highly customizable C applications such as editors or window managers. Python is available for various operating systems, amongst which several flavors of UNIX (including Linux), the Apple Macintosh O.S., MS-DOS, MS-Windows 3.1, Windows NT, and OS/2. This reference manual describes the syntax and ``core semantics'' of the language. It is terse, but attempts to be exact and complete. The semantics of non-essential built-in object types and of the built-in functions and modules are described in the Python Library Reference. For an informal introduction to the language, see the Python Tutorial.},
+  owner     = {chris},
+  publisher = {CWI (Centre for Mathematics and Computer Science)},
+  source    = {http://www.ncstrl.org:8900/ncstrl/servlet/search?formname=detail\&id=oai%3Ancstrlh%3Aercim_cwi%3Aercim.cwi%2F%2FCS-R9525},
+  timestamp = {2016.03.29},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Book{2007-PressWH+FlanneryBP-Cambridge,
+  title     = {Numerical recipes: the art of scientific computing},
+  publisher = {Cambridge University Press},
+  year      = {2007},
+  author    = {Press, William H. and Teukolsky, Saul A. and Vetterling, William T. and Flannery, Brian P.},
+  edition   = {3rd},
+  month     = {September 10},
+  comment   = {ISBN-13: 978-0521880688},
+  owner     = {chris},
+  timestamp = {2016.03.29},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
 @Article{2012-BezansonJ+EdelmanA-CoRR,
   author   = {Bezanson, Jeff and Karpinski, Stefan and Shah, Viral B. and Edelman, Alan},
   title    = {Julia: {A} fast dynamic language for technical computing},
@@ -45,6 +77,19 @@
   issn     = {00361445},
   abstract = {Bridging cultures that have often been distant, Julia combines expertise from the diverse fields of computer science and computational science to create a new approach to numerical computing. Julia is designed to be easy and fast and questions notions generally held to be "laws of nature" by practitioners of numerical computing: 1. High-level dynamic programs have to be slow. 2. One must prototype in one language and then rewrite in another language for speed or deployment. 3. There are parts of a system appropriate for the programmer, and other parts that are best left untouched as they have been built by the experts. We introduce the Julia programming language and its design---a dance between specialization and abstraction. Specialization allows for custom treatment. Multiple dispatch, a technique from computer science, picks the right algorithm for the right circumstance. Abstraction, which is what good computation is really about, recognizes what remains the same after differences are stripped away. Abstractions in mathematics are captured as code through another technique from computer science, generic programming. Julia shows that one can achieve machine performance without sacrificing human convenience.},
   keywords = {Scientific Computing, Numerical Solutions to Functional Equations, Applied Mathematics, Julia, Numerical, Parallel, Scientific Computing},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Misc{2019-Jupyter-www,
+  author       = {{Jupyter Team}},
+  title        = {Jupyter documentation},
+  howpublished = {Online},
+  year         = {2019},
+  note         = {Last updated on 2019-05-06},
+  url          = {jupyter.readthedocs.io/en/latest/},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
@@ -170,6 +215,19 @@
 
 % Encoding: UTF-8
 
+@Book{2006-LideDR-CRC,
+  title     = {{CRC} {H}andbook of chemistry and physics},
+  publisher = {Taylor {\&} Francis Group},
+  year      = {2006},
+  editor    = {Lide, David R.},
+  edition   = {$86^{th}$},
+  isbn      = {978-0-8493-0486-5},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
 @Article{2008-CurtoRissoPL+HernandezAC-JApplPhys,
   author    = {Curto-Risso, P. L. and Medina, A. and Hernández, A. Calvo},
   title     = {Theoretical and simulated models for an irreversible {Otto} cycle},
@@ -224,6 +282,21 @@
 
 % Encoding: UTF-8
 
+@Book{2013-CengelYA+BolesMA-AMGH,
+  title     = {Termodinâmica},
+  publisher = {AMGH},
+  year      = {2013},
+  author    = {{Ç}engel, Y. A. and Boles, M. A.},
+  editor    = {Nepomuceno, V. R.},
+  address   = {Porto Alegre},
+  edition   = {7th},
+  isbn      = {978-85-8055-200-3},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
 @Book{2013-MartinsJJG-Publindustria,
   title     = {Motores de combustão interna},
   publisher = {Publindústria},
@@ -233,6 +306,21 @@
   edition   = {Fourth},
   owner     = {chris},
   timestamp = {2016.03.22},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
+% Encoding: UTF-8
+
+@Article{2014-BellIH+VincentL-IndEngChemR,
+  author  = {Bell, Ian H. and Wronski, Jorrit and Quoilin, Sylvain and Lemort, Vincent},
+  title   = {Pure and Pseudo-pure Fluid Thermophysical Property Evaluation and the Open-Source Thermophysical Property Library CoolProp},
+  journal = {Industrial \& Engineering Chemistry Research},
+  year    = {2014},
+  volume  = {53},
+  number  = {6},
+  pages   = {2498--2508},
+  doi     = {10.1021/ie4033999},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
@@ -306,64 +394,4 @@
  year={2020. engrxiv.org/ca6d4},
  month={May}
 }
-
-% Encoding: UTF-8
-
-@Article{2014-BellIH+VincentL-IndEngChemR,
-  author  = {Bell, Ian H. and Wronski, Jorrit and Quoilin, Sylvain and Lemort, Vincent},
-  title   = {Pure and Pseudo-pure Fluid Thermophysical Property Evaluation and the Open-Source Thermophysical Property Library CoolProp},
-  journal = {Industrial \& Engineering Chemistry Research},
-  year    = {2014},
-  volume  = {53},
-  number  = {6},
-  pages   = {2498--2508},
-  doi     = {10.1021/ie4033999},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@Book{2007-PressWH+FlanneryBP-Cambridge,
-  title     = {Numerical recipes: the art of scientific computing},
-  publisher = {Cambridge University Press},
-  year      = {2007},
-  author    = {Press, William H. and Teukolsky, Saul A. and Vetterling, William T. and Flannery, Brian P.},
-  edition   = {3rd},
-  month     = {September 10},
-  comment   = {ISBN-13: 978-0521880688},
-  owner     = {chris},
-  timestamp = {2016.03.29},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@TechReport{1995-vanRossumG-CWI,
-  author    = {van Rossum, Guido},
-  title     = {Python reference manual},
-  year      = {1995},
-  address   = {Amsterdam, The Netherlands},
-  abstract  = {Python is a simple, yet powerful, interpreted programming language that bridges the gap between C and shell programming, and is thus ideally suited for ``throw-away programming'' and rapid prototyping. Its syntax is put together from constructs borrowed from a variety of other languages; most prominent are influences from ABC, C, Modula-3 and Icon. The Python interpreter is easily extended with new functions and data types implemented in C. Python is also suitable as an extension language for highly customizable C applications such as editors or window managers. Python is available for various operating systems, amongst which several flavors of UNIX (including Linux), the Apple Macintosh O.S., MS-DOS, MS-Windows 3.1, Windows NT, and OS/2. This reference manual describes the syntax and ``core semantics'' of the language. It is terse, but attempts to be exact and complete. The semantics of non-essential built-in object types and of the built-in functions and modules are described in the Python Library Reference. For an informal introduction to the language, see the Python Tutorial.},
-  owner     = {chris},
-  publisher = {CWI (Centre for Mathematics and Computer Science)},
-  source    = {http://www.ncstrl.org:8900/ncstrl/servlet/search?formname=detail\&id=oai%3Ancstrlh%3Aercim_cwi%3Aercim.cwi%2F%2FCS-R9525},
-  timestamp = {2016.03.29},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
-
-% Encoding: UTF-8
-
-@Misc{2019-Jupyter-www,
-  author       = {{Jupyter Team}},
-  title        = {Jupyter documentation},
-  howpublished = {Online},
-  year         = {2019},
-  note         = {Last updated on 2019-05-06},
-  url          = {jupyter.readthedocs.io/en/latest/},
-}
-
-@Comment{jabref-meta: databaseType:bibtex;}
 
