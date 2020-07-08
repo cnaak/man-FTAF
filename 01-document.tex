@@ -818,9 +818,11 @@ end
 
     Moreover, inverse functions for mixture internal energies and enthalpies can be implemented with adapted versions of the Newton-Raphson method, that take advantage of  the  fact  that  the
     derivatives of these functions can be known exactly through \code{cpFC} data. One such method, \code{TU0}, which is the  inverse  of  the  $U^0_m(T)$  function,  Eq.~(\ref{eq:U0.mix}),  is
-    illustrated:
+    illustrated on fig.~\ref{fig:code.TU0}.
 
-    \begin{lstlisting}
+    \begin{figure*}[h]
+        \centering
+        \begin{lstlisting}
 # Numerical Methods
 function TU0(a::IGMix, tU0::Real; maxIt = 12, $\epsilon$ = 1.0e-6)
    Ta, Tb, tU0 = (300.0, 2500.0, tU0)
@@ -836,13 +838,14 @@ function TU0(a::IGMix, tU0::Real; maxIt = 12, $\epsilon$ = 1.0e-6)
    end
    T[end]
 end
-    \end{lstlisting}
+        \end{lstlisting}
+        \caption{Listing for the \code{TU0} function code snippet.}
+        \label{fig:code.TU0}
+    \end{figure*}
 
-    The \code{AtMix} type describes an \emph{atomized} sum of an ideal gas  mixture,  in  terms  of  \emph{element  count}.  The
-    purpose of this type of mixture is to perform and/or to assert element-wise balancing between a reagent \code{IGMix}  and  a
-    product one. Therefore, the \code{AtMix} functionality is restricted to basic algebric operations and  logical  comparisons,
-    including the \code{isapprox()}, or \code{$\approx$()} function from the \code{Base} Julia module. The \code{AtMix} type
-    definition is:
+    The \code{AtMix} type describes an \emph{atomized} sum of an ideal gas mixture, in terms of \emph{element count}. The purpose of this type  of  mixture  is  to  perform  and/or  to  assert
+    element-wise balancing between a reagent \code{IGMix} and a product one. Therefore, the \code{AtMix} functionality is restricted to  basic  algebric  operations  and  logical  comparisons,
+    including the \code{isapprox()}, or \code{$\approx$()} function from the \code{Base} Julia module. The \code{AtMix} type definition is:
 
     \begin{lstlisting}
 # Keys are elements, quantities are in kmol
