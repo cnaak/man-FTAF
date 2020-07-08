@@ -802,8 +802,14 @@ FL = Dict(
     \begin{figure*}[h]
         \centering
         \begin{lstlisting}
+# Allowed substances in a mixture
+const FLUIDS = Tuple(sort([keys(FL)...]))
+# Keys are substances, quantities are in kmol
+struct IGMix <: Any
+   mix::NamedTuple{FLUIDS,NTuple{length(FLUIDS),Real}}
+end
         \end{lstlisting}
-        \caption{Listing for the \code{IGMix} }
+        \caption{Listing for the \code{IGMix} structure code snippet. \code{IGMix} data member, \code{mix}, is a named tuple of each gas's chemical amount in the represented mixture.}
         \label{fig:code.IGMix}
     \end{figure*}
 
