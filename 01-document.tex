@@ -793,12 +793,19 @@ FL = Dict(
     reference sources~\cite{2013-CengelYA+BolesMA-AMGH, 1985-WylenG-Wiley, 2006-LideDR-CRC} for a range  of  pure  substances:  methane  (\ce{CH4})  through  dodecane  (\ce{C12H26}),  methanol
     (\ce{CH4O}) and ethanol (\ce{C2H6O}), air components (\ce{N2} and \ce{O2}), as well as remaining combustion products (\ce{H2O}, and \ce{H2}).
 
-    All pure substance component properties defined on Eqs.~(\ref{eq:cp})--(\ref{eq:uf0}), as well as pure-substance versions of
-    $P$, $v$, and $T$ functions can be obtained with the \code{FL} fluid library data.
+    All pure substance component properties defined on Eqs.~(\ref{eq:cp})--(\ref{eq:uf0}), as well as pure-substance versions of $P$, $v$, and $T$ functions can be obtained with the  \code{FL}
+    fluid library data.
 
-    The implementation of reactive ideal gas mixtures proceeds based on  three  additional  types:  an  \code{IGMix}  ideal  gas
-    mixture type and its functionality set, an \code{AtMix} atomized mixture type and its functionality set, and an  \code{RMix}
-    reactive mixture type and its functionality. The first type definition goes as:
+    The implementation of reactive ideal gas mixtures proceeds based on three additional types: an \code{IGMix} ideal gas mixture type and  its  functionality  set,  an  \code{AtMix}  atomized
+    mixture type and its functionality set, and an \code{RMix} reactive mixture type and its functionality. The first type definition is illustrated on Fig.~\ref{fig:code.IGMix}.
+
+    \begin{figure*}[h]
+        \centering
+        \begin{lstlisting}
+        \end{lstlisting}
+        \caption{Listing for the \code{IGMix} }
+        \label{fig:code.IGMix}
+    \end{figure*}
 
 
 
