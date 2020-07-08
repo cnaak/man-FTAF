@@ -322,3 +322,19 @@
 
 @Comment{jabref-meta: databaseType:bibtex;}
 
+% Encoding: UTF-8
+
+@Book{2007-PressWH+FlanneryBP-Cambridge,
+  title     = {Numerical recipes: the art of scientific computing},
+  publisher = {Cambridge University Press},
+  year      = {2007},
+  author    = {Press, William H. and Teukolsky, Saul A. and Vetterling, William T. and Flannery, Brian P.},
+  edition   = {3rd},
+  month     = {September 10},
+  comment   = {ISBN-13: 978-0521880688},
+  owner     = {chris},
+  timestamp = {2016.03.29},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}
+
