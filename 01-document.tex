@@ -765,15 +765,6 @@ struct bProp
    hf0::AbstractFloat   # Standard form. enthalpy, in kJ/kmol
    cpc::cpFC            # Molar cp(T) coefficients
 end
-        \end{lstlisting}
-        \caption{Listing for the \code{bProp} basic property container for reactive ideal gas code snippet. Data members include  the  substance's  molecular  ``weight'',  \code{M},  formation
-            enthalpy, \code{hf0}, and the \code{cpFC} structure listed on Fig.~\ref{fig:code.cpFC}}
-    \end{figure*}
-
-    \begin{figure*}[h]
-        \centering
-        \label{fig:code.FL}
-        \begin{lstlisting}
 FL = Dict(
     :CO => bProp("CO", 28.011, -110530.0, cpFC(0.0046,     (ap0=+6.29933e+01,
       ap1=-1.02420e-02, ap2=+1.84013e-06, ap3=+1.09246e-11, ap4=-3.12160e-14,
@@ -784,9 +775,12 @@ FL = Dict(
    # ... remaining entries ...
 )
         \end{lstlisting}
-        \caption{Listing for the \code{FL} fluid library as a \code{Dict{Symbol,bProp}} instance, in which disctionary keys  are  \code{Symbol}s  and  values  are  of  \code{bProp}  type.  The
-            illustrated coefficients for the \ce{CO} and  \ce{CO2}  were  obtained  by  curve-fitting  into  Eq.~(\ref{eq:cp})  low-pressure  $\bar{c}_p$  values  obtained  with  the  CoolProp
-            thermophysical property library~\cite{2014-BellIH+VincentL-IndEngChemR}.}
+        \caption{Listing for the \code{bProp} basic property container for reactive ideal gas and \code{FL} fluid library code  snippet.  \code{bProp}  data  members  include  the  substance's
+            molecular  ``weight'',  \code{M},  formation  enthalpy,  \code{hf0},  and  the  \code{cpFC}  structure  listed  on  Fig.~\ref{fig:code.cpFC}.   \code{FL}   fluid   library   is   a
+            \code{Dict{Symbol,bProp}} instance, in which disctionary keys are \code{Symbol}s and values are of \code{bProp} type. The illustrated coefficients for the \ce{CO} and \ce{CO2} were
+            obtained    by    curve-fitting    into     Eq.~(\ref{eq:cp})     low-pressure     $\bar{c}_p$     values     obtained     with     the     CoolProp     thermophysical     property
+            library~\cite{2014-BellIH+VincentL-IndEngChemR}.}
     \end{figure*}
+
 
 
