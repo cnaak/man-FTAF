@@ -813,5 +813,84 @@ end
         \label{fig:code.IGMix}
     \end{figure*}
 
+    The \code{IGMix} type describes an ideal gas mixture \emph{system}, with defined molar amounts of each  gas;  thus  enabling
+    calculations    of     the     remaining     quantities     of     interest     of     Eqs.~(\ref{eq:mfy})--(\ref{eq:mEoS}),
+    and~(\ref{eq:U.mix})--(\ref{eq:U0.mix}).
+
+    Moreover, inverse functions for mixture internal energies and enthalpies can be implemented with  adapted  versions  of  the
+    Newton-Raphson method, that take advantage of the fact that the derivatives of these functions can be known exactly  through
+    \code{cpFC} data. One such method, \code{TU0}, which is the inverse of the $U^0_m(T)$  function,  Eq.~(\ref{eq:U0.mix}),  is
+    illustrated:
+
+    \begin{lstlisting}
+# Numerical Methods
+function TU0(a::IGMix, tU0::Real; maxIt = 12, $\epsilon$ = 1.0e-6)
+   Ta, Tb, tU0 = (300.0, 2500.0, tU0)
+   Ua, Ub = (U0(a, i) for i in (Ta, Tb))
+   T = [ Ta + (tU0 - Ua) * (Tb - Ta) / (Ub - Ua) ]
+   it = 0
+   $\Delta$U = U0(a, T[end]) - tU0
+   while abs($\Delta$U) >= $\epsilon$ && it < maxIt
+      $\Delta$T = $\Delta$U / Cv(a, T[end])
+      append!(T, T[end] - $\Delta$T)
+      $\Delta$U = U0(a, T[end]) - tU0
+      it += 1
+   end
+   T[end]
+end
+    \end{lstlisting}
+
+    The \code{AtMix} type describes an \emph{atomized} sum of an ideal gas  mixture,  in  terms  of  \emph{element  count}.  The
+    purpose of this type of mixture is to perform and/or to assert element-wise balancing between a reagent \code{IGMix}  and  a
+    product one. Therefore, the \code{AtMix} functionality is restricted to basic algebric operations and  logical  comparisons,
+    including the \code{isapprox()}, or \code{$\approx$()} function from the \code{Base} Julia module. The \code{AtMix} type
+    definition is:
+
+    \begin{lstlisting}
+# Keys are elements, quantities are in kmol
+struct AtMix <: Any
+   EC::NamedTuple{(:H,:C,:N,:O),NTuple{4,Real}} # "EC" stands for: Element Count
+end
+    \end{lstlisting}
+
+    It is worth noting that all library substances---including air, fuel, and  combustion  products---are  composed  of  \ce{H},
+    \ce{C}, \ce{N}, and of \ce{O} elements only, so that \code{AtMix} only needs to keep track of those elements. As an example,
+    by atomizing \unit{1}{\kilo\mole} of ethanol, \ce{C2H6O}, one gets 6\ce{H} + 2\ce{C} + 1\ce{O}.
+
+    Finally, the \code{RMix} type describes a reactive ideal gas mixture  in  terms  of  its  reagents,  \code{reag};  products,
+    \code{prod}; and its degree of reaction, \code{reac}. The type is thus organized, so that the corresponding reactive mixture
+    can be examined at any stage of completion of the chemical reaction---a requirement of the finite-time  modeling.  The  type
+    definition is
+
+    \begin{lstlisting}
+struct RMix <: Any
+   reag::IGMix    # The reagents Ideal Gas Mixture
+   prod::IGMix    # The products Ideal Gas Mixture
+   reac::Real     # The degree of reaction, in [0..1]
+end
+    \end{lstlisting}
+
+    Type constructors in Julia can be written as to enforce type conventions and invariants. \code{RMix} constructors can ensure
+    the \code{reac} field is never outside of its $[0; 1]$ range. Moreover,  Julia  \code{structs}  are  immutable  by  default,
+    ensuring a valid \code{RMix} remains valid.
+
+    High-level functions that take an \code{RMix} instance as  argument  can  be  written  as  to  (i)~produce  an  \code{IGMix}
+    corresponding to the current stage of reaction---an ``interpolation'' between the \code{reag} and the \code{prod}  mixtures;
+    to (ii)~reset, and to (iii)~advance the degree of reaction, i.e., to \code{react} the mixture a defined amount  towards  the
+    formation of products. One such function is illustrated below:
+
+    \begin{lstlisting}
+function react(r::RMix, amt::Real) # mixture and amount of reaction to advance
+   before = mixture(r)
+   s = RMix(r.reag, r.prod, r.reac + amt)
+   after = mixture(s)
+   return s, s.reac - r.reac, Uf0(before) - Uf0(after)
+end
+    \end{lstlisting}
+
+    This function returns three values---a  3-Tuple  with  the  new  \code{RMix},  the  actual  amount  of  reaction  (enforcing
+    \code{reac} limits that, for instance, cannot go past $100\%$), and the total release of internal energy due to the chemical
+    reaction, $\Delta{U_{reac}}$, Eq.~(\ref{eq:dUreac}).
+
 
 
