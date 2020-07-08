@@ -845,14 +845,19 @@ end
 
     The \code{AtMix} type describes an \emph{atomized} sum of an ideal gas mixture, in terms of \emph{element count}. The purpose of this type  of  mixture  is  to  perform  and/or  to  assert
     element-wise balancing between a reagent \code{IGMix} and a product one. Therefore, the \code{AtMix} functionality is restricted to  basic  algebric  operations  and  logical  comparisons,
-    including the \code{isapprox()}, or \code{$\approx$()} function from the \code{Base} Julia module. The \code{AtMix} type definition is:
+    including the \code{isapprox()}, or \code{$\approx$()} function from the \code{Base} Julia module. The \code{AtMix} type definition is shown on Fig.~\ref{fig:code.AtMix}.
 
-    \begin{lstlisting}
+    \begin{figure*}[h]
+        \centering
+        \begin{lstlisting}
 # Keys are elements, quantities are in kmol
 struct AtMix <: Any
    EC::NamedTuple{(:H,:C,:N,:O),NTuple{4,Real}} # "EC" stands for: Element Count
 end
-    \end{lstlisting}
+        \end{lstlisting}
+        \caption{Listing for the \code{TU0} function code snippet.}
+        \label{fig:code.AtMix}
+    \end{figure*}
 
     It is worth noting that all library substances---including air, fuel, and  combustion  products---are  composed  of  \ce{H},
     \ce{C}, \ce{N}, and of \ce{O} elements only, so that \code{AtMix} only needs to keep track of those elements. As an example,
