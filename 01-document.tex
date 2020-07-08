@@ -855,48 +855,53 @@ struct AtMix <: Any
    EC::NamedTuple{(:H,:C,:N,:O),NTuple{4,Real}} # "EC" stands for: Element Count
 end
         \end{lstlisting}
-        \caption{Listing for the \code{TU0} function code snippet.}
+        \caption{Listing for the \code{AtMix} structure code snippet.}
         \label{fig:code.AtMix}
     \end{figure*}
 
-    It is worth noting that all library substances---including air, fuel, and  combustion  products---are  composed  of  \ce{H},
-    \ce{C}, \ce{N}, and of \ce{O} elements only, so that \code{AtMix} only needs to keep track of those elements. As an example,
-    by atomizing \unit{1}{\kilo\mole} of ethanol, \ce{C2H6O}, one gets 6\ce{H} + 2\ce{C} + 1\ce{O}.
+    It is worth noting that all library substances---including air, fuel, and combustion products---are composed of \ce{H}, \ce{C}, \ce{N}, and of \ce{O} elements only,  so  that  \code{AtMix}
+    only needs to keep track of those elements. As an example, by atomizing \unit{1}{\kilo\mole} of ethanol, \ce{C2H6O}, one gets 6\ce{H} + 2\ce{C} + 1\ce{O}.
 
-    Finally, the \code{RMix} type describes a reactive ideal gas mixture  in  terms  of  its  reagents,  \code{reag};  products,
-    \code{prod}; and its degree of reaction, \code{reac}. The type is thus organized, so that the corresponding reactive mixture
-    can be examined at any stage of completion of the chemical reaction---a requirement of the finite-time  modeling.  The  type
-    definition is
+    Finally, the \code{RMix} type describes a reactive ideal gas mixture in terms of its reagents, \code{reag}; products, \code{prod}; and its degree of reaction, \code{reac}. The type is thus
+    organized, so that the corresponding reactive mixture can be examined at any stage of completion of the chemical reaction---a requirement of the finite-time modeling. The  type  definition
+    is illustrated on Fig.~\ref{fig:code.RMix}.
 
-    \begin{lstlisting}
+    \begin{figure*}[h]
+        \centering
+        \begin{lstlisting}
 struct RMix <: Any
    reag::IGMix    # The reagents Ideal Gas Mixture
    prod::IGMix    # The products Ideal Gas Mixture
    reac::Real     # The degree of reaction, in [0..1]
 end
-    \end{lstlisting}
+        \end{lstlisting}
+        \caption{Listing for the \code{RMix} structure code snippet.}
+        \label{fig:code.RMix}
+    \end{figure*}
 
-    Type constructors in Julia can be written as to enforce type conventions and invariants. \code{RMix} constructors can ensure
-    the \code{reac} field is never outside of its $[0; 1]$ range. Moreover,  Julia  \code{structs}  are  immutable  by  default,
-    ensuring a valid \code{RMix} remains valid.
+    Type constructors in Julia can be written as to enforce type conventions and invariants. \code{RMix} constructors can ensure the \code{reac} field is never outside of its $[0;  1]$  range.
+    Moreover, Julia \code{structs} are immutable by default, ensuring a valid \code{RMix} remains valid.
 
-    High-level functions that take an \code{RMix} instance as  argument  can  be  written  as  to  (i)~produce  an  \code{IGMix}
-    corresponding to the current stage of reaction---an ``interpolation'' between the \code{reag} and the \code{prod}  mixtures;
-    to (ii)~reset, and to (iii)~advance the degree of reaction, i.e., to \code{react} the mixture a defined amount  towards  the
-    formation of products. One such function is illustrated below:
+    High-level functions that take an \code{RMix} instance as argument can be written as to (i)~produce an \code{IGMix} corresponding to the current stage  of  reaction---an  ``interpolation''
+    between the \code{reag} and the \code{prod} mixtures; to (ii)~reset, and to (iii)~advance the degree of reaction, i.e., to \code{react} the mixture a defined amount towards  the  formation
+    of products. One such function is illustrated of Fig.~\ref{fig:code.react}.
 
-    \begin{lstlisting}
+    \begin{figure*}[h]
+        \centering
+        \begin{lstlisting}
 function react(r::RMix, amt::Real) # mixture and amount of reaction to advance
    before = mixture(r)
    s = RMix(r.reag, r.prod, r.reac + amt)
    after = mixture(s)
    return s, s.reac - r.reac, Uf0(before) - Uf0(after)
 end
-    \end{lstlisting}
+        \end{lstlisting}
+        \caption{Listing for the \code{react} function code snippet.}
+        \label{fig:code.react}
+    \end{figure*}
 
-    This function returns three values---a  3-Tuple  with  the  new  \code{RMix},  the  actual  amount  of  reaction  (enforcing
-    \code{reac} limits that, for instance, cannot go past $100\%$), and the total release of internal energy due to the chemical
-    reaction, $\Delta{U_{reac}}$, Eq.~(\ref{eq:dUreac}).
+    This function returns three values---a 3-Tuple with the new \code{RMix}, the actual amount of reaction (enforcing \code{reac} limits that, for instance, cannot go past  $100\%$),  and  the
+    total release of internal energy due to the chemical reaction, $\Delta{U_{reac}}$, Eq.~(\ref{eq:dUreac}).
 
 
 
