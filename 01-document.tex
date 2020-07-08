@@ -160,6 +160,10 @@
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
     {\em Chemical species:} \\                                                                       
     \tcs{\ce{C}}                                \> Carbon (atomic)                                                                                                                          \\
+    \tcs{\ce{CH4}}                              \> Methane                                                                                                                                  \\
+    \tcs{\ce{C12H26}}                           \> Dodecane                                                                                                                                 \\
+    \tcs{\ce{CH4O}}                             \> Methanol                                                                                                                                 \\
+    \tcs{\ce{C2H6O}}                            \> Ethanol                                                                                                                                  \\
     \tcs{\ce{CO}}                               \> Carbon monoxide                                                                                                                          \\
     \tcs{\ce{CO2}}                              \> Carbon dioxide                                                                                                                           \\
     \tcs{\ce{H}}                                \> Hydrogen (atomic)                                                                                                                        \\
@@ -781,6 +785,20 @@ FL = Dict(
             library~\cite{2014-BellIH+VincentL-IndEngChemR}.}
         \label{fig:code.bProp}
     \end{figure*}
+
+    Doing so allows for $M$ and $\bar{h}_f^0$ properties of \ce{CO2} and \ce{CO} ideal gases to be accessed in Julia user code as \code{FL[CO2].M} and as \code{FL[CO].hf0}, for  instance.  The
+    above  \code{cpFC}  coefficients  were  obtained  by  least-square  fitting~\cite{2007-PressWH+FlanneryBP-Cambridge}  the  $\bar{c}_p(T)$  data  given  by   the   CoolProp   thermophysical
+    library~\cite{2014-BellIH+VincentL-IndEngChemR} in the $\unit{275}{\kelvin} \leqslant T \leqslant \unit{2750}{\kelvin}$ range for the gases at  very  low  pressures  onto  the  \code{cpFC}
+    function coefficients using a separate Python~\cite{1995-vanRossumG-CWI} notebook~\cite{2019-Jupyter-www}. The remaining  $M$  and  $\bar{h}_f^0$  data  were  obtained  from  textbook  and
+    reference sources~\cite{2013-CengelYA+BolesMA-AMGH, 1985-WylenG-Wiley, 2006-LideDR-CRC} for a range  of  pure  substances:  methane  (\ce{CH4})  through  dodecane  (\ce{C12H26}),  methanol
+    (\ce{CH4O}) and ethanol (\ce{C2H6O}), air components (\ce{N2} and \ce{O2}), as well as remaining combustion products (\ce{H2O}, and \ce{H2}).
+
+    All pure substance component properties defined on Eqs.~(\ref{eq:cp})--(\ref{eq:uf0}), as well as pure-substance versions of
+    $P$, $v$, and $T$ functions can be obtained with the \code{FL} fluid library data.
+
+    The implementation of reactive ideal gas mixtures proceeds based on  three  additional  types:  an  \code{IGMix}  ideal  gas
+    mixture type and its functionality set, an \code{AtMix} atomized mixture type and its functionality set, and an  \code{RMix}
+    reactive mixture type and its functionality. The first type definition goes as:
 
 
 
