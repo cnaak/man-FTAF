@@ -107,11 +107,11 @@ Function to return the engine 'speed' in \$RPM\$.
 """
 function N end
 
-## """
-## Function to return the ### in \$m\$.
-## """
-## function TODO end
-##
+"""
+Function to return the ignition angle in \$rad\$.
+"""
+function θ end
+
 ## """
 ## Function to return the ### in \$m\$.
 ## """
