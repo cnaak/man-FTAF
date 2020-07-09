@@ -81,5 +81,41 @@ Function to return the dimensionless crank radius to rod lenght ratio.
 """
 function rRL end
 
+"""
+Function to return the combustion reaction time in \$s\$.
+"""
+function Δtc end
+
+"""
+Function to return the angular combustion duration in \$rad\$.
+"""
+function δ end
+
+# δ's delta alias
+delta = δ
+
+"""
+Function to return the engine angular velocity ω in \$rad/s\$.
+"""
+function ω end
+
+# ω's omega alias
+omega = ω
+
+"""
+Function to return the engine 'speed' in \$RPM\$.
+"""
+function N end
+
+## """
+## Function to return the ### in \$m\$.
+## """
+## function TODO end
+##
+## """
+## Function to return the ### in \$m\$.
+## """
+## function TODO end
+
 # Module
 end
