@@ -2,3 +2,6 @@ name = "FTAF_engine"
 uuid = "6962562c-2743-4d07-ac79-52f318e1d0c6"
 authors = ["C Naaktgeboren <NaaktgeborenC.PhD@gmail.com>"]
 version = "0.1.0"
+
+[deps]
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
