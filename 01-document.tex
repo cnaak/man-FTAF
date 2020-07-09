@@ -153,6 +153,7 @@
     \tcs{{}_{\tdc}}                             \> Top Dead Center, TDC                                                                                                                     \\
     \tcs{{}_u}                                  \> unitary or unit                                                                                                                          \\
     \tcs{{}_v}                                  \> at constant-specific volume                                                                                                              \\
+    \tcs{{}_{\delta}}                           \> at end of combustion reaction                                                                                                            \\
     \tcs{{}_{\theta}}                           \> at ignition                                                                                                                              \\
 \end{tabbing}
                                                                                                                       
@@ -297,8 +298,8 @@
     Let $t_{\theta, \ell}$ be ignition times for which Eq.~(\ref{eq:theta}) holds true for the $\ell$-th thermodynamic engine cycle, then the $\ell$-th combustion event finishes at%
     %
     \begin{equation}
-        t = t_{\theta, \ell} + \Delta t_c.
-        \label{eq:t.theta}
+        t_{\delta, \ell} = t_{\theta, \ell} + \Delta t_c.
+        \label{eq:t.delta}
     \end{equation}
 
     The engine model, being comprised of simple algebric equations, is left for the students to implement.

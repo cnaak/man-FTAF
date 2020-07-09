@@ -112,10 +112,15 @@ Function to return the ignition angle in \$rad\$.
 """
 function θ end
 
-## """
-## Function to return the ### in \$m\$.
-## """
-## function TODO end
+"""
+Function to return the instantaneous piston distance from the TDC in \$m\$.
+"""
+function x end
+
+"""
+Function to return the ### in \$m\$.
+"""
+function TODO end
 
 # Module
 end
