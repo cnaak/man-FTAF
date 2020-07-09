@@ -136,6 +136,7 @@
     \tcs{{}_{\mbox{\scriptsize \ce{H2}}}}       \> that of Hydrogen molecule                                                                                                                \\
     \tcs{{}_{\mbox{\scriptsize \ce{H2O}}}}      \> that of Water molecule                                                                                                                   \\
     \tcs{{}_i}                                  \> process index                                                                                                                            \\
+    \tcs{{}_{\ell}}                             \> thermodynamic cycle index                                                                                                                \\
     \tcs{{}_{LR}}                               \> relative to the $L/R$ ratio                                                                                                              \\
     \tcs{{}_m}                                  \> mixture                                                                                                                                  \\
     \tcs{{}_{max}}                              \> maximum                                                                                                                                  \\
@@ -152,6 +153,7 @@
     \tcs{{}_{\tdc}}                             \> Top Dead Center, TDC                                                                                                                     \\
     \tcs{{}_u}                                  \> unitary or unit                                                                                                                          \\
     \tcs{{}_v}                                  \> at constant-specific volume                                                                                                              \\
+    \tcs{{}_{\theta}}                           \> at ignition                                                                                                                              \\
 \end{tabbing}
                                                                                                                       
 \begin{tabbing}\hspace*{\lensymb}\=\hspace*{\lenWHAT}\kill
@@ -290,6 +292,13 @@
     \begin{equation}
         \delta = \omega\Delta t_c \qquad\mbox{(const-$\omega$).}
         \label{eq:delta}
+    \end{equation}
+
+    Let $t_{\theta, \ell}$ be ignition times for which Eq.~(\ref{eq:theta}) holds true for the $\ell$-th thermodynamic engine cycle, then the $\ell$-th combustion event finishes at%
+    %
+    \begin{equation}
+        t = t_{\theta, \ell} + \Delta t_c.
+        \label{eq:t.theta}
     \end{equation}
 
     The engine model, being comprised of simple algebric equations, is left for the students to implement.
