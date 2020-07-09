@@ -128,6 +128,7 @@
     \tcs{{}_{\mbox{\scriptsize \ce{CO}}}}       \> that of Carbon Monoxide molecule                                                                                                         \\
     \tcs{{}_{\mbox{\scriptsize \ce{CO2}}}}      \> that of Carbon Dioxide molecule                                                                                                          \\
     \tcs{{}_d}                                  \> displaced                                                                                                                                \\
+    \tcs{{}_{DS}}                               \> relative to the $D/S$ ratio                                                                                                              \\
     \tcs{{}_f}                                  \> of formation                                                                                                                             \\
     \tcs{{}_{\mbox{\scriptsize f}}}             \> that of fuel                                                                                                                             \\
     \tcs{{}_{\mbox{\scriptsize\tt f}}}          \> that of fuel mixture                                                                                                                     \\
@@ -247,6 +248,9 @@
         \label{eq:r}
         r       &= \frac{V_\bdc}{V_\tdc} = 1 + \frac{V_{du}}{V_\tdc}.
     \end{align}
+
+    It is worth noting that from an implementation point of view, it might be insteresting to define the $r_{SD}$ and the $r_{LR}$ ratios, as well as their  respective  $r_{DS}$  and  $r_{RL}$
+    inverses.
 
     The crankshaft angular position $\alpha$, in \radian, and engine angular velocity $\omega$, in \radian\per\second, and the engine RPM $N$, are related by $d\alpha/dt = \omega = 2\pi N/60$,
     in which $\alpha$ is an integer multiple of $\unit{2\pi}{\radian}$ whenever the piston is at the TDC. Constant-$\omega$ cases have $\alpha = \omega t$ with $t =  \unit{0}{\second}$  at  an
