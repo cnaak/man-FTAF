@@ -67,6 +67,11 @@ Function to return the dimensionless piston stroke-to-diameter ratio.
 function rSD end
 
 """
+Function to return the dimensionless piston diameter-to-stroke ratio.
+"""
+function rDS end
+
+"""
 Function to return the dimensionless rod length to crank radius ratio.
 """
 function rLR end
