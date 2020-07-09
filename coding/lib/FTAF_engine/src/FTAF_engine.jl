@@ -61,5 +61,20 @@ Function to return the crank radius, in m.
 """
 function R end
 
+"""
+Function to return the dimensionless piston stroke-to-diameter ratio.
+"""
+function rSD end
+
+"""
+Function to return the dimensionless rod length to crank radius ratio.
+"""
+function rLR end
+
+"""
+Function to return the dimensionless crank radius to rod lenght ratio.
+"""
+function rRL end
+
 # Module
 end
