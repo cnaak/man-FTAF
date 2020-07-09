@@ -36,11 +36,30 @@ function VBDC end
 # VBDC's Vmin alias
 Vmax = VBDC
 
-
 """
 Function to return the engine's cylinder count.
 """
 function z end
+
+"""
+Function to return the piston diameter, in m.
+"""
+function D end
+
+"""
+Function to return the piston stroke, in m.
+"""
+function S end
+
+"""
+Function to return the connecting rod length, in m.
+"""
+function L end
+
+"""
+Function to return the crank radius, in m.
+"""
+function R end
 
 # Module
 end
