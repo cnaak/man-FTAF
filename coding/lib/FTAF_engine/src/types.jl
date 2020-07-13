@@ -15,50 +15,50 @@ export Inexact
 
 
 #----------------------------------------------------------------------------------------------#
-#                                  engineConcept{𝗧<:Inexact}                                   #
+#                                       eMR{𝗧<:Inexact}                                        #
 #----------------------------------------------------------------------------------------------#
 
 """
-`struct engineConcept{𝗧<:Inexact}`\n
-Engine proportion parameters structure.
+`struct eMR{𝗧<:Inexact}`\n
+Engine Mechanical Ratios structure.
 """
-struct engineConcept{𝗧<:Inexact}
+struct eMR{𝗧<:Inexact}
     rSD::𝗧
     rLR::𝗧
     # Inner constructors
-    engineConcept(x::engineConcept{𝗧}) where 𝗧 = new{𝗧}(x.rSD, x.rLR)
-    engineConcept(rsd::𝗧, rlr::𝗧) where 𝗧<:Inexact = new{𝗧}(rsd, rlr)
-    engineConcept(rsd::𝗦, rlr::𝗧) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
-        engineConcept(promote(rsd, rlr)...)
+    eMR(x::eMR{𝗧}) where 𝗧 = new{𝗧}(x.rSD, x.rLR)
+    eMR(rsd::𝗧, rlr::𝗧) where 𝗧<:Inexact = new{𝗧}(rsd, rlr)
+    eMR(rsd::𝗦, rlr::𝗧) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
+        eMR(promote(rsd, rlr)...)
     end
 end
 
 # Outer constructors
-(::Type{engineConcept{𝗧}})(s::engineConcept{𝗦}) where {𝗦, 𝗧} = begin
-    engineConcept(𝗧(s.rSD), 𝗧(s.rLR))
+(::Type{eMR{𝗧}})(s::eMR{𝗦}) where {𝗦, 𝗧} = begin
+    eMR(𝗧(s.rSD), 𝗧(s.rLR))
 end
 
 # Methods
-rSD(x::engineConcept{𝗧}) where 𝗧 = x.rSD
-rDS(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rSD
-rLR(x::engineConcept{𝗧}) where 𝗧 = x.rLR
-rRL(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rLR
+rSD(x::eMR{𝗧}) where 𝗧 = x.rSD
+rDS(x::eMR{𝗧}) where 𝗧 = one(𝗧) / x.rSD
+rLR(x::eMR{𝗧}) where 𝗧 = x.rLR
+rRL(x::eMR{𝗧}) where 𝗧 = one(𝗧) / x.rLR
 
 # Conversion Methods: all --> D
-S2D(x::engineConcept{𝗧}, S::Unitful.Length{𝗧}) where 𝗧 = S * rDS(x)
-S2D(x::engineConcept{𝗧}, S::𝗧) where 𝗧 = S * rDS(x) * Unitful.m
-R2D(x::engineConcept{𝗧}, R::Unitful.Length{𝗧}) where 𝗧 = 2R * rDS(x)
-R2D(x::engineConcept{𝗧}, R::𝗧) where 𝗧 = 2R * rDS(x) * Unitful.m
-L2D(x::engineConcept{𝗧}, L::Unitful.Length{𝗧}) where 𝗧 = 2L * rRL(x) * rDS(x)
-L2D(x::engineConcept{𝗧}, L::𝗧) where 𝗧 = 2L * rRL(x) * rDS(x) * Unitful.m
+S2D(x::eMR{𝗧}, S::Unitful.Length{𝗧}) where 𝗧 = S * rDS(x)
+S2D(x::eMR{𝗧}, S::𝗧) where 𝗧 = S * rDS(x) * Unitful.m
+R2D(x::eMR{𝗧}, R::Unitful.Length{𝗧}) where 𝗧 = 2R * rDS(x)
+R2D(x::eMR{𝗧}, R::𝗧) where 𝗧 = 2R * rDS(x) * Unitful.m
+L2D(x::eMR{𝗧}, L::Unitful.Length{𝗧}) where 𝗧 = 2L * rRL(x) * rDS(x)
+L2D(x::eMR{𝗧}, L::𝗧) where 𝗧 = 2L * rRL(x) * rDS(x) * Unitful.m
 
 # Conversion Methods: D --> all
-D2S(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D * rSD(x)
-D2S(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D * rSD(x) * Unitful.m
-D2R(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rSD(x)
-D2R(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rSD(x) * Unitful.m
-D2L(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rLR(x) * rSD(x)
-D2L(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitful.m
+D2S(x::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D * rSD(x)
+D2S(x::eMR{𝗧}, D::𝗧) where 𝗧 = D * rSD(x) * Unitful.m
+D2R(x::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rSD(x)
+D2R(x::eMR{𝗧}, D::𝗧) where 𝗧 = D/2 * rSD(x) * Unitful.m
+D2L(x::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rLR(x) * rSD(x)
+D2L(x::eMR{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitful.m
 
 
 #----------------------------------------------------------------------------------------------#
@@ -66,16 +66,16 @@ D2L(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitfu
 #----------------------------------------------------------------------------------------------#
 
 struct crankRod{𝗧<:Inexact}
-    ec::engineConcept{𝗧}
+    ec::eMR{𝗧}
     D::Unitful.Length{𝗧}
     # Inner constructors
     crankRod(cr::crankRod{𝗧}) where 𝗧 = new{𝗧}(cr.ec, cr.D)
-    crankRod(ec::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = begin
+    crankRod(ec::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = begin
         new{𝗧}(ec, Unitful.uconvert(Unitful.m, D))
     end
-    crankRod(ec::engineConcept{𝗦}, D::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
+    crankRod(ec::eMR{𝗦}, D::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
         𝗫 = promote_type(𝗦, 𝗧)
-        crankRod(engineConcept{𝗫}(ec),
+        crankRod(eMR{𝗫}(ec),
                  𝗫(Unitful.uconvert(Unitful.m, D).val) * Unitful.m)
     end
 end
