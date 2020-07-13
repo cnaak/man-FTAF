@@ -57,8 +57,8 @@ D2S(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D * rSD(x)
 D2S(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D * rSD(x) * Unitful.m
 D2R(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rSD(x)
 D2R(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rSD(x) * Unitful.m
-D2L(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rRL(x) * rSD(x)
-D2L(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rRL(x) * rSD(x) * Unitful.m
+D2L(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rLR(x) * rSD(x)
+D2L(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitful.m
 
 
 #----------------------------------------------------------------------------------------------#
