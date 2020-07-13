@@ -26,7 +26,7 @@ struct engineConcept{𝗧<:Inexact}
     rSD::𝗧
     rLR::𝗧
     # Inner constructors
-    engineConcept(x::engineConcept{𝗫}) where 𝗫 = new{𝗫}(x.rSD, x.rLR)
+    engineConcept(x::engineConcept{𝗧}) where 𝗧 = new{𝗧}(x.rSD, x.rLR)
     engineConcept(rsd::𝗧, rlr::𝗧) where 𝗧<:Inexact = new{𝗧}(rsd, rlr)
     engineConcept(rsd::𝗦, rlr::𝗧) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
         engineConcept(promote(rsd, rlr)...)
@@ -67,7 +67,8 @@ D2L(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitfu
 
 struct crankRod{𝗧<:Inexact}
     ec::engineConcept{𝗧}
-    D::𝗧
+    D::Unitful.Length{𝗧}
+    # Inner constructors
 end
 
 
