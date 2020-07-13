@@ -98,6 +98,23 @@ export pCR
     pCR(eMR{𝗧}(s.ϵ), 𝗧(s.D.val) * Unitful.m)
 end
 
+# Methods
+rSD(x::pCR{𝗧}) where 𝗧 = x.ϵ.rSD
+rDS(x::pCR{𝗧}) where 𝗧 = one(𝗧) / x.ϵ.rSD
+rLR(x::pCR{𝗧}) where 𝗧 = x.ϵ.rLR
+rRL(x::pCR{𝗧}) where 𝗧 = one(𝗧) / x.ϵ.rLR
+
+Vdu(x::pCR{𝗧}) where 𝗧 = 𝗧(pi/4) * x.D^3 * x.ϵ.rSD
+D(x::pCR{𝗧})   where 𝗧 = x.D
+S(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD
+R(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD / 𝗧(2)
+L(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD * x.ϵ.rLR / 𝗧(2)
+
+# Reverse constructors
+pCR(emr::eMR{𝗧}, vdu::Unitful.Volume{𝗧}) where 𝗧<:Inexact = begin
+    dia = cbrt(vdu * 𝗧(4/pi) / emr.ϵ.rSD)
+    pCR(emr, dia)
+end
 
 
 #----------------------------------------------------------------------------------------------#
