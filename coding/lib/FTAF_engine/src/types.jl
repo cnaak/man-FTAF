@@ -27,10 +27,10 @@ end
 end
 
 # Methods
-rSD(x::engineConcept{𝗧})::𝗧 where 𝗧 = x.rSD
-rDS(x::engineConcept{𝗧})::𝗧 where 𝗧 = one(𝗧) / x.rSD
-rLR(x::engineConcept{𝗧})::𝗧 where 𝗧 = x.rLR
-rRL(x::engineConcept{𝗧})::𝗧 where 𝗧 = one(𝗧) / x.rLR
+rSD(x::engineConcept{𝗧}) where 𝗧 = x.rSD
+rDS(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rSD
+rLR(x::engineConcept{𝗧}) where 𝗧 = x.rLR
+rRL(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rLR
 
 
 
