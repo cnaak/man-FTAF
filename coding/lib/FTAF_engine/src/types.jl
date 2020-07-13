@@ -131,6 +131,12 @@ struct engine{𝗧<:Inexact}
     r::𝗧                                    # Compression ratio
     pcr::pCR{𝗧}                             # Piston-Crank-Rod structure
     θ::Quantity{𝗧,NoDims,U} where {𝗧,U}     # Ignition angle, rad
+    # Internal constructors
+    engine(eng::engine{𝗧}) where 𝗧 = new{𝗧}(eng.id, eng.z, eng.r, eng.pcr, eng.θ)
+    engine(_i::AbstractString, _z::Integer, _r::𝗧, _p::pCR{𝗧},
+           _θ::Quantity{𝗧,NoDims,U}) where 𝗧<:Inexact where U = begin
+        new{𝗧}(_i, _z, _r, _p, _θ)
+    end
 end
 
 
