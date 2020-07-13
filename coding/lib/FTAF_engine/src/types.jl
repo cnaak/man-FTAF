@@ -77,7 +77,7 @@ struct pCR{𝗧<:Inexact}
     D::Unitful.Length{𝗧}    # Diameter, in m
     # Inner constructors
     pCR(pcr::pCR{𝗧}) where 𝗧 = new{𝗧}(pcr.ϵ, pcr.D)
-    pCR(emr::eMR{𝗧}, dia::Unitful.Length{𝗧}) where 𝗧 = begin
+    pCR(emr::eMR{𝗧}, dia::Unitful.Length{𝗧}) where 𝗧<:Inexact = begin
         new{𝗧}(emr, uconvert(Unitful.m, dia))
     end
     pCR(emr::eMR{𝗦}, dia::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
