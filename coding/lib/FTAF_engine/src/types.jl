@@ -6,10 +6,10 @@
 `Inexact = Union{AbstractFloat, ...}`\n
 The `Inexact` number type union, which includes the following types:\n
     - `AbstractFloat`;
-    - `IntervalArithmetic.AbstractInterval{AbstractFloat}`.
+    - `IntervalArithmetic.AbstractInterval{𝗧} where 𝗧<:AbstractFloat}`.
 """
 Inexact = Union{AbstractFloat,
-                IntervalArithmetic.AbstractInterval{AbstractFloat}}
+                IntervalArithmetic.AbstractInterval{𝗧} where 𝗧<:AbstractFloat}
 
 export Inexact
 
