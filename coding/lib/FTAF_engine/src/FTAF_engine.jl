@@ -6,6 +6,7 @@ include("interface.jl")
 
 # Module imports
 using Reexport
+@reexport using Unitful
 @reexport using IntervalArithmetic
 
 # Package types
