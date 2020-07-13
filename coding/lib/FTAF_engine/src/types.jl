@@ -6,10 +6,10 @@
 `Inexact = Union{AbstractFloat, ...}`\n
 The `Inexact` number type union, which includes the following types:\n
     - `AbstractFloat`;
-    - `AbstractInterval{𝗧} where 𝗧<:AbstractFloat}`.
+    - `AbstractInterval{𝝘} where 𝝘<:AbstractFloat}`.
 """
 Inexact = Union{AbstractFloat,
-                AbstractInterval{𝗧} where 𝗧<:AbstractFloat}
+                AbstractInterval{𝝘} where 𝝘<:AbstractFloat}
 
 export Inexact
 
@@ -140,7 +140,7 @@ struct engine{𝗧<:Inexact}
     engine(_i::AbstractString, _z::Integer, _r::𝗥, _p::pCR{𝗦},
            _θ::Quantity{𝗧,NoDims,U}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact, U} = begin
         𝗫 = promote_type(𝗥, 𝗦, 𝗧)
-        new{𝗧}(_i, _z, 𝗫(_r), pCR{𝗫}(_p), 𝗫(uconvert(Unitful.rad, _θ).val) * Unitful.rad)
+        new{𝗫}(_i, _z, 𝗫(_r), pCR{𝗫}(_p), 𝗫(uconvert(Unitful.rad, _θ).val) * Unitful.rad)
     end
 end
 
