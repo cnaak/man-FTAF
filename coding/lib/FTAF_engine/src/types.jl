@@ -112,7 +112,7 @@ L(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD * x.ϵ.rLR / 𝗧(2)
 
 # Reverse constructors
 pCR(emr::eMR{𝗧}, vdu::Unitful.Volume{𝗧}) where 𝗧<:Inexact = begin
-    dia = cbrt(vdu * 𝗧(4/pi) / emr.ϵ.rSD)
+    dia = cbrt(vdu * 𝗧(4/pi) / emr.rSD)
     pCR(emr, dia)
 end
 
