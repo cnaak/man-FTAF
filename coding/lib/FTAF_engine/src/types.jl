@@ -69,6 +69,7 @@ struct crankRod{𝗧<:Inexact}
     ec::engineConcept{𝗧}
     D::Unitful.Length{𝗧}
     # Inner constructors
+    crankRod(ec::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = new{𝗧}(ec, D)
 end
 
 
