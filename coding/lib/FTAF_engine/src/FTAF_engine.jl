@@ -8,6 +8,7 @@ include("interface.jl")
 using Reexport
 @reexport using Unitful
 @reexport using IntervalArithmetic
+@reexport using Measurements
 
 # Package types
 include("types.jl")
