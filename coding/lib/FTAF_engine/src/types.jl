@@ -62,21 +62,24 @@ D2L(x::eMR{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitful.m
 
 
 #----------------------------------------------------------------------------------------------#
-#                                 struct crankRod{𝗧<:Inexact}                                  #
+#                                       pCR{𝗧<:Inexact}                                        #
 #----------------------------------------------------------------------------------------------#
 
-struct crankRod{𝗧<:Inexact}
-    ec::eMR{𝗧}
-    D::Unitful.Length{𝗧}
+"""
+`struct pCR{𝗧<:Inexact}`\n
+Piston-Crank-Rod mechanism structure.
+"""
+struct pCR{𝗧<:Inexact}
+    ϵ::eMR{𝗧}               # engine mechanical ratios
+    D::Unitful.Length{𝗧}    # Diameter, in m
     # Inner constructors
-    crankRod(cr::crankRod{𝗧}) where 𝗧 = new{𝗧}(cr.ec, cr.D)
-    crankRod(ec::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = begin
-        new{𝗧}(ec, Unitful.uconvert(Unitful.m, D))
+    pCR(pcr::pCR{𝗧}) where 𝗧 = new{𝗧}(pcr.ϵ, pcr.D)
+    pCR(emr::eMR{𝗧}, dia::Unitful.Length{𝗧}) where 𝗧 = begin
+        new{𝗧}(emr, Unitful.uconvert(Unitful.m, dia))
     end
-    crankRod(ec::eMR{𝗦}, D::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
+    pCR(emr::eMR{𝗦}, dia::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
         𝗫 = promote_type(𝗦, 𝗧)
-        crankRod(eMR{𝗫}(ec),
-                 𝗫(Unitful.uconvert(Unitful.m, D).val) * Unitful.m)
+        pCR(eMR{𝗫}(emr), 𝗫(Unitful.uconvert(Unitful.m, dia).val) * Unitful.m)
     end
 end
 
