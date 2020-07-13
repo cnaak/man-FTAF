@@ -44,6 +44,9 @@ rDS(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rSD
 rLR(x::engineConcept{𝗧}) where 𝗧 = x.rLR
 rRL(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rLR
 
+# Conversion Methods
+S2D()
+
 
 #----------------------------------------------------------------------------------------------#
 #                                 struct crankRod{𝗧<:Inexact}                                  #
