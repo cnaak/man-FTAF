@@ -44,7 +44,7 @@ rDS(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rSD
 rLR(x::engineConcept{𝗧}) where 𝗧 = x.rLR
 rRL(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rLR
 
-# Conversion Methods: --> D
+# Conversion Methods: all --> D
 S2D(x::engineConcept{𝗧}, S::Unitful.Length{𝗧}) where 𝗧 = S * rDS(x)
 S2D(x::engineConcept{𝗧}, S::𝗧) where 𝗧 = S * rDS(x) * Unitful.m
 R2D(x::engineConcept{𝗧}, R::Unitful.Length{𝗧}) where 𝗧 = 2R * rDS(x)
@@ -52,7 +52,7 @@ R2D(x::engineConcept{𝗧}, R::𝗧) where 𝗧 = 2R * rDS(x) * Unitful.m
 L2D(x::engineConcept{𝗧}, L::Unitful.Length{𝗧}) where 𝗧 = 2L * rRL(x) * rDS(x)
 L2D(x::engineConcept{𝗧}, L::𝗧) where 𝗧 = 2L * rRL(x) * rDS(x) * Unitful.m
 
-# Conversion Methods: D -->
+# Conversion Methods: D --> all
 D2S(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D * rSD(x)
 D2S(x::engineConcept{𝗧}, D::𝗧) where 𝗧 = D * rSD(x) * Unitful.m
 D2R(x::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rSD(x)
