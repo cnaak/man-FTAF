@@ -126,9 +126,23 @@ end
 Simple internal combustion engine structure.
 """
 struct engine{𝗧<:Inexact}
-    id::AbstractString      # Name / IDentifier
-    z::Integer              # Cylinder count
-    r::𝗧                    # Compression ratio
-    pcr::pCR{𝗧}             # Piston-Crank-Rod structure
+    id::AbstractString                      # Name / IDentifier
+    z::Integer                              # Cylinder count
+    r::𝗧                                    # Compression ratio
+    pcr::pCR{𝗧}                             # Piston-Crank-Rod structure
+    θ::Quantity{𝗧,NoDims,U} where {𝗧,U}     # Ignition angle, rad
 end
+
+
+#----------------------------------------------------------------------------------------------#
+#                                    struct eOP{𝗧<:Inexact}                                    #
+#----------------------------------------------------------------------------------------------#
+
+"""
+`struct eOP{𝗧<:Inexact}`\n
+Engine operating conditions structure.
+"""
+struct eOP{𝗧<:Inexact}
+end
+
 
