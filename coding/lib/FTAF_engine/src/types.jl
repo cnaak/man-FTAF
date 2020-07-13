@@ -33,6 +33,9 @@ struct eMR{𝗧<:Inexact}
     end
 end
 
+export eMR
+
+
 # Outer constructors
 (::Type{eMR{𝗧}})(s::eMR{𝗦}) where {𝗦, 𝗧} = begin
     eMR(𝗧(s.rSD), 𝗧(s.rLR))
@@ -75,21 +78,30 @@ struct pCR{𝗧<:Inexact}
     # Inner constructors
     pCR(pcr::pCR{𝗧}) where 𝗧 = new{𝗧}(pcr.ϵ, pcr.D)
     pCR(emr::eMR{𝗧}, dia::Unitful.Length{𝗧}) where 𝗧 = begin
-        new{𝗧}(emr, Unitful.uconvert(Unitful.m, dia))
+        new{𝗧}(emr, uconvert(Unitful.m, dia))
     end
     pCR(emr::eMR{𝗦}, dia::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
         𝗫 = promote_type(𝗦, 𝗧)
-        pCR(eMR{𝗫}(emr), 𝗫(Unitful.uconvert(Unitful.m, dia).val) * Unitful.m)
+        pCR(eMR{𝗫}(emr), 𝗫(uconvert(Unitful.m, dia).val) * Unitful.m)
     end
 end
+
+export pCR
+
+
+# Outer constructors
+(::Type{pCR{𝗧}})(s::pCR{𝗦}) where {𝗦, 𝗧} = begin
+    pCR(eMR{𝗧}(s.ϵ), 𝗧(s.D.val) * Unitful.m)
+end
+
 
 
 #----------------------------------------------------------------------------------------------#
 #                                  struct engine{𝗧<:Inexact}                                   #
 #----------------------------------------------------------------------------------------------#
 
-struct engine{𝗧<:Inexact}
-    id::AbstractString
-    z::Integer
-end
+## struct engine{𝗧<:Inexact}
+##     id::AbstractString
+##     z::Integer
+## end
 
