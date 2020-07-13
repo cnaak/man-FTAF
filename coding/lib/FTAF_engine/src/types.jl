@@ -69,7 +69,14 @@ struct crankRod{𝗧<:Inexact}
     ec::engineConcept{𝗧}
     D::Unitful.Length{𝗧}
     # Inner constructors
-    crankRod(ec::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = new{𝗧}(ec, D)
+    crankRod(ec::engineConcept{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = begin
+        new{𝗧}(ec, Unitful.uconvert(Unitful.m, D))
+    end
+    crankRod(ec::engineConcept{𝗦}, D::Unitful.Length{𝗧}) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
+        𝗫 = promote_type(𝗦, 𝗧)
+        crankRod(engineConcept{𝗫}(ec),
+                 𝗫(Unitful.uconvert(Unitful.m, D).val) * Unitful.m)
+    end
 end
 
 
