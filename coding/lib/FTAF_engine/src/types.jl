@@ -3,10 +3,13 @@
 #==============================================================================================#
 
 """
-`Inexact = Union{AbstractFloat}`\n
-The `Inexact` number type union.
+`Inexact = Union{AbstractFloat, ...}`\n
+The `Inexact` number type union, which includes the following types:\n
+    - `AbstractFloat`;
+    - `IntervalArithmetic.AbstractInterval{AbstractFloat}`.
 """
-Inexact = Union{AbstractFloat}
+Inexact = Union{AbstractFloat,
+                IntervalArithmetic.AbstractInterval{AbstractFloat}}
 
 export Inexact
 
