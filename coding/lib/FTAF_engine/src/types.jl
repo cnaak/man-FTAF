@@ -144,6 +144,15 @@ struct engine{𝗧<:Inexact}
     end
 end
 
+export engine
+
+
+# Outer constructors
+(::Type{engine{𝗧}})(s::engine{𝗦}) where {𝗦, 𝗧} = begin
+    engine(s.id, s.z, 𝗧(s.r), pCR{𝗧}(s.pcr), 𝗧(_θ.val) * Unitful.rad)
+end
+
+
 #----------------------------------------------------------------------------------------------#
 #                                    struct eOP{𝗧<:Inexact}                                    #
 #----------------------------------------------------------------------------------------------#
