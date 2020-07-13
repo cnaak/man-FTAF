@@ -121,8 +121,14 @@ end
 #                                  struct engine{𝗧<:Inexact}                                   #
 #----------------------------------------------------------------------------------------------#
 
-## struct engine{𝗧<:Inexact}
-##     id::AbstractString
-##     z::Integer
-## end
+"""
+`struct engine{𝗧<:Inexact}`\n
+Simple internal combustion engine structure.
+"""
+struct engine{𝗧<:Inexact}
+    id::AbstractString      # Name / IDentifier
+    z::Integer              # Cylinder count
+    r::𝗧                    # Compression ratio
+    pcr::pCR{𝗧}             # Piston-Crank-Rod structure
+end
 
