@@ -11,20 +11,20 @@ Inexact = Union{AbstractFloat}
 export Inexact
 
 #----------------------------------------------------------------------------------------------#
-#                               engineConcept{𝗧<:AbstractFloat}                                #
+#                                  engineConcept{𝗧<:Inexact}                                   #
 #----------------------------------------------------------------------------------------------#
 
 """
-`struct engineConcept{𝗧<:AbstractFloat}`\n
+`struct engineConcept{𝗧<:Inexact}`\n
 Engine proportion parameters structure.
 """
-struct engineConcept{𝗧<:AbstractFloat}
+struct engineConcept{𝗧<:Inexact}
     rSD::𝗧
     rLR::𝗧
     # Inner constructors
     engineConcept(x::engineConcept{𝗫}) where 𝗫 = new{𝗫}(x.rSD, x.rLR)
-    engineConcept(rsd::𝗧, rlr::𝗧) where 𝗧<:AbstractFloat = new{𝗧}(rsd, rlr)
-    engineConcept(rsd::𝗦, rlr::𝗧) where {𝗦<:AbstractFloat, 𝗧<:AbstractFloat} = begin
+    engineConcept(rsd::𝗧, rlr::𝗧) where 𝗧<:Inexact = new{𝗧}(rsd, rlr)
+    engineConcept(rsd::𝗦, rlr::𝗧) where {𝗦<:Inexact, 𝗧<:Inexact} = begin
         engineConcept(promote(rsd, rlr)...)
     end
 end
@@ -42,7 +42,7 @@ rRL(x::engineConcept{𝗧}) where 𝗧 = one(𝗧) / x.rLR
 
 
 
-## struct engine{𝗧<:AbstractFloat}
+## struct engine{𝗧<:Inexact}
 ##     id::AbstractString
 ##     
 ## end
