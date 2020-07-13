@@ -135,7 +135,7 @@ struct engine{𝗧<:Inexact}
     engine(eng::engine{𝗧}) where 𝗧 = new{𝗧}(eng.id, eng.z, eng.r, eng.pcr, eng.θ)
     engine(_i::AbstractString, _z::Integer, _r::𝗧, _p::pCR{𝗧},
            _θ::Quantity{𝗧,NoDims,U}) where 𝗧<:Inexact where U = begin
-        new{𝗧}(_i, _z, _r, _p, _θ)
+        new{𝗧}(_i, _z, _r, _p, uconvert(Unitful.rad, _θ))
     end
     engine(_i::AbstractString, _z::Integer, _r::𝗥, _p::pCR{𝗦},
            _θ::Quantity{𝗧,NoDims,U}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact, U} = begin
@@ -149,7 +149,7 @@ export engine
 
 # Outer constructors
 (::Type{engine{𝗧}})(s::engine{𝗦}) where {𝗦, 𝗧} = begin
-    engine(s.id, s.z, 𝗧(s.r), pCR{𝗧}(s.pcr), 𝗧(_θ.val) * Unitful.rad)
+    engine(s.id, s.z, 𝗧(s.r), pCR{𝗧}(s.pcr), 𝗧(s.θ.val) * Unitful.rad)
 end
 
 
