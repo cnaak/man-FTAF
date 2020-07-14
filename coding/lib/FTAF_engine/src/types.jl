@@ -153,19 +153,30 @@ export engine
     engine(s.id, s.z, 𝗧(s.r), pCR{𝗧}(s.pcr), 𝗧(s.θ.val) * Unitful.rad)
 end
 
-# Fallback methods
+# Double fallback methods
 rSD(x::engine{𝗧}) where 𝗧 = rSD(x.pcr)  # fallback
 rDS(x::engine{𝗧}) where 𝗧 = rDS(x.pcr)  # fallback
 rLR(x::engine{𝗧}) where 𝗧 = rLR(x.pcr)  # fallback
 rRL(x::engine{𝗧}) where 𝗧 = rRL(x.pcr)  # fallback
 
+# Single fallback methods
 Vdu(x::engine{𝗧}) where 𝗧 = Vdu(x.pcr)  # fallback
 D(x::engine{𝗧})   where 𝗧 = D(x.pcr)    # fallback
 S(x::engine{𝗧})   where 𝗧 = S(x.pcr)    # fallback
 R(x::engine{𝗧})   where 𝗧 = R(x.pcr)    # fallback
 L(x::engine{𝗧})   where 𝗧 = L(x.pcr)    # fallback
 
+# Raw data methods
+id(x::engine{𝗧})  where 𝗧 = x.id
+z(x::engine{𝗧})   where 𝗧 = x.z
+r(x::engine{𝗧})   where 𝗧 = x.r
+pCR(x::engine{𝗧}) where 𝗧 = x.pcr
+θ(x::engine{𝗧})   where 𝗧 = x.θ
+
 # Methods
+Vd(x::engine{𝗧})  where 𝗧 = Vdu(x) * z(x)
+
+# IO Methods
 save(x::engine{𝗧}, fname::AbstractString) where 𝗧 = serialize(fname, x)
 save(fname::AbstractString, x::engine{𝗧}) where 𝗧 = serialize(fname, x)
 load(fname::AbstractString) where 𝗧 = deserialize(fname)
