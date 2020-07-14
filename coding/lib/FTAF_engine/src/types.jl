@@ -197,6 +197,7 @@ struct eST{𝗧<:Inexact}
     ω::Unitful.Frequency{𝗧} where 𝗧         # Angular velocity, rad/s
     Δtc::Unitful.Time{𝗧} where 𝗧            # Combustion duration, s
     # Inner constructors
+    eST(x::eST{𝗧}) where 𝗧 = new{𝗧}(x.α, x.ω, x.Δtc)
 end
 
 
