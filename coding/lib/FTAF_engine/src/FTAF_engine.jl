@@ -5,6 +5,7 @@ module FTAF_engine
 include("interface.jl")
 
 # Module imports
+using Serialization
 using Reexport
 @reexport using Unitful
 @reexport using IntervalArithmetic
