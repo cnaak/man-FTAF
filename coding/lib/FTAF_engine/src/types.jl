@@ -193,6 +193,10 @@ load(fname::AbstractString) where 𝗧 = deserialize(fname)
 Engine operating state structure.
 """
 struct eST{𝗧<:Inexact}
+    α::Quantity{𝗧,NoDims,U} where {𝗧,U}     # Angular position with respect to TDS, rad
+    ω::Unitful.Frequency{𝗧} where 𝗧         # Angular velocity, rad/s
+    Δtc::Unitful.Time{𝗧} where 𝗧            # Combustion duration, s
+    # Inner constructors
 end
 
 
