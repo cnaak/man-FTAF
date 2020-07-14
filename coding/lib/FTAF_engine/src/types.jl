@@ -200,7 +200,7 @@ struct eST{𝗧<:Inexact}
     eST(x::eST{𝗧}) where 𝗧 = new{𝗧}(x.α, x.ω, x.Δtc)
     eST(alpha::Quantity{𝗧,NoDims,U},
         omega::Unitful.Frequency{𝗧},
-        deltc::Unitful.Time{𝗧}) where 𝗧<:Inexact = begin
+        deltc::Unitful.Time{𝗧}) where 𝗧<:Inexact where U = begin
         new{𝗧}(uconvert(u"rad"  , alpha),
                uconvert(u"rad/s", omega),
                uconvert(u"s"    , deltc))
