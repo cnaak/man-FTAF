@@ -174,7 +174,9 @@ pCR(x::engine{𝗧}) where 𝗧 = x.pcr
 θ(x::engine{𝗧})   where 𝗧 = x.θ
 
 # Methods
-Vd(x::engine{𝗧})  where 𝗧 = Vdu(x) * z(x)
+Vd(x::engine{𝗧})    where 𝗧 = Vdu(x) * z(x)
+VTDC(x::engine{𝗧})  where 𝗧 = Vdu(x) / (r(x) - one(𝗧))
+VBDC(x::engine{𝗧})  where 𝗧 = Vdu(x) + VTDC(x)
 
 # IO Methods
 save(x::engine{𝗧}, fname::AbstractString) where 𝗧 = serialize(fname, x)
