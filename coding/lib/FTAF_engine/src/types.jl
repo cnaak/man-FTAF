@@ -185,14 +185,14 @@ load(fname::AbstractString) where 𝗧 = deserialize(fname)
 
 
 #----------------------------------------------------------------------------------------------#
-#                                    struct eOP{𝗧<:Inexact}                                    #
+#                                    struct eST{𝗧<:Inexact}                                    #
 #----------------------------------------------------------------------------------------------#
 
 """
-`struct eOP{𝗧<:Inexact}`\n
-Engine operating conditions structure.
+`struct eST{𝗧<:Inexact}`\n
+Engine operating state structure.
 """
-struct eOP{𝗧<:Inexact}
+struct eST{𝗧<:Inexact}
 end
 
 
