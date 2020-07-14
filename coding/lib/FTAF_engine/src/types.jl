@@ -183,8 +183,6 @@ save(x::engine{𝗧}, fname::AbstractString) where 𝗧 = serialize(fname, x)
 save(fname::AbstractString, x::engine{𝗧}) where 𝗧 = serialize(fname, x)
 load(fname::AbstractString) where 𝗧 = deserialize(fname)
 
-export save, load
-
 
 #----------------------------------------------------------------------------------------------#
 #                                    struct eOP{𝗧<:Inexact}                                    #
