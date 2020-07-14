@@ -114,4 +114,15 @@ Function to return the instantaneous piston distance from the TDC in \$m\$.
 """
 function x end
 
+"""
+Function to save (serialize) to disk.
+"""
+function save end
+
+"""
+Function to load (deserialize) from disk.
+"""
+function load end
+
+
 
