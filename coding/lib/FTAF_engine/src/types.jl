@@ -99,10 +99,10 @@ export pCR
 end
 
 # Methods
-rSD(x::pCR{𝗧}) where 𝗧 = x.ϵ.rSD
-rDS(x::pCR{𝗧}) where 𝗧 = one(𝗧) / x.ϵ.rSD
-rLR(x::pCR{𝗧}) where 𝗧 = x.ϵ.rLR
-rRL(x::pCR{𝗧}) where 𝗧 = one(𝗧) / x.ϵ.rLR
+rSD(x::pCR{𝗧}) where 𝗧 = rSD(x.ϵ)   # fallback
+rDS(x::pCR{𝗧}) where 𝗧 = rDS(x.ϵ)   # fallback
+rLR(x::pCR{𝗧}) where 𝗧 = rLR(x.ϵ)   # fallback
+rRL(x::pCR{𝗧}) where 𝗧 = rRL(x.ϵ)   # fallback
 
 Vdu(x::pCR{𝗧}) where 𝗧 = 𝗧(pi/4) * x.D^3 * x.ϵ.rSD
 D(x::pCR{𝗧})   where 𝗧 = x.D
@@ -151,6 +151,21 @@ export engine
 (::Type{engine{𝗧}})(s::engine{𝗦}) where {𝗦, 𝗧} = begin
     engine(s.id, s.z, 𝗧(s.r), pCR{𝗧}(s.pcr), 𝗧(s.θ.val) * Unitful.rad)
 end
+
+# Methods
+rSD(x::engine{𝗧}) where 𝗧 = rSD(x.pcr)  # fallback
+rDS(x::engine{𝗧}) where 𝗧 = rDS(x.pcr)  # fallback
+rLR(x::engine{𝗧}) where 𝗧 = rLR(x.pcr)  # fallback
+rRL(x::engine{𝗧}) where 𝗧 = rRL(x.pcr)  # fallback
+
+Vdu(x::engine{𝗧}) where 𝗧 = Vdu(x.pcr)  # fallback
+D(x::engine{𝗧})   where 𝗧 =   D(x.pcr)  # fallback
+S(x::engine{𝗧})   where 𝗧 =   S(x.pcr)  # fallback
+R(x::engine{𝗧})   where 𝗧 =   R(x.pcr)  # fallback
+L(x::engine{𝗧})   where 𝗧 =   L(x.pcr)  # fallback
+
+
+
 
 
 #----------------------------------------------------------------------------------------------#
