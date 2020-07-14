@@ -159,10 +159,10 @@ rLR(x::engine{𝗧}) where 𝗧 = rLR(x.pcr)  # fallback
 rRL(x::engine{𝗧}) where 𝗧 = rRL(x.pcr)  # fallback
 
 Vdu(x::engine{𝗧}) where 𝗧 = Vdu(x.pcr)  # fallback
-D(x::engine{𝗧})   where 𝗧 =   D(x.pcr)  # fallback
-S(x::engine{𝗧})   where 𝗧 =   S(x.pcr)  # fallback
-R(x::engine{𝗧})   where 𝗧 =   R(x.pcr)  # fallback
-L(x::engine{𝗧})   where 𝗧 =   L(x.pcr)  # fallback
+D(x::engine{𝗧})   where 𝗧 = D(x.pcr)    # fallback
+S(x::engine{𝗧})   where 𝗧 = S(x.pcr)    # fallback
+R(x::engine{𝗧})   where 𝗧 = R(x.pcr)    # fallback
+L(x::engine{𝗧})   where 𝗧 = L(x.pcr)    # fallback
 
 
 
