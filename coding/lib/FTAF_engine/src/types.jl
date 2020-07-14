@@ -166,7 +166,9 @@ R(x::engine{𝗧})   where 𝗧 = R(x.pcr)    # fallback
 L(x::engine{𝗧})   where 𝗧 = L(x.pcr)    # fallback
 
 # Methods
-
+save(x::engine{𝗧}, fname::AbstractString) where 𝗧 = serialize(fname, x)
+save(fname::AbstractString, x::engine{𝗧}) where 𝗧 = serialize(fname, x)
+load(fname::AbstractString) where 𝗧 = deserialize(fname)
 
 
 
