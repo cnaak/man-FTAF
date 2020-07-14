@@ -190,7 +190,7 @@ load(fname::AbstractString) where 𝗧 = deserialize(fname)
 
 """
 `struct eST{𝗧<:Inexact}`\n
-Engine operating state structure.
+Engine operating state and combustion timing structure.
 """
 struct eST{𝗧<:Inexact}
     α::Quantity{𝗧,NoDims,U} where {𝗧,U}     # Angular position with respect to TDS, rad
@@ -198,7 +198,13 @@ struct eST{𝗧<:Inexact}
     Δtc::Unitful.Time{𝗧} where 𝗧            # Combustion duration, s
     # Inner constructors
     eST(x::eST{𝗧}) where 𝗧 = new{𝗧}(x.α, x.ω, x.Δtc)
-    # TODO: All 𝗧's ...
+    eST(alpha::Quantity{𝗧,NoDims,U},
+        omega::Unitful.Frequency{𝗧},
+        deltc::Unitful.Time{𝗧}) where 𝗧<:Inexact = begin
+        new{𝗧}(uconvert(u"rad"  , alpha),
+               uconvert(u"rad/s", omega),
+               uconvert(u"s"    , deltc))
+    end
     # TODO: All mixed ...
 end
 
