@@ -104,11 +104,11 @@ rDS(x::pCR{𝗧}) where 𝗧 = rDS(x.ϵ)   # fallback
 rLR(x::pCR{𝗧}) where 𝗧 = rLR(x.ϵ)   # fallback
 rRL(x::pCR{𝗧}) where 𝗧 = rRL(x.ϵ)   # fallback
 
-Vdu(x::pCR{𝗧}) where 𝗧 = 𝗧(pi/4) * x.D^3 * x.ϵ.rSD
+Vdu(x::pCR{𝗧}) where 𝗧 = 𝗧(pi/4) * D(x)^3 * rSD(x)
 D(x::pCR{𝗧})   where 𝗧 = x.D
-S(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD
-R(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD / 𝗧(2)
-L(x::pCR{𝗧})   where 𝗧 = x.D * x.ϵ.rSD * x.ϵ.rLR / 𝗧(2)
+S(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x)
+R(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x) / 𝗧(2)
+L(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x) * rLR(x) / 𝗧(2)
 
 # Reverse constructors
 pCR(emr::eMR{𝗧}, vdu::Unitful.Volume{𝗧}) where 𝗧<:Inexact = begin
