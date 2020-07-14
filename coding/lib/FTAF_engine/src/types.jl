@@ -200,12 +200,19 @@ struct eST{𝗧<:Inexact}
     eST(x::eST{𝗧}) where 𝗧 = new{𝗧}(x.α, x.ω, x.Δtc)
     eST(alpha::Quantity{𝗧,NoDims,U},
         omega::Unitful.Frequency{𝗧},
-        deltc::Unitful.Time{𝗧}) where 𝗧<:Inexact where U = begin
+        deltc::Unitful.Time{𝗧}) where {𝗧<:Inexact, U} = begin
         new{𝗧}(uconvert(u"rad"  , alpha),
                uconvert(u"rad/s", omega),
                uconvert(u"s"    , deltc))
     end
-    # TODO: All mixed ...
+    eST(alpha::Quantity{𝗥,NoDims,U},
+        omega::Unitful.Frequency{𝗦},
+        deltc::Unitful.Time{𝗧}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact, U} = begin
+        𝗫 = promote_type(𝗥, 𝗦, 𝗧)
+        new{𝗫}(𝗫(uconvert(u"rad"  , alpha).val) * u"rad",
+               𝗫(uconvert(u"rad/s", omega).val) * u"rad/s",
+               𝗫(uconvert(u"s"    , deltc).val) * u"s",)
+    end
 end
 
 # TODO: outer constructor(s)...
