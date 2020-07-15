@@ -55,8 +55,6 @@ R2D(x::eMR{𝗧}, R::𝗧) where 𝗧 = 2R * rDS(x) * Unitful.m
 L2D(x::eMR{𝗧}, L::Unitful.Length{𝗧}) where 𝗧 = 2L * rRL(x) * rDS(x)
 L2D(x::eMR{𝗧}, L::𝗧) where 𝗧 = 2L * rRL(x) * rDS(x) * Unitful.m
 
-export S2D, R2D, L2D
-
 # Conversion Methods: D --> all
 D2S(x::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D * rSD(x)
 D2S(x::eMR{𝗧}, D::𝗧) where 𝗧 = D * rSD(x) * Unitful.m
@@ -64,8 +62,6 @@ D2R(x::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rSD(x)
 D2R(x::eMR{𝗧}, D::𝗧) where 𝗧 = D/2 * rSD(x) * Unitful.m
 D2L(x::eMR{𝗧}, D::Unitful.Length{𝗧}) where 𝗧 = D/2 * rLR(x) * rSD(x)
 D2L(x::eMR{𝗧}, D::𝗧) where 𝗧 = D/2 * rLR(x) * rSD(x) * Unitful.m
-
-export D2S, D2R, D2L
 
 
 #----------------------------------------------------------------------------------------------#
@@ -215,6 +211,9 @@ struct eST{𝗧<:Inexact}
     end
 end
 
+export eST
+
+
 # Outer constructors
 (::Type{eST{𝗧}})(s::eST{𝗦}) where {𝗦, 𝗧} = begin
     eST(𝗧(uconvert(u"rad"  , s.α).val) * u"rad",
@@ -243,7 +242,17 @@ function add2w(s::eST{𝗧}, Δω::Unitful.Frequency{𝗦}) where {𝗧,𝗦<:In
     eST(s.α, s.ω + Δω, s.Δtc)
 end
 
-# Methods
+# eST-only methods
 δ(s::eST{𝗧}) where 𝗧 = s.ω * s.Δtc
+
+# Methods
+function x(e::engine{𝗧}, s::eST{𝗧})
+    a = L(e)
+    b = R(e)
+    c = one(𝗧) - sqrt(one(𝗧) - (sin(s.α) / rLR(e))^2)
+    d = one(𝗧) - cos(s.α)
+    ([a b] * [c, d])[1]
+end
+V(e::engine{𝗧}, s::eST{𝗧}) = VBDC(e) + 
 
 
