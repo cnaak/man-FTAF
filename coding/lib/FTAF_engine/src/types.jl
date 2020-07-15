@@ -224,11 +224,11 @@ end
 
 # Increment methods
 """
-`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact}`\n
+`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact,U}`\n
 Returns an `eST{𝗧}` engine state with α incremented by Δα with 𝗧 precision (no promotion) but
 unit conversion.
 """
-function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact}
+function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact,U}
     Δα = 𝗧(uconvert(u"rad", Δα).val) * u"rad"
     eST(s.α + Δα, s.ω, s.Δtc)
 end
