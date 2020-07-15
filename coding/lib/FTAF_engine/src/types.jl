@@ -215,8 +215,24 @@ struct eST{𝗧<:Inexact}
     end
 end
 
-# TODO: outer constructor(s)...
+# Outer constructors
+(::Type{eST{𝗧}})(s::eST{𝗦}) where {𝗦, 𝗧} = begin
+    eST(𝗧(uconvert(u"rad"  , s.α).val) * u"rad",
+        𝗧(uconvert(u"rad/s", s.ω).val) * u"rad/s",
+        𝗧(uconvert(u"s"    , s.Δtc).val) * u"s",)
+end
 
-# TODO: methods...
+# Increment methods
+"""
+`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact}`\n
+Returns an `eST{𝗧}` engine state with α incremented by Δα with 𝗧 precision (no promotion).
+"""
+function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact}
+    Δα = 𝗧(uconvert(u"rad", Δα).val) * u"rad"
+    eST(s.α + Δα, s.ω, s.Δtc)
+end
+
+# Methods
+δ(s::eST{𝗧}) where 𝗧 = s.ω * s.Δtc
 
 
