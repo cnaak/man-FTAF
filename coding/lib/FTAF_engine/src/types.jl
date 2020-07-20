@@ -243,12 +243,15 @@ function add2w(s::eST{𝗧}, Δω::Unitful.Frequency{𝗦}) where {𝗧,𝗦<:In
 end
 
 # eST-only methods
-δ(s::eST{𝗧}) where 𝗧 = s.ω * s.Δtc
+α(s::eST{𝗧}) where 𝗧 = s.α
+ω(s::eST{𝗧}) where 𝗧 = s.ω
+Δtc(s::eST{𝗧}) where 𝗧 = s.Δtc
+δ(s::eST{𝗧}) where 𝗧 = ω(s) * Δtc(s)
 
 # Methods
 function x(e::engine{𝗧}, s::eST{𝗧}) where 𝗧
-    a = one(𝗧) - sqrt(one(𝗧) - (sin(s.α) / rLR(e))^2)
-    b = one(𝗧) - cos(s.α)
+    a = one(𝗧) - sqrt(one(𝗧) - (sin(α(s)) / rLR(e))^2)
+    b = one(𝗧) - cos(α(s))
     ([L(e) R(e)] * [a, b])[1]
 end
 
