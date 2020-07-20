@@ -92,6 +92,14 @@ function δ end
 delta = δ
 
 """
+Function to return a piston's angular position α in \$rad\$.
+"""
+function α end
+
+# α's alpha alias
+alpha = α
+
+"""
 Function to return the engine angular velocity ω in \$rad/s\$.
 """
 function ω end
