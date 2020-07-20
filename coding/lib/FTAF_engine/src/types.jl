@@ -127,15 +127,15 @@ struct engine{𝗧<:Inexact}
     z::Integer                              # Cylinder count
     r::𝗧                                    # Compression ratio
     pcr::pCR{𝗧}                             # Piston-Crank-Rod structure
-    θ::Quantity{𝗧,NoDims,U} where {𝗧,U}     # Ignition angle, rad
+    θ::Quantity{𝗧,NoDims} where 𝗧           # Ignition angle, rad
     # Internal constructors
     engine(eng::engine{𝗧}) where 𝗧 = new{𝗧}(eng.id, eng.z, eng.r, eng.pcr, eng.θ)
     engine(_i::AbstractString, _z::Integer, _r::𝗧, _p::pCR{𝗧},
-           _θ::Quantity{𝗧,NoDims,U}) where 𝗧<:Inexact where U = begin
+           _θ::Quantity{𝗧,NoDims}) where 𝗧<:Inexact = begin
         new{𝗧}(_i, _z, _r, _p, uconvert(Unitful.rad, _θ))
     end
     engine(_i::AbstractString, _z::Integer, _r::𝗥, _p::pCR{𝗦},
-           _θ::Quantity{𝗧,NoDims,U}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact, U} = begin
+           _θ::Quantity{𝗧,NoDims}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact} = begin
         𝗫 = promote_type(𝗥, 𝗦, 𝗧)
         new{𝗫}(_i, _z, 𝗫(_r), pCR{𝗫}(_p), 𝗫(uconvert(Unitful.rad, _θ).val) * Unitful.rad)
     end
@@ -189,21 +189,21 @@ load(fname::AbstractString) where 𝗧 = deserialize(fname)
 Engine operating state and combustion timing structure.
 """
 struct eST{𝗧<:Inexact}
-    α::Quantity{𝗧,NoDims,U} where {𝗧,U}     # Angular position with respect to TDS, rad
-    ω::Unitful.Frequency{𝗧} where 𝗧         # Angular velocity, rad/s
-    Δtc::Unitful.Time{𝗧} where 𝗧            # Combustion duration, s
+    α::Quantity{𝗧,NoDims} where 𝗧       # Angular position with respect to TDS, rad
+    ω::Unitful.Frequency{𝗧} where 𝗧     # Angular velocity, rad/s
+    Δtc::Unitful.Time{𝗧} where 𝗧        # Combustion duration, s
     # Inner constructors
     eST(x::eST{𝗧}) where 𝗧 = new{𝗧}(x.α, x.ω, x.Δtc)
-    eST(alpha::Quantity{𝗧,NoDims,U},
+    eST(alpha::Quantity{𝗧,NoDims},
         omega::Unitful.Frequency{𝗧},
-        deltc::Unitful.Time{𝗧}) where {𝗧<:Inexact, U} = begin
+        deltc::Unitful.Time{𝗧}) where 𝗧<:Inexact = begin
         new{𝗧}(uconvert(u"rad"  , alpha),
                uconvert(u"rad/s", omega),
                uconvert(u"s"    , deltc))
     end
-    eST(alpha::Quantity{𝗥,NoDims,U},
+    eST(alpha::Quantity{𝗥,NoDims},
         omega::Unitful.Frequency{𝗦},
-        deltc::Unitful.Time{𝗧}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact, U} = begin
+        deltc::Unitful.Time{𝗧}) where {𝗥<:Inexact, 𝗦<:Inexact, 𝗧<:Inexact} = begin
         𝗫 = promote_type(𝗥, 𝗦, 𝗧)
         new{𝗫}(𝗫(uconvert(u"rad"  , alpha).val) * u"rad",
                𝗫(uconvert(u"rad/s", omega).val) * u"rad/s",
@@ -223,11 +223,11 @@ end
 
 # Increment methods
 """
-`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact,U}`\n
+`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims}) where {𝗧,𝗦<:Inexact}`\n
 Returns an `eST{𝗧}` engine state with α incremented by Δα with 𝗧 precision (no promotion) but
 unit conversion.
 """
-function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims,U}) where {𝗧,𝗦<:Inexact,U}
+function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims}) where {𝗧,𝗦<:Inexact}
     Δα = 𝗧(uconvert(u"rad", Δα).val) * u"rad"
     eST(s.α + Δα, s.ω, s.Δtc)
 end
