@@ -221,32 +221,32 @@ export eST
         𝗧(uconvert(u"s"    , s.Δtc).val) * u"s",)
 end
 
-# Increment methods
-"""
-`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims}) where {𝗧,𝗦<:Inexact}`\n
-Returns an `eST{𝗧}` engine state with α incremented by Δα with 𝗧 precision (no promotion) but
-unit conversion.
-"""
-function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims}) where {𝗧,𝗦<:Inexact}
-    Δα = 𝗧(uconvert(u"rad", Δα).val) * u"rad"
-    eST(s.α + Δα, s.ω, s.Δtc)
-end
-
-"""
-`function add2w(s::eST{𝗧}, Δω::Unitful.Frequency{𝗦}) where {𝗧,𝗦<:Inexact}`\n
-Returns an `eST{𝗧}` engine state with ω incremented by Δω with 𝗧 precision (no promotion) but
-unit conversion.
-"""
-function add2w(s::eST{𝗧}, Δω::Unitful.Frequency{𝗦}) where {𝗧,𝗦<:Inexact}
-    Δω = 𝗧(uconvert(u"rad/s", Δω).val) * u"rad/s"
-    eST(s.α, s.ω + Δω, s.Δtc)
-end
-
 # eST-only methods
 α(s::eST{𝗧}) where 𝗧 = s.α
 ω(s::eST{𝗧}) where 𝗧 = s.ω
 Δtc(s::eST{𝗧}) where 𝗧 = s.Δtc
 δ(s::eST{𝗧}) where 𝗧 = ω(s) * Δtc(s)
+
+# Increment methods
+"""
+`function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims}) where {𝗧,𝗦<:Real}`\n
+Returns an `eST{𝗧}` engine state with α incremented by Δα with 𝗧 precision (no promotion) but
+unit conversion.
+"""
+function add2a(s::eST{𝗧}, Δα::Quantity{𝗦,NoDims}) where {𝗧,𝗦<:Real}
+    Δα = 𝗧(uconvert(u"rad", Δα).val) * u"rad"
+    eST(α(s) + Δα, ω(s), Δtc(s))
+end
+
+"""
+`function add2w(s::eST{𝗧}, Δω::Unitful.Frequency{𝗦}) where {𝗧,𝗦<:Real}`\n
+Returns an `eST{𝗧}` engine state with ω incremented by Δω with 𝗧 precision (no promotion) but
+unit conversion.
+"""
+function add2w(s::eST{𝗧}, Δω::Unitful.Frequency{𝗦}) where {𝗧,𝗦<:Real}
+    Δω = 𝗧(uconvert(u"rad/s", Δω).val) * u"rad/s"
+    eST(α(s), ω(s) + Δω, Δtc(s))
+end
 
 # Methods
 function x(e::engine{𝗧}, s::eST{𝗧}) where 𝗧
