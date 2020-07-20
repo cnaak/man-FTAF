@@ -258,4 +258,8 @@ end
 V(e::engine{𝗧}, s::eST{𝗧}) where 𝗧 = VTDC(e) + 𝗧(π/4) * D(e)^2 * x(e, s)
 V(s::eST{𝗧}, e::engine{𝗧}) where 𝗧 = V(e, s)    # fallback
 
+# Auxiliary methods
+Δtc(δ::Quantity{𝗧,NoDims}, ω::Unitful.Frequency{𝗧}) where 𝗧<:Inexact = uconvert(u"s", δ/ω)
+Δtc(ω::Unitful.Frequency{𝗧}, δ::Quantity{𝗧,NoDims}) where 𝗧<:Inexact = Δtc(δ, ω)    # fallback
+
 
