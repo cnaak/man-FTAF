@@ -101,7 +101,7 @@ rLR(x::pCR{𝗧}) where 𝗧 = rLR(x.ϵ)   # fallback
 rRL(x::pCR{𝗧}) where 𝗧 = rRL(x.ϵ)   # fallback
 
 # Methods
-Vdu(x::pCR{𝗧}) where 𝗧 = 𝗧(pi/4) * D(x)^3 * rSD(x)
+Vdu(x::pCR{𝗧}) where 𝗧 = 𝗧(π/4) * D(x)^3 * rSD(x)
 D(x::pCR{𝗧})   where 𝗧 = x.D
 S(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x)
 R(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x) / 𝗧(2)
@@ -109,7 +109,7 @@ L(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x) * rLR(x) / 𝗧(2)
 
 # Reverse constructors
 pCR(emr::eMR{𝗧}, vdu::Unitful.Volume{𝗧}) where 𝗧<:Inexact = begin
-    dia = cbrt(vdu * 𝗧(4/pi) / emr.rSD)
+    dia = cbrt(vdu * 𝗧(4/π) / emr.rSD)
     pCR(emr, dia)
 end
 
@@ -246,13 +246,13 @@ end
 δ(s::eST{𝗧}) where 𝗧 = s.ω * s.Δtc
 
 # Methods
-function x(e::engine{𝗧}, s::eST{𝗧})
-    a = L(e)
-    b = R(e)
-    c = one(𝗧) - sqrt(one(𝗧) - (sin(s.α) / rLR(e))^2)
-    d = one(𝗧) - cos(s.α)
-    ([a b] * [c, d])[1]
+function x(e::engine{𝗧}, s::eST{𝗧}) where 𝗧
+    a = one(𝗧) - sqrt(one(𝗧) - (sin(s.α) / rLR(e))^2)
+    b = one(𝗧) - cos(s.α)
+    ([L(e) R(e)] * [a, b])[1]
 end
-V(e::engine{𝗧}, s::eST{𝗧}) = VBDC(e) + 
+
+V(e::engine{𝗧}, s::eST{𝗧}) where 𝗧 = VBDC(e) + 𝗧(π/4) * D(e)^2 * x(e, s)
+V(s::eST{𝗧}, e::engine{𝗧}) where 𝗧 = V(e, s)    # fallback
 
 
