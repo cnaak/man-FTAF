@@ -1,8 +1,11 @@
 # Module
 module FTAF_engine
 
+# Module imports
+using Reexport
+
 # Encapsulate all interface in a shorter namespace ...
-module eng
+@reexport module eng
 
     # Module imports
     using Serialization
