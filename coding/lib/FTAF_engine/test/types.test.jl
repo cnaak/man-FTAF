@@ -3,9 +3,9 @@
 #----------------------------------------------------------------------------------------------#
 
 @testset "types.test.jl: Inexact                                                    " begin
-    @test Float16  <: Inexact
-    @test Float32  <: Inexact
-    @test Float64  <: Inexact
-    @test BigFloat <: Inexact
+    for T in (Float16, Float32, Float64, BigFloat)
+        @test T <: Inexact
+        @test eng..IntervalArithmetic.AbstractInterval{T} <: Inexact
+    end
 end
 
