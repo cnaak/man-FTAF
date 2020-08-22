@@ -57,6 +57,13 @@ end
             @test pCR{𝕋}(_pcr) isa pCR{𝕋}
             @test pCR{𝕊}(_pcr) isa pCR{𝕊}
             #--- methods
+            𝕧 = ℙ(π/4) * _pcr.D^3 * ℙ(RSD)
+            𝕤, 𝕣, 𝕝 = eng.D2S(_pcr.ϵ, _pcr.D), eng.D2R(_pcr.ϵ, _pcr.D), eng.D2L(_pcr.ϵ, _pcr.D)
+            @test eng.Vdu(_pcr) ≈ 𝕧 atol = eps(𝕧)
+            @test eng.D(_pcr)   ≈ 𝕕 atol = eps(𝕕)
+            @test eng.S(_pcr)   ≈ 𝕤 atol = eps(𝕤)
+            @test eng.R(_pcr)   ≈ 𝕣 atol = eps(𝕣)
+            @test eng.L(_pcr)   ≈ 𝕝 atol = eps(𝕝)
         end
     end
 end
