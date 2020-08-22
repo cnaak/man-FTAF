@@ -43,3 +43,21 @@ end
     end
 end
 
+@testset "types.test.jl: pCR - Piston-Crank-Rod mechanism                           " begin
+    RSD = BigFloat("1.1")
+    RLR = BigFloat("3.1")
+    DIA = BigFloat("0.1")
+    for 𝕋 in (Float16, Float32, Float64, BigFloat)
+        𝕖 = eMR(𝕋(RSD), 𝕋(RLR))
+        for 𝕊 in (Float16, Float32, Float64, BigFloat)
+            𝕕 = 𝕊(DIA) * eng.u"m"
+            _pcr = pCR(𝕖, 𝕕)
+            ℙ = promote_type(𝕋, 𝕊)
+            @test _pcr isa pCR{ℙ}
+            @test pCR{𝕋}(_pcr) isa pCR{𝕋}
+            @test pCR{𝕊}(_pcr) isa pCR{𝕊}
+            #--- methods
+        end
+    end
+end
+
