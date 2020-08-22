@@ -35,9 +35,9 @@ end
                 @test eng.D2S(_emr, 𝔻) == 𝕤
                 @test eng.D2R(_emr, 𝔻) == 𝕣
                 @test eng.D2L(_emr, 𝔻) == 𝕝
-                @test eng.S2D(_emr, 𝕤) == 𝕤 * one(ℙ) / ℙ(_rsd)
-                @test eng.R2D(_emr, 𝕣) == 2𝕣 * one(ℙ) / ℙ(_rsd)
-                @test eng.L2D(_emr, 𝕝) == 2𝕝 * one(ℙ) / ℙ(_rlr) * one(ℙ) / ℙ(_rsd)
+                @test eng.S2D(_emr, eng.D2S(_emr, 𝔻)) ≈ 𝕕 atol = eps(𝕕)
+                @test eng.R2D(_emr, eng.D2R(_emr, 𝔻)) ≈ 𝕕 atol = eps(𝕕)
+                @test eng.L2D(_emr, eng.D2L(_emr, 𝔻)) ≈ 𝕕 atol = eps(𝕕)
             end
         end
     end
