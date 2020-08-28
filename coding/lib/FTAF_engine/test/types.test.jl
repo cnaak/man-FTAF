@@ -70,6 +70,9 @@ end
             𝕖 = eMR{ℙ}(𝕖)
             _PCR = pCR(𝕖, 𝕧)
             @test _PCR isa pCR{ℙ}
+            vS = 𝕊(eng.uconvert(eng.u"m^3", 𝕊(VDU) * eng.u"l"))
+            vT = 𝕋(eng.uconvert(eng.u"m^3", 𝕋(VDU) * eng.u"l"))
+            @test eng.Vdu(_PCR) ≈ 𝕧 atol = max(eps(vS), eps(vT)) * 3
         end
     end
 end
