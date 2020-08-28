@@ -70,9 +70,11 @@ end
             𝕖 = eMR{ℙ}(𝕖)
             _PCR = pCR(𝕖, 𝕧)
             @test _PCR isa pCR{ℙ}
+            𝔽 = Float64             # Hardcoded uconvert precision
             vS = 𝕊(eng.uconvert(eng.u"m^3", 𝕊(VDU) * eng.u"l"))
             vT = 𝕋(eng.uconvert(eng.u"m^3", 𝕋(VDU) * eng.u"l"))
-            @test eng.Vdu(_PCR) ≈ 𝕧 atol = max(eps(vS), eps(vT)) * 3
+            vF = 𝔽(eng.uconvert(eng.u"m^3", 𝔽(VDU) * eng.u"l"))
+            @test eng.Vdu(_PCR) ≈ ℙ(vS) atol = max(eps(vS), eps(vT), eps(vF)) * 3
         end
     end
 end
