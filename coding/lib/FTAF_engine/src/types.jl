@@ -110,7 +110,7 @@ L(x::pCR{𝗧})   where 𝗧 = D(x) * rSD(x) * rLR(x) / 2
 # Reverse constructors
 pCR(emr::eMR{𝗧}, vdu::Unitful.Volume{𝗧}) where 𝗧<:Inexact = begin
     dia = cbrt(vdu * 4 / 𝗧(π) / emr.rSD)
-    dia = uconvert(Unitful.m, dia)  # Seemingly unnecessary but removes a `convert` error
+    dia = 𝗧(uconvert(Unitful.m, dia))  # Seemingly unnecessary but removes a `convert` error
     pCR(emr, dia)
 end
 
