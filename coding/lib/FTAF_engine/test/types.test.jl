@@ -60,7 +60,7 @@ end
             # TODO: triple-check failing tests!!!
             𝕧 = ℙ(π)/4 * _pcr.D^3 * ℙ(RSD)
             𝕤, 𝕣, 𝕝 = eng.D2S(_pcr.ϵ, _pcr.D), eng.D2R(_pcr.ϵ, _pcr.D), eng.D2L(_pcr.ϵ, _pcr.D)
-            @test eng.Vdu(_pcr) ≈ 𝕧 atol = eps(𝕧)
+            @test eng.Vdu(_pcr) ≈ 𝕧 atol = eps(𝕧) # Thsi test fails for 6 cases
             @test eng.D(_pcr)   ≈ 𝕕 atol = eps(𝕕)
             @test eng.S(_pcr)   ≈ 𝕤 atol = eps(𝕤)
             @test eng.R(_pcr)   ≈ 𝕣 atol = eps(𝕣)
