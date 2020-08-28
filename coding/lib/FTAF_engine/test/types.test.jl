@@ -47,6 +47,7 @@ end
     RSD = BigFloat("1.1")
     RLR = BigFloat("3.1")
     DIA = BigFloat("0.1")
+    VDU = BigFloat("0.26")
     for 𝕋 in (Float16, Float32, Float64, BigFloat)
         𝕖 = eMR(𝕋(RSD), 𝕋(RLR))
         for 𝕊 in (Float16, Float32, Float64, BigFloat)
@@ -64,6 +65,11 @@ end
             @test eng.S(_pcr)   ≈ 𝕤 atol = eps(𝕤)
             @test eng.R(_pcr)   ≈ 𝕣 atol = eps(𝕣)
             @test eng.L(_pcr)   ≈ 𝕝 atol = eps(𝕝)
+            #--- reverse constructor
+            𝕧 = ℙ(𝕊(VDU)) * eng.u"l"   # Vdu in liters
+            𝕖 = eMR{ℙ}(𝕖)
+            _PCR = pCR(𝕖, 𝕧)
+            @test _PCR isa pCR{ℙ}
         end
     end
 end
