@@ -79,3 +79,13 @@ end
     end
 end
 
+@testset "types.test.jl: engine - Simple internal combustion engine structure.      " begin
+    for 𝕋 in (Float16, Float32, Float64, BigFloat)
+        for 𝕊 in (Float16, Float32, Float64, BigFloat)
+            for ℝ in (Float16, Float32, Float64, BigFloat)
+                # Add tests here...
+            end
+        end
+    end
+end
+
