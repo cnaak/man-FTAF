@@ -2,14 +2,14 @@
 #                                        types.test.jl                                         #
 #----------------------------------------------------------------------------------------------#
 
-@testset "types.test.jl: Inexact                                                    " begin
+@testset "types.test.jl: Inexact Type Union.                                        " begin
     for T in (Float16, Float32, Float64, BigFloat)
         @test T <: Inexact
         @test eng.IntervalArithmetic.AbstractInterval{T} <: Inexact
     end
 end
 
-@testset "types.test.jl: eMR - Engine Mechanical Ratios                             " begin
+@testset "types.test.jl: eMR - Engine Mechanical Ratios.                            " begin
     RSD = BigFloat("1.1")
     RLR = BigFloat("3.1")
     for 𝕋 in (Float16, Float32, Float64, BigFloat)
@@ -43,7 +43,7 @@ end
     end
 end
 
-@testset "types.test.jl: pCR - Piston-Crank-Rod mechanism                           " begin
+@testset "types.test.jl: pCR - Piston-Crank-Rod mechanism.                          " begin
     RSD = BigFloat("1.1")
     RLR = BigFloat("3.1")
     DIA = BigFloat("0.1")
