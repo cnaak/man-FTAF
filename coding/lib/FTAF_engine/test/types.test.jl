@@ -80,6 +80,10 @@ end
 end
 
 @testset "types.test.jl: engine - Simple internal combustion engine structure.      " begin
+    RSD = BigFloat("1.1")
+    RLR = BigFloat("3.1")
+    DIA = BigFloat("0.1")
+    VDU = BigFloat("0.26")
     for 𝕋 in (Float16, Float32, Float64, BigFloat)
         for 𝕊 in (Float16, Float32, Float64, BigFloat)
             for ℝ in (Float16, Float32, Float64, BigFloat)
