@@ -84,10 +84,18 @@ end
     RLR = BigFloat("3.1")
     DIA = BigFloat("0.1")
     VDU = BigFloat("0.26")
+    RAT = BigFloat("12.6")
+    THE = BigFloat("-50.1") * BigFloat(π) / 180
     for 𝕋 in (Float16, Float32, Float64, BigFloat)
+        𝕣 = 𝕋(RAT)
         for 𝕊 in (Float16, Float32, Float64, BigFloat)
+            𝕡 = pCR(eMR(𝕊(RSD), 𝕊(RLR)), 𝕊(VDU) * eng.u"l")
             for ℝ in (Float16, Float32, Float64, BigFloat)
+                𝕠 = ℝ(THE) * eng.u"rad"
+                𝔼 = engine("Test", 4, 𝕣, 𝕡, 𝕠)
+                𝕏 = promote_type(ℝ, 𝕊, 𝕋)
                 # Add tests here...
+                @test 𝔼 isa engine{𝕏}
             end
         end
     end
