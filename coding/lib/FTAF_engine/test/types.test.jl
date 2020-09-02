@@ -104,7 +104,7 @@ end
                 @test eng.id(𝔼)  == "Test"
                 @test eng.z(𝔼)   == 4
                 @test eng.r(𝔼)   == 𝕏(𝕣)
-                @test eng.pCR(𝔼) == pCR{𝕏}(𝕡)
+                @test eng.pCR(𝔼) == pCR{𝕏}(𝕡)   # Fails for BigFloat only
                 @test eng.θ(𝔼)   == 𝕏(𝕠)
             end
         end
