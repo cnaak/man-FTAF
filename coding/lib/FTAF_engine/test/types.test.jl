@@ -96,6 +96,9 @@ end
                 𝕏 = promote_type(ℝ, 𝕊, 𝕋)
                 # Add tests here...
                 @test 𝔼 isa engine{𝕏}
+                @test engine{ℝ}(𝔼) isa engine{ℝ}
+                @test engine{𝕊}(𝔼) isa engine{𝕊}
+                @test engine{𝕋}(𝔼) isa engine{𝕋}
             end
         end
     end
