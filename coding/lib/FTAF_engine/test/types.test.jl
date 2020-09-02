@@ -108,6 +108,14 @@ end
                 # Avoid ===(x, y) from generic ==(x, y) which gives some false negatives
                 @test (tmpa.ϵ.rSD, tmpa.ϵ.rLR, tmpa.D) == (tmpb.ϵ.rSD, tmpb.ϵ.rLR, tmpb.D)
                 @test eng.θ(𝔼)   == 𝕏(𝕠)
+                # Methods
+                𝕍𝕕𝕦 = eng.Vdu(eng.pCR(𝔼))
+                𝕍𝕕 = 𝕍𝕕𝕦 * eng.z(𝔼)
+                𝕍𝕋 = 𝕍𝕕𝕦 / (eng.r(𝔼) - one(𝕏))
+                𝕍𝔹 = 𝕍𝕕𝕦 + 𝕍𝕋
+                @test eng.Vd(𝔼) ≈ 𝕍𝕕 atol = eps(𝕍𝕕)
+                @test eng.VTDC(𝔼) ≈ 𝕍𝕋 atol = eps(𝕍𝕋)
+                @test eng.VBDC(𝔼) ≈ 𝕍𝔹 atol = eps(𝕍𝔹)
             end
         end
     end
