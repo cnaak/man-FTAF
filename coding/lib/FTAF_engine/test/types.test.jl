@@ -104,7 +104,9 @@ end
                 @test eng.id(𝔼)  == "Test"
                 @test eng.z(𝔼)   == 4
                 @test eng.r(𝔼)   == 𝕏(𝕣)
-                @test eng.pCR(𝔼) == pCR{𝕏}(𝕡)   # Fails for BigFloat only
+                tmpa, tmpb = eng.pCR(𝔼), pCR{𝕏}(𝕡)
+                # Avoid ===(x, y) from generic ==(x, y) which gives some false negatives
+                @test (tmpa.ϵ.rSD, tmpa.ϵ.rLR, tmpa.D) == (tmpb.ϵ.rSD, tmpb.ϵ.rLR, tmpb.D)
                 @test eng.θ(𝔼)   == 𝕏(𝕠)
             end
         end
