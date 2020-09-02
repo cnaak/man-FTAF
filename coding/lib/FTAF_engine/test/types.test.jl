@@ -94,11 +94,18 @@ end
                 𝕠 = ℝ(THE) * eng.u"rad"
                 𝔼 = engine("Test", 4, 𝕣, 𝕡, 𝕠)
                 𝕏 = promote_type(ℝ, 𝕊, 𝕋)
-                # Add tests here...
+                # Inner constructors
                 @test 𝔼 isa engine{𝕏}
+                # Outer constructors
                 @test engine{ℝ}(𝔼) isa engine{ℝ}
                 @test engine{𝕊}(𝔼) isa engine{𝕊}
                 @test engine{𝕋}(𝔼) isa engine{𝕋}
+                # Raw data methods
+                @test eng.id(𝔼)  == "Test"
+                @test eng.z(𝔼)   == 4
+                @test eng.r(𝔼)   == 𝕏(𝕣)
+                @test eng.pCR(𝔼) == pCR{𝕏}(𝕡)
+                @test eng.θ(𝔼)   == 𝕏(𝕠)
             end
         end
     end
