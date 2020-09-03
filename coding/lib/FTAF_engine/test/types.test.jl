@@ -121,7 +121,9 @@ end
         𝕡 = pCR(eMR(𝕋(RSD), 𝕋(RLR)), 𝕋(VDU) * eng.u"l")
         𝕠 = 𝕋(THE) * eng.u"rad"
         𝔼 = engine("Test", 4, 𝕣, 𝕡, 𝕠)
-        # save(𝔼, "test.engine.$𝕋") ... then load and hash
+        save(𝔼, "test.engine.$𝕋.jds")
+        𝕖 = load("test.engine.$𝕋.jds")
+        @test hash(𝔼) == hash(𝕖)
     end
 end
 
