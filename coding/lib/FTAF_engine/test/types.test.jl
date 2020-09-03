@@ -123,7 +123,17 @@ end
         𝔼 = engine("Test", 4, 𝕣, 𝕡, 𝕠)
         eng.save(𝔼, "test.engine.$𝕋.jds")
         𝕖 = eng.load("test.engine.$𝕋.jds")
-        @test hash(𝔼) == hash(𝕖)
+        if 𝕋 == BigFloat
+            @test 𝔼.id          == 𝕖.id
+            @test 𝔼.z           == 𝕖.z
+            @test 𝔼.r           == 𝕖.r
+            @test 𝔼.θ           == 𝕖.θ
+            @test 𝔼.pcr.D       == 𝕖.pcr.D
+            @test 𝔼.pcr.ϵ.rSD   == 𝕖.pcr.ϵ.rSD
+            @test 𝔼.pcr.ϵ.rLR   == 𝕖.pcr.ϵ.rLR
+        else
+            @test hash(𝔼) == hash(𝕖)
+        end
     end
 end
 
