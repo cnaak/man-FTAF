@@ -141,3 +141,24 @@ end
     end
 end
 
+@testset "types.test.jl: eST - Engine operating state and combustion timing struc..." begin
+    A = BigFloat("0.1")  * eng.u"°"
+    N = BigFloat("2500") * eng.u"rpm"
+    O = BigFloat("2500") * BigFloat(π) / 30 * eng.u"rad/s"
+    D = BigFloat("2300") * eng.u"μs"
+    for 𝕋 in (Float16, Float32, Float64, BigFloat)
+        𝛼 = 𝕋(A)
+        for 𝕊 in (Float16, Float32, Float64, BigFloat)
+            𝑁 = 𝕊(N)
+            𝜔 = 𝕊(O)
+            for ℝ in (Float16, Float32, Float64, BigFloat)
+                𝛥 = ℝ(D)
+                st = eST(𝛼, 𝜔, 𝛥)
+                𝕏 = promote_type(ℝ, 𝕊, 𝕋)
+                # Constructors
+                @test st isa eST{𝕏}
+            end
+        end
+    end
+end
+

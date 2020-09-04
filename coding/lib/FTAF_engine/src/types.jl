@@ -256,7 +256,7 @@ function x(e::engine{𝗧}, s::eST{𝗧}) where 𝗧
     ([L(e) R(e)] * [a, b])[1]
 end
 
-V(e::engine{𝗧}, s::eST{𝗧}) where 𝗧 = VTDC(e) + 𝗧(π/4) * D(e)^2 * x(e, s)
+V(e::engine{𝗧}, s::eST{𝗧}) where 𝗧 = VTDC(e) + 𝗧(π) * D(e)^2 * x(e, s) / 4
 V(s::eST{𝗧}, e::engine{𝗧}) where 𝗧 = V(e, s)    # fallback
 
 # Auxiliary methods
