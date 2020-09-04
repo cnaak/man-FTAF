@@ -157,6 +157,10 @@ end
                 𝕏 = promote_type(ℝ, 𝕊, 𝕋)
                 # Constructors
                 @test st isa eST{𝕏}
+                # Outer constructors
+                @test eST{ℝ}(st) isa eST{ℝ}
+                @test eST{𝕊}(st) isa eST{𝕊}
+                @test eST{𝕋}(st) isa eST{𝕋}
             end
         end
     end
