@@ -124,6 +124,10 @@ end
         eng.save(𝔼, "test.engine.$𝕋.jds")
         𝕖 = eng.load("test.engine.$𝕋.jds")
         if 𝕋 == BigFloat
+            # The BigFloat.d member is a Ptr{UInt64} that can change between instances.
+            # Also hash(Unitful.Quantity{BigFloat}) behaves differently from hash(BigFloat)
+            # (check https://github.com/PainterQubits/Unitful.jl/issues/378); thus a different
+            # test strategy.
             @test 𝔼.id          == 𝕖.id
             @test 𝔼.z           == 𝕖.z
             @test 𝔼.r           == 𝕖.r
