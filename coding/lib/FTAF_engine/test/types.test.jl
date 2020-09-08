@@ -161,6 +161,10 @@ end
                 @test eST{ℝ}(st) isa eST{ℝ}
                 @test eST{𝕊}(st) isa eST{𝕊}
                 @test eST{𝕋}(st) isa eST{𝕋}
+                # eST-only methods
+                # Increment methods
+                # Methods
+                # Auxiliary methods
             end
         end
     end
