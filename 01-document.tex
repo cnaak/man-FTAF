@@ -543,14 +543,14 @@
     \begin{align}
         \zeta(P, r) &= 17.807 + 6.423\mathtt{g}(r) \nonumber\\
                     &\,- [0.029 + 0.013\mathtt{g}(r)] P \nonumber\\
-                    &\,+ [1.828 + 0.798\mathtt{g}(v)] \times 10^{-5} \times P^2,
+                    &\,+ [1.828 + 0.798\mathtt{g}(r)] \times 10^{-5} \times P^2,
         \label{eq:zeta}
     \end{align}
     %
     \noindent with%
     %
     \begin{equation}
-        \mathtt{g}(v) = (5.25 - 0.5r) e^{(8.5 - r)},
+        \mathtt{g}(r) = (5.25 - 0.5r) e^{(8.5 - r)},
         \label{eq:zeta.g}
     \end{equation}
     %
@@ -658,7 +658,7 @@
     \noindent which, by virtue of Eq.~(\ref{eq:U.mix}) can be rewritten as%
     %
     \begin{equation}
-        Q_i + (U^0_{f,m,i} - U^0_{f,m,i+1}) - W_i   = U_{0,m,i+1} - U_{0,m,i},
+        Q_i + (U^0_{f,m,i} - U^0_{f,m,i+1}) - W_i   = U^0_{m,i+1} - U^0_{m,i},
         \label{eq:EnBal.2}
     \end{equation}
     %
@@ -666,7 +666,7 @@
     due to the advance of the chemical reaction in the subprocess, therefore, the subprocess energy balance becomes%
     %
     \begin{equation}
-        Q_i + \Delta{U_{reac,i}} - W_i              = U_{0,m,i+1} - U_{0,m,i},
+        Q_i + \Delta{U_{reac,i}} - W_i              = U^0_{m,i+1} - U^0_{m,i},
         \label{eq:EnBal.3}
     \end{equation}
     %
@@ -686,13 +686,13 @@
     The energy balance can be re-written from Eq.~(\ref{eq:EnBal.3}) as to read%
     %
     \begin{equation}
-        U_{0,m,i+1} = U_{0,m,i} + Q_i + \Delta{U_{reac,i}} - W_i,
+        U^0_{m,i+1} = U^0_{m,i} + Q_i + \Delta{U_{reac,i}} - W_i,
         \label{eq:evol}
     \end{equation}
     %
     \noindent meaning that if its right-hand-side is known---$Q_i$ can be made zero by hypothesis, for simplicity, by assuming an adiabatic system, but later on  improved,  by  accounting  for
     engine block to system heat interactions---then Eq.~(\ref{eq:evol}) can be used to \emph{evolve} the system to the next, $i+1$, state, as the model implementation, shown below, provides  a
-    convenient function to invert $U_{0,m,i+1}(T)$ thus providing the value of $T_{i+1}$,  together  with  fact  that  the  system  volume  and  mass,  $V_{i+1}$  and  $m_m$,  are  known  from
+    convenient function to invert $U^0_{m,i+1}(T)$ thus providing the value of $T_{i+1}$,  together  with  fact  that  the  system  volume  and  mass,  $V_{i+1}$  and  $m_m$,  are  known  from
     Eqs.~(\ref{eq:V}) and~(\ref{eq:mEoS}) with $(P, V, T) = (P_0, V_0, T_0)$, with an additional state function (system intensive property) given by%
     %
     \begin{equation}
@@ -729,7 +729,7 @@
     \begin{enumerate}
         \item Guessing a $j$-th $\mathsf{n}_i^j = k_m(T_i)$ candidate polytropic exponent; then
         \item Calculating $W_i^j$ using Eq.~(\ref{eq:Wi}); then
-        \item Solving for $U_{0,m,i+1}^j$ using Eq.~(\ref{eq:evol}), whose inverse gives $T_{i+1}^j$; then
+        \item Solving for $U^{0,j}_{m,i+1}$ using Eq.~(\ref{eq:evol}), whose inverse gives $T_{i+1}^j$; then
         \item Determining $P_{i+1}^j$ using the mixture EoS, Eq.~(\ref{eq:mEoS}); then
         \item Correcting the polytropic exponent guess by solving for $\mathsf{n}_i^{j+1}$ with Eq.~(\ref{eq:n}); and
         \item Repeating the above steps with incremented $j$, until some quantity variation between consecutive $j$ iterations falls below a  given  threshold,  for  instance,  $\Delta{W_i}  =
