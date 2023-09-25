@@ -482,8 +482,8 @@
         \label{eq:K}
     \end{equation}
     %
-    \noindent one gathers enough equations as to perform the molar balance between products and reagents. Brunetti~\cite{2012-BrunettiF-Blucher} employs $K(\unit{1740}{\kelvin})  =  3.5$  with
-    the auxiliar variable $c\equiv\NCO$. Using the same method, Table~\ref{tab:molBal} lists balanced reaction product coefficients.
+    \noindent one gathers enough equations as to perform the molar balance between products and reagents. Brunetti~\cite{2012-BrunettiF-Blucher} employs $K(\unit{1740}{\kelvin}) = 3.5$.  Using
+    the same method, Table~\ref{tab:molBal} lists balanced reaction product coefficients.
 
     \begin{table*}[ht]
         \centering
@@ -494,16 +494,16 @@
             $n_k$   & air-rich, $\phi \leqslant 1$      & fuel-rich, $\phi > 1$     \\
             \midrule
             $\quad$\NCOO$\quad$ & $\NC\NF \;=\; \NC\dfrac{\phi\epsilon}{1+\psi}\NA$
-                                & $\NC\NF - c \;=\; \NC\dfrac{\phi\epsilon}{1+\psi}\NA - c$
+                                & $\NC\NF - \NCO \;=\; \NC\dfrac{\phi\epsilon}{1+\psi}\NA - \NCO$
                                 \\[\bigskipamount]
             \NHHO               & $\frac{\NH}{2}\NF \;=\; \dfrac{\NH}{2}\frac{\phi\epsilon}{1+\psi}\NA$
-                                & $(\NO-2\NC)\NF + \dfrac{2}{1+\psi}\NA + c$
+                                & $(\NO-2\NC)\NF + \dfrac{2}{1+\psi}\NA + \NCO$
                                 \\[\bigskipamount]
             \NCO                & $0$
-                                & $c$
+                                & $\NCO$
                                 \\[\bigskipamount]
             \NHH                & $0$
-                                & $\quad$$\dfrac{2(\phi-1)}{\phi\epsilon}\NF - c \;=\; \dfrac{2(\phi-1)}{1+\psi}\NA - c$$\quad$
+                                & $\quad$$\dfrac{2(\phi-1)}{\phi\epsilon}\NF - \NCO \;=\; \dfrac{2(\phi-1)}{1+\psi}\NA - \NCO$$\quad$
                                 \\[\bigskipamount]
             \NOO                & $\quad$$(1-\phi)\dfrac{\NA}{1+\psi} \;=\; (1-\phi)\dfrac{\NF}{\phi\epsilon}$$\quad$
                                 & $0$
@@ -516,25 +516,25 @@
         \label{tab:molBal}
     \end{table*}
 
-    Plugging in Table~\ref{tab:molBal} results for $\phi > 1$ onto Eq.~(\ref{eq:K}) yields a quadratic equation for $c$ whose solution may be written as:%
+    Plugging in Table~\ref{tab:molBal} results for $\phi > 1$ onto Eq.~(\ref{eq:K}) yields a quadratic equation for $\NCO$ whose solution may be written as:%
     %
     \begin{equation}
-        \label{eq:c}
-        \frac{c}{\NF}   = -\beta \pm \sqrt{\beta^2 - \gamma},
+        \label{eq:NCO}
+        \frac{\NCO}{\NF}   = -\beta \pm \sqrt{\beta^2 - \gamma},
     \end{equation}
     %
     \noindent with%
     %
     \begin{equation}
         \label{eq:gamma}
-        \gamma          = \dfrac{2\NC(\phi-1)}{\phi\epsilon(K-1)},
+        \gamma          = \dfrac{2K\NC(\phi-1)}{\phi\epsilon(K-1)},
     \end{equation}
     %
     \noindent and%
     %
     \begin{equation}
         \label{eq:beta}
-        \beta           = \dfrac{\phi\epsilon[(2-K)\NC-\NO] + 2[K(\phi-1)+1]}{2(K-1)\phi\epsilon}.
+        \beta           = \dfrac{\phi\epsilon[(2-K)\NC-\NO] - 2[K(\phi-1)+1]}{2(K-1)\phi\epsilon}.
     \end{equation}
 
     Let $\zeta$ be the residual fraction of gas products from a previous cycle that remain in the system for a new cycle. Using the relationship given by Silva~\cite{2018-SilvaRKO-UTFPR}  from
